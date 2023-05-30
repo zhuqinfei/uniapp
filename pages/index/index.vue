@@ -22,5 +22,13 @@
 </script>
 
 <style>
-
+.wx-nav{
+	height:100rpx;
+	width:100%;
+	line-height-step: 200rpx;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+}
 </style>
