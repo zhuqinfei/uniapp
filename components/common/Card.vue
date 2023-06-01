@@ -18,7 +18,7 @@
 
 <style scoped>
 	.card{
-		padding:0 20rpx;
+		padding:20rpx 20rpx;
 		display: flex;
 		justify-content: center;
 		align-items: center;

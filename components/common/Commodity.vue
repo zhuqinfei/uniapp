@@ -41,7 +41,7 @@
 			//是否换行
 			wrap:{
 				type:String,
-				default:'wrap'
+				default:"wrap"
 			},
 			//商品文字大小
 			nameSize:{
@@ -76,7 +76,8 @@
 	-webkit-box-orient:vertical;
 	color:#333333;
 	word-break: break-all;
-	padding:6rpx 20rpx;
+	padding:0rpx 20rpx;
+	margin:6rpx 0rpx;
 }
 .oprice{
 	text-decoration: line-through;

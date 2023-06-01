@@ -1,14 +1,21 @@
 <template>
 	<view class="index">
+	<!-- 推荐模板 -->
+		
 	<!-- <IndexSwiper></IndexSwiper>
 	 <Recommend></Recommend>
 	 <Card cardTitle="猜你喜欢"></Card>
 	 <CommodityList></CommodityList> -->
+	 
+	 <!-- 其他模板：运动户外、美妆等等 -->
 	 <Banner></Banner>
 	 <Icons></Icons>
 	 <Card cardTitle="热销爆品"></Card>
 	 <Hot></Hot>
+	 <Card cardTitle="推荐店铺"></Card>
 	 <Shop></Shop>
+	 <Card cardTitle="为你推荐"></Card>
+	 <CommodityList></CommodityList>
 	 
 	</view>
 </template>

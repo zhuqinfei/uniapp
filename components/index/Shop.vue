@@ -4,18 +4,18 @@
 			<view class="shop-big">
 				<image class="shop-big" src="../../static/img/shop.jpg" mode=""></image>
 			</view>
-			<scroll-view scroll-x="true" class="scroll-content">
-				<Commodity 
-				:dataList="shopList" 
-				wrap="nowrap"
-				itemW="220rpx"
-				bigH="220rpx"
-				nameSize="20rpx"
-				></Commodity>
-			</scroll-view>
-		</view>
-		
-		
+				<scroll-view scroll-x="true" class="scroll-content">
+					<view class="scroll-item">
+						<Commodity
+						:dataList="shopList" 
+						wrap="no-wrap"
+						itemW="200rpx"
+						bigH="200rpx"
+						nameSize="20rpx"
+						></Commodity>
+					</view>		
+				</scroll-view>
+		</view>	
 	</view>
 </template>
 
@@ -28,7 +28,7 @@
 					{
 						id:1,
 						imgUrl:'../../static/img/shop1.jpg',
-						name:'最新的绒毛上衣，今天的爆款，买到就是值了，不要错过最后一波了,快点来看看今年最新爆款',
+						name:'今年最新的绒毛上衣，今天的爆款，买到就是值了，不要错过最后一波了,快点来看看今年最新爆款',
 					    pprice:"299",
 						oprice:"659",
 						discount:"5.2"
@@ -36,7 +36,7 @@
 					{
 						id:2,
 						imgUrl:'../../static/img/shop2.jpg',
-						name:'最新的绒毛上衣，今天的爆款，买到就是值了，不要错过最后一波了,快点来看看今年最新爆款',
+						name:'今年最新的绒毛上衣，今天的爆款，买到就是值了，不要错过最后一波了,快点来看看今年最新爆款',
 					    pprice:"188",
 						oprice:"388",
 						discount:"5.2"
@@ -44,7 +44,7 @@
 					{
 						id:3,
 						imgUrl:'../../static/img/shop3.jpg',
-						name:'最新的绒毛上衣，今天的爆款，买到就是值了，不要错过最后一波了,快点来看看今年最新爆款',
+						name:'今年最新的绒毛上衣，今天的爆款，买到就是值了，不要错过最后一波了,快点来看看今年最新爆款',
 					    pprice:"188",
 						oprice:"388",
 						discount:"5.2"
@@ -52,7 +52,7 @@
 					{
 						id:4,
 						imgUrl:'../../static/img/shop4.jpg',
-						name:'最新的绒毛上衣，今天的爆款，买到就是值了，不要错过最后一波了,快点来看看今年最新爆款',
+						name:'今年最新的绒毛上衣，今天的爆款，买到就是值了，不要错过最后一波了,快点来看看今年最新爆款',
 					    pprice:"188",
 						oprice:"388",
 						discount:"5.2"
@@ -60,7 +60,7 @@
 					{
 						id:5,
 						imgUrl:'../../static/img/shop1.jpg',
-						name:'最新的绒毛上衣，今天的爆款，买到就是值了，不要错过最后一波了,快点来看看今年最新爆款',
+						name:'今年最新的绒毛上衣，今天的爆款，买到就是值了，不要错过最后一波了,快点来看看今年最新爆款',
 					    pprice:"188",
 						oprice:"388",
 						discount:"5.2"
@@ -68,7 +68,7 @@
 					{
 						id:6,
 						imgUrl:'../../static/img/shop2.jpg',
-						name:'最新的绒毛上衣，今天的爆款，买到就是值了，不要错过最后一波了,快点来看看今年最新爆款',
+						name:'今年最新的绒毛上衣，今天的爆款，买到就是值了，不要错过最后一波了,快点来看看今年最新爆款',
 					    pprice:"188",
 						oprice:"388",
 						discount:"5.2"
@@ -76,7 +76,7 @@
 					{
 						id:7,
 						imgUrl:'../../static/img/shop3.jpg',
-						name:'最新的绒毛上衣，今天的爆款，买到就是值了，不要错过最后一波了,快点来看看今年最新爆款',
+						name:'今年最新的绒毛上衣，今天的爆款，买到就是值了，不要错过最后一波了,快点来看看今年最新爆款',
 					    pprice:"188",
 						oprice:"388",
 						discount:"5.2"
@@ -84,7 +84,7 @@
 					{
 						id:8,
 						imgUrl:'../../static/img/shop4.jpg',
-						name:'最新的绒毛上衣，今天的爆款，买到就是值了，不要错过最后一波了,快点来看看今年最新爆款',
+						name:'今年最新的绒毛上衣，今天的爆款，买到就是值了，不要错过最后一波了,快点来看看今年最新爆款',
 					    pprice:"188",
 						oprice:"388",
 						discount:"5.2"
@@ -109,7 +109,6 @@
 }
 .scroll-item{
 	display: inline-block;
-	width:300rpx;
-	height: 300rpx;
+	
 }
 </style>
