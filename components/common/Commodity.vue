@@ -1,8 +1,14 @@
 <template>
 	<view class="commodity">
 		<!-- 单个商品组件 -->
-	   <view class="commodity-item" v-for="(item,index) in dataList" :key="index">
-		   <image class="commodity-img" :src="item.imgUrl" mode=""></image>
+	   <view class="commodity-item" 
+	   :style="'width:'+itemW+';'"
+	   v-for="(item,index) in dataList" 
+	   :key="index">
+		   <image class="commodity-img" 
+		   :src="item.imgUrl" 
+		   :style="'height:'+bigH+';'"
+		   mode=""></image>
 		   <view class="commodity-content">
 			   <text class="commodity-name">{{item.name}}</text>
 			   <view>
@@ -12,14 +18,21 @@
 			   <text class="discount">{{item.discount}}折</text>
 		   </view>
 	   </view>
-	  
 	</view>
 </template>
 
 <script>
 	export default{
 		props:{
-			dataList:Array
+			dataList:Array,
+			itemW:{
+				type:String,
+				default:"375rpx"
+			},
+			bigH:{
+				type:String,
+				default:"375rpx"
+			}
 		}
 	}
 </script>
@@ -30,12 +43,12 @@
 	flex-wrap: wrap;
 }
 .commodity-item{
-	width: 375rpx;
+	/* width: 375rpx; */
 	padding-bottom:20rpx;
 }
 .commodity-img{
 	width:100%;
-	height: 375rpx;
+	/* height: 375rpx; */
 }
 .commodity-content{
 	text-align: center;
