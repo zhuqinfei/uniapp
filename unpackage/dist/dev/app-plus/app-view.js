@@ -260,14 +260,21 @@ var render = function () {
     [
       _c(
         "v-uni-scroll-view",
-        { staticClass: _vm._$g(1, "sc"), attrs: { "scroll-x": "true", _i: 1 } },
+        {
+          staticClass: _vm._$g(1, "sc"),
+          attrs: {
+            "scroll-x": "true",
+            "scroll-into-view": _vm._$g(1, "a-scroll-into-view"),
+            _i: 1,
+          },
+        },
         _vm._l(_vm._$g(2, "f"), function (item, index, $20, $30) {
           return _c(
             "uni-view",
             {
               key: item,
               staticClass: _vm._$g("2-" + $30, "sc"),
-              attrs: { _i: "2-" + $30 },
+              attrs: { id: _vm._$g("2-" + $30, "a-id"), _i: "2-" + $30 },
               on: {
                 click: function ($event) {
                   return _vm.$handleViewEvent($event)
@@ -2939,7 +2946,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 16);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.scroll-content{\r\n\twidth:100%;\r\n\theight:80rpx;\r\n\twhite-space:nowrap;\n}\n.scroll-item{\r\n\tdisplay: inline-block;\r\n\tpadding:10rpx 30rpx;\r\n\tfont-size:36rpx;\n}\n.f-active-color{\r\n\tpadding:10rpx 0;\r\n\tborder-bottom: 6rpx solid #49BDFB;\n}\r\n", ""]);
+exports.push([module.i, "\n.scroll-content{\r\n\twidth:100%;\r\n\theight:80rpx;\r\n\twhite-space:nowrap;\n}\n.scroll-item{\r\n\tdisplay: inline-block;\r\n\tpadding:10rpx 30rpx;\r\n\tfont-size:32rpx;\n}\n.f-active-color{\r\n\tpadding:10rpx 0;\r\n\tborder-bottom: 6rpx solid #49BDFB;\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 

@@ -1,11 +1,12 @@
 <template>
 	<view class="index">
-	   <scroll-view scroll-x="true" class="scroll-content">
+	   <scroll-view scroll-x="true" class="scroll-content" :scroll-into-view="scrollIntoIndex">
 	   	<view 
+		  :id="'top'+index"
 		  v-for="(item,index) in topBar" 
 		  :key="index"
 		  class="scroll-item"
-		  @tap="changeTab(index)"
+		  @tap="changeTab(index)"	
 		>
 		 <text :class='topBarIndex===index?"f-active-color":"f-color"'>{{item.name}}</text>
 		</view>
@@ -19,9 +20,7 @@
 	   		<view>{{item.name}}</view>
 	   	</swiper-item>
 	   </swiper>
-	   
-	   
-		
+	   	
 	<!-- 推荐模板 -->	
 	<!-- <IndexSwiper></IndexSwiper>
 	 <Recommend></Recommend>
@@ -55,6 +54,8 @@
 			return {
 				//选中的索引
 				topBarIndex:0,
+				//顶栏跟随的索引ID值
+				scrollIntoIndex:"top0",
 				//顶栏数据
 				topBar:[
 					{name:"推荐"},
@@ -87,10 +88,11 @@
 				  return
 			  }else{
 				  this.topBarIndex=index
+				  this.scrollIntoIndex='top'+index
 			  }
 		  },
 		  onChangeTab(e){
-			  console.log(e.detail.current)
+			 this.changeTab(e.detail.current)
 		  }
 		}
 	}
@@ -105,7 +107,7 @@
 .scroll-item{
 	display: inline-block;
 	padding:10rpx 30rpx;
-	font-size:36rpx;
+	font-size:32rpx;
 }
 .f-active-color{
 	padding:10rpx 0;
