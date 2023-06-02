@@ -1,21 +1,42 @@
 <template>
 	<view class="index">
-	<!-- 推荐模板 -->
+	   <scroll-view scroll-x="true" class="scroll-content">
+	   	<view 
+		  v-for="(item,index) in topBar" 
+		  :key="index"
+		  class="scroll-item"
+		  @tap="changeTab(index)"
+		>
+		 <text :class='topBarIndex===index?"f-active-color":"f-color"'>{{item.name}}</text>
+		</view>
+	   </scroll-view>
+	   
+	   <swiper @change="onChangeTab" :current="topBarIndex">
+	   	<swiper-item
+		  v-for="(item,index) in topBar"
+		  :key="index"
+		>
+	   		<view>{{item.name}}</view>
+	   	</swiper-item>
+	   </swiper>
+	   
+	   
 		
+	<!-- 推荐模板 -->	
 	<!-- <IndexSwiper></IndexSwiper>
 	 <Recommend></Recommend>
 	 <Card cardTitle="猜你喜欢"></Card>
 	 <CommodityList></CommodityList> -->
 	 
 	 <!-- 其他模板：运动户外、美妆等等 -->
-	 <Banner></Banner>
+	<!-- <Banner></Banner>
 	 <Icons></Icons>
 	 <Card cardTitle="热销爆品"></Card>
 	 <Hot></Hot>
 	 <Card cardTitle="推荐店铺"></Card>
 	 <Shop></Shop>
 	 <Card cardTitle="为你推荐"></Card>
-	 <CommodityList></CommodityList>
+	 <CommodityList></CommodityList> -->
 	 
 	</view>
 </template>
@@ -32,7 +53,18 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				//选中的索引
+				topBarIndex:0,
+				//顶栏数据
+				topBar:[
+					{name:"推荐"},
+					{name:"运动户外"},
+					{name:"服饰内衣"},
+					{name:"鞋靴箱包"},
+					{name:"美妆个护"},
+					{name:"家具数码"},
+					{name:"食品母婴"},
+				]
 			}
 		},
 		components:{
@@ -50,11 +82,33 @@
 
 		},
 		methods: {
-
+          changeTab(index){
+			  if(this.topBarIndex===index){
+				  return
+			  }else{
+				  this.topBarIndex=index
+			  }
+		  },
+		  onChangeTab(e){
+			  console.log(e.detail.current)
+		  }
 		}
 	}
 </script>
 
 <style>
-
+.scroll-content{
+	width:100%;
+	height:80rpx;
+	white-space:nowrap;
+}
+.scroll-item{
+	display: inline-block;
+	padding:10rpx 30rpx;
+	font-size:36rpx;
+}
+.f-active-color{
+	padding:10rpx 0;
+	border-bottom: 6rpx solid #49BDFB;
+}
 </style>
