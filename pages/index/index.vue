@@ -12,17 +12,26 @@
 		</view>
 	   </scroll-view>
 	   
-	   <swiper @change="onChangeTab" :current="topBarIndex">
+	   <swiper 
+	   @change="onChangeTab" 
+	   :current="topBarIndex" 
+	   :style="'height:'+clentHeight+'px;'"
+	   >
 	   	<swiper-item
 		  v-for="(item,index) in topBar"
 		  :key="index"
 		>
-	   		<view>{{item.name}}</view>
+		<view class="home-data">
+			<IndexSwiper></IndexSwiper>
+			<Recommend></Recommend>
+			<Card cardTitle="猜你喜欢"></Card>
+			<CommodityList></CommodityList>
+		</view>	
 	   	</swiper-item>
 	   </swiper>
 	   	
 	<!-- 推荐模板 -->	
-	<!-- <IndexSwiper></IndexSwiper>
+	 <!-- <IndexSwiper></IndexSwiper>
 	 <Recommend></Recommend>
 	 <Card cardTitle="猜你喜欢"></Card>
 	 <CommodityList></CommodityList> -->
@@ -56,6 +65,8 @@
 				topBarIndex:0,
 				//顶栏跟随的索引ID值
 				scrollIntoIndex:"top0",
+				//内容块的高度值
+				clentHeight:0,
 				//顶栏数据
 				topBar:[
 					{name:"推荐"},
@@ -81,6 +92,12 @@
 		
 		onLoad() {
 
+		},
+		onReady() {
+			let view= uni.createSelectorQuery().select('.home-data')		
+			view.boundingClientRect(data => {
+			   this.clentHeight=data.height
+			}).exec()
 		},
 		methods: {
           changeTab(index){

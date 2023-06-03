@@ -296,6 +296,7 @@ var render = function () {
       _c(
         "v-uni-swiper",
         {
+          staticStyle: { height: "10000rpx" },
           attrs: { current: _vm._$g(4, "a-current"), _i: 4 },
           on: {
             change: function ($event) {
@@ -308,9 +309,10 @@ var render = function () {
             "v-uni-swiper-item",
             { key: item, attrs: { _i: "5-" + $31 } },
             [
-              _c("uni-view", { attrs: { _i: "6-" + $31 } }, [
-                _vm._v(_vm._$g("6-" + $31, "t0-0")),
-              ]),
+              _c("IndexSwiper", { attrs: { _i: "6-" + $31 } }),
+              _c("Recommend", { attrs: { _i: "7-" + $31 } }),
+              _c("Card", { attrs: { _i: "8-" + $31 } }),
+              _c("CommodityList", { attrs: { _i: "9-" + $31 } }),
             ],
             1
           )
