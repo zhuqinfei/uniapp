@@ -91,7 +91,12 @@
 		},
 		
 		onLoad() {
-
+          uni.request({
+              url: "http://192.168.1.6:3000/api/index_list/data", 
+              success: (res) => {
+                  console.log(res.data);             
+              }
+          });
 		},
 		onReady() {
 			let view= uni.createSelectorQuery().select('.home-data')		
