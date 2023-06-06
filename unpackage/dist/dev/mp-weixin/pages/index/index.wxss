@@ -1,11 +1,16 @@
 
-.wx-nav{
-	height:100rpx;
+.scroll-content{
 	width:100%;
-	line-height-step: 200rpx;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	text-align: center;
+	height:80rpx;
+	white-space:nowrap;
+}
+.scroll-item{
+	display: inline-block;
+	padding:10rpx 30rpx;
+	font-size:32rpx;
+}
+.f-active-color{
+	padding:10rpx 0;
+	border-bottom: 6rpx solid #49BDFB;
 }
 
