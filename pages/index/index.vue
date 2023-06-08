@@ -24,12 +24,29 @@
 		<scroll-view scroll-y="true" :style="'height:'+clentHeight+'px;'">
 			<block v-if="item.data.length>0">
 				<block v-for="(k,i) in item.data" :key="i">
+					<!-- 首页推荐 -->
 					<IndexSwiper v-if="k.type==='swiperList'" :dataList="k.data"></IndexSwiper>
 					<template v-if="k.type==='recommendList'" >
 						<Recommend :dataList="k.data"></Recommend>
 						<Card cardTitle="猜你喜欢"></Card>
 					</template>
+					<!-- 运动户外以及其他的... -->
+					<Banner v-if="k.type==='bannerList'" :dataList="k.imgUrl"></Banner>
+					<template v-if="k.type==='iconsList'">
+						<Icons :dataList="k.data"></Icons>
+						<Card cardTitle="热销爆品"></Card>
+					</template>
+					<template v-if="k.type==='hotList'">
+						<Hot :dataList="k.data"></Hot>
+						<Card cardTitle="推荐店铺"></Card>
+					</template>
+					<template v-if="k.type==='shopList'">
+						<Shop :dataList="k.data"></Shop>
+						<Card cardTitle="为你推荐"></Card>
+					</template>
+					<!-- 公共部分的 -->
 					<CommodityList v-if="k.type==='commodityList'" :dataList="k.data"></CommodityList>
+				
 				</block>
 			</block>
 	         <view v-else>
@@ -38,23 +55,6 @@
 		</scroll-view>
 	   	</swiper-item>
 	   </swiper>
-	   	
-	<!-- 推荐模板 -->	
-	 <!-- <IndexSwiper></IndexSwiper>
-	 <Recommend></Recommend>
-	 <Card cardTitle="猜你喜欢"></Card>
-	 <CommodityList></CommodityList> -->
-	 
-	 <!-- 其他模板：运动户外、美妆等等 -->
-	<!-- <Banner></Banner>
-	 <Icons></Icons>
-	 <Card cardTitle="热销爆品"></Card>
-	 <Hot></Hot>
-	 <Card cardTitle="推荐店铺"></Card>
-	 <Shop></Shop>
-	 <Card cardTitle="为你推荐"></Card>
-	 <CommodityList></CommodityList> -->
-	 
 	</view>
 </template>
 
@@ -137,6 +137,7 @@
 			  }else{
 				  this.topBarIndex=index
 				  this.scrollIntoIndex='top'+index
+				  this.addData()
 			  }
 		  },
 		  //对应滑动
@@ -155,6 +156,21 @@
 				  //微小程序
 				  return 0
 			  }
+		  },
+		  //对应显示不同数据
+		  addData(){
+			  //拿到索引
+			  let index=this.topBarIndex
+			  //拿到id
+			  let id=this.topBar[index].id
+			  //请求不同的数据
+			  uni.request({
+			  	url:`http://192.168.1.6:3000/api/index_list/${id}/data/1`,
+				success:(res)=>{
+					let data=res.data.data
+					this.newTopBar[index].data=[...this.newTopBar[index].data,...data]
+				}
+			  })
 		  }
 		}
 	}
