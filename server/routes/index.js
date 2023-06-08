@@ -7,8 +7,13 @@ var router = express.Router();
 //   // res.json({"a":1})
 // });
 
-router.get("/api/index_list/data",function(req,res,next){
+router.all('*',function(req,res,next){
 	res.setHeader("Access-Control-Allow-Origin", "*")
+	next()
+})
+
+router.get("/api/index_list/data",function(req,res,next){
+	
 	res.send({
 		"code":0,
 		"data":{
@@ -96,7 +101,7 @@ router.get("/api/index_list/data",function(req,res,next){
 })
 
 router.get('/api/index_list/2/data/1', function(req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "*")
+ 
   res.json({
 	  code:"0",
 	  data:[
@@ -331,7 +336,7 @@ router.get('/api/index_list/2/data/1', function(req, res, next) {
 });
 
 router.get('/api/index_list/3/data/1', function(req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "*")
+ 
   res.json({
 	  code:"0",
 	  data:[

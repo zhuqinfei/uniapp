@@ -120,7 +120,8 @@
 			  let arr=[]
 			  for(let i=0;i<this.topBar.length;i++){
 				  let obj={
-					  data:[]
+					  data:[],
+					  load:"first"
 				  }
 				  //获取首次数据
 				  if(i==0){
@@ -137,7 +138,10 @@
 			  }else{
 				  this.topBarIndex=index
 				  this.scrollIntoIndex='top'+index
-				  this.addData()
+				  //每一次滑动=》赋值为first
+				  if(this.newTopBar[this.topBarIndex].load==='first'){
+					  this.addData()
+				  }
 			  }
 		  },
 		  //对应滑动
@@ -167,10 +171,16 @@
 			  uni.request({
 			  	url:`http://192.168.1.6:3000/api/index_list/${id}/data/1`,
 				success:(res)=>{
-					let data=res.data.data
-					this.newTopBar[index].data=[...this.newTopBar[index].data,...data]
+					if(res.statusCode!=200){
+						return
+					}else{
+						let data=res.data.data
+						this.newTopBar[index].data=[...this.newTopBar[index].data,...data]
+					}	
 				}
 			  })
+			  //当请求结束后，重新赋值
+			  this.newTopBar[index].load='last'
 		  }
 		}
 	}
