@@ -11,7 +11,7 @@ router.all('*',function(req,res,next){
 	res.setHeader("Access-Control-Allow-Origin", "*")
 	next()
 })
-
+//首页推荐的数据
 router.get("/api/index_list/data",function(req,res,next){
 	
 	res.send({
@@ -99,7 +99,7 @@ router.get("/api/index_list/data",function(req,res,next){
 	})
 	
 })
-
+//运动户外第一次加载的数据
 router.get('/api/index_list/2/data/1', function(req, res, next) {
  
   res.json({
@@ -334,7 +334,7 @@ router.get('/api/index_list/2/data/1', function(req, res, next) {
 	  ]
   })
 });
-
+//服饰内衣第一次加载的数据
 router.get('/api/index_list/3/data/1', function(req, res, next) {
  
   res.json({
@@ -569,6 +569,142 @@ router.get('/api/index_list/3/data/1', function(req, res, next) {
 	  ]
   })
 });
+//首次第一次触底的数据
+router.get('/api/index_list/1/data/2', function(req, res, next) {
+	res.json({
+		code:"0",
+		data:[
+			{
+				type:"commodityList",
+				data:[
+					{
+						id:1,
+						imgUrl:"../../static/img/commodity1.jpg",
+						name:"大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008",
+						pprice:"299",
+						oprice:"659",
+						discount:"5.2"
+					},
+					{
+						id:2,
+						imgUrl:"../../static/img/commodity2.jpg",
+						name:"大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008",
+						pprice:"299",
+						oprice:"659",
+						discount:"5.2"
+					},
+					{
+						id:3,
+						imgUrl:"../../static/img/commodity3.jpg",
+						name:"大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008",
+						pprice:"299",
+						oprice:"659",
+						discount:"5.2"
+					},
+					{
+						id:4,
+						imgUrl:"../../static/img/commodity4.jpg",
+						name:"大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008",
+						pprice:"299",
+						oprice:"659",
+						discount:"5.2"
+					}
+				]
+			}
+		]
+	})
+})
+//运动户外第一次触底的数据
+router.get('/api/index_list/2/data/2', function(req, res, next) {
+	res.json({
+		code:"0",
+		data:[
+			{
+				type:"commodityList",
+				data:[
+					{
+						id:1,
+						imgUrl:"../../static/img/commodity1.jpg",
+						name:"大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008",
+						pprice:"299",
+						oprice:"659",
+						discount:"5.2"
+					},
+					{
+						id:2,
+						imgUrl:"../../static/img/commodity2.jpg",
+						name:"大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008",
+						pprice:"299",
+						oprice:"659",
+						discount:"5.2"
+					},
+					{
+						id:3,
+						imgUrl:"../../static/img/commodity3.jpg",
+						name:"大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008",
+						pprice:"299",
+						oprice:"659",
+						discount:"5.2"
+					},
+					{
+						id:4,
+						imgUrl:"../../static/img/commodity4.jpg",
+						name:"大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008",
+						pprice:"299",
+						oprice:"659",
+						discount:"5.2"
+					}
+				]
+			}
+		]
+	})
+})
+//运动户外第二次触底的数据
+router.get('/api/index_list/2/data/3', function(req, res, next) {
+	res.json({
+		code:"0",
+		data:[
+			{
+				type:"commodityList",
+				data:[
+					{
+						id:1,
+						imgUrl:"../../static/img/commodity1.jpg",
+						name:"大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008",
+						pprice:"299",
+						oprice:"659",
+						discount:"5.2"
+					},
+					{
+						id:2,
+						imgUrl:"../../static/img/commodity2.jpg",
+						name:"大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008",
+						pprice:"299",
+						oprice:"659",
+						discount:"5.2"
+					},
+					{
+						id:3,
+						imgUrl:"../../static/img/commodity3.jpg",
+						name:"大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008",
+						pprice:"299",
+						oprice:"659",
+						discount:"5.2"
+					},
+					{
+						id:4,
+						imgUrl:"../../static/img/commodity4.jpg",
+						name:"大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008大姨绒毛大款2020年必须买,不买你就不行了,爆款疯狂GG008",
+						pprice:"299",
+						oprice:"659",
+						discount:"5.2"
+					}
+				]
+			}
+		]
+	})
+})
+
 
 
 module.exports = router;
