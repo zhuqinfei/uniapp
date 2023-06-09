@@ -70,6 +70,7 @@
 	import Icons from "../../components/index/Icons.vue"
 	import Hot from "../../components/index/Hot.vue"
 	import Shop from "../../components/index/Shop.vue"
+	import $http from "../../common/api/request.js"
 	export default {
 		data() {
 			return {
@@ -108,15 +109,18 @@
 		},
 		methods: {
 			//请求首页数据
-		   __init(){
-			   uni.request({
-			       url: "http://192.168.1.6:3000/api/index_list/data", 
-			       success: (res) => {
-			           let data= res.data.data
-					   this.topBar=data.topBar
-					   this.newTopBar=this.initData(data)
-			       }
-			   });
+		   __init(){	   
+			   $http.request({
+				   url:"/index_list/data"
+			   }).then((res)=>{
+				   this.topBar=res.topBar
+				   this.newTopBar=this.initData(res)
+			   }).catch(()=>{
+				   uni.showToast({
+				   	title:'请求失败',
+					icon:'none'
+				   })
+			   })	
 		   },	
 		   //添加数据
 		  initData(res){
@@ -171,21 +175,19 @@
 			  let index=this.topBarIndex
 			  //拿到id
 			  let id=this.topBar[index].id
-			  //请求不同的数据
-			  
-			  let page = Math.ceil(this.newTopBar[index].data.length / 5) + 1; 
-			  console.log(page)
-			  uni.request({
-			  	url:`http://192.168.1.6:3000/api/index_list/${id}/data/${page}`,
-				success:(res)=>{
-					if(res.statusCode!=200){
-						return
-					}else{
-						let data=res.data.data
-						this.newTopBar[index].data=[...this.newTopBar[index].data,...data]
-					}	
-				}
+			  //请求不同的数据  
+			  let page = Math.ceil(this.newTopBar[index].data.length / 5) + 1; 			  
+			  $http.request({
+				  url:`/index_list/${id}/data/${page}`
+			  }).then((res)=>{
+				  this.newTopBar[index].data=[...this.newTopBar[index].data,...res]
+			  }).catch(()=>{
+				  uni.showToast({
+				  	title:'请求失败',
+					icon:'none'
+				  })
 			  })
+			  
 			  //当请求结束后，重新赋值
 			  this.newTopBar[index].load='last'
 			  if(typeof callback==="function"){
