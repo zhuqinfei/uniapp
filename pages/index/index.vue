@@ -107,6 +107,14 @@
 				}
 			})
 		},
+		//标签栏按钮点击
+		onNavigationBarButtonTap(e){
+			if(e.float=='left'){
+				uni.navigateTo({
+					url:'../search/search'
+				})
+			}
+		},
 		methods: {
 			//请求首页数据
 		   __init(){	   
