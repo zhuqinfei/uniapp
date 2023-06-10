@@ -28,12 +28,37 @@
 <script>
 	import Lines from "../../components/common/Line.vue"
 	export default {
+		data(){
+			return{
+				keyword:''
+			}
+		},
 		components:{Lines},
+		//点击顶栏的搜索按钮的
 		onNavigationBarButtonTap(e){
-			if(e.float==="right"){
-				uni.navigateTo({
-					url:"../search-list/search-list"
-				})
+			this.search()
+		},
+		//监听软键盘的搜索按钮点击的
+		onNavigationBarSearchInputConfirmed(){
+			this.search()
+		},
+		//监听input输入内容
+		onNavigationBarSearchInputChanged(e){
+			this.keyword=e.text
+		},
+		methods:{
+			search(){
+				if(this.keyword===''){
+					uni.showToast({
+						title:"关键词不能为空",
+						icon:"none"
+					})
+				}else{
+					uni.navigateTo({
+						url:"../search-list/search-list"
+					})
+				}
+				uni.hideKeyboard()
 			}
 		}
 	}
