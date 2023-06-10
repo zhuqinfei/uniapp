@@ -7,10 +7,13 @@
 				<view class="f-color">最近搜索</view>
 				<view class="iconfont icon-lajitong"></view>
 			</view>
-			<view>
-				<view class="search-name f-color">四件套</view>
-				<view class="search-name f-color">面膜</view>
+			<view v-if="searchData.length>0">
+				<view class="search-name f-color"
+				v-for="(item,index) in searchData"
+				:key="index"
+				>{{item}}</view>
 			</view>
+			<view v-else class="search-end">暂无搜索记录</view>
 		</view>
 		
 		<view class="searce-item">
@@ -30,8 +33,20 @@
 	export default {
 		data(){
 			return{
-				keyword:''
+				//输入的关键词
+				keyword:'',
+				//搜索过得关键词记录
+				searchData:[]
 			}
+		},
+	    //页面加载的时候
+		onLoad(){
+			uni.getStorage({
+				key: "searchData",
+				success: (res)=>{
+					this.searchData=JSON.parse(res.data)
+				}
+			});
 		},
 		components:{Lines},
 		//点击顶栏的搜索按钮的
@@ -47,6 +62,7 @@
 			this.keyword=e.text
 		},
 		methods:{
+			//判断关键词是否为空和跳转页面的
 			search(){
 				if(this.keyword===''){
 					uni.showToast({
@@ -59,6 +75,20 @@
 					})
 				}
 				uni.hideKeyboard()
+				this.addSearch()
+			},
+			//记录最近搜索词
+			addSearch(){
+				let idx=this.searchData.indexOf(this.keyword)
+				if(idx<0){
+					this.searchData.unshift(this.keyword)
+				}else{
+					this.searchData.unshift(this.searchData.splice(idx,1)[0])	
+				}
+				uni.setStorage({
+					key: 'searchData',
+					data: JSON.stringify(this.searchData),
+				});
 			}
 		}
 	}
@@ -78,5 +108,8 @@
 	display: inline-block;
 	border-radius: 26rpx;
 	margin:10rpx;
+}
+.search-end{
+	text-align: center;
 }
 </style>
