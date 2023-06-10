@@ -28,7 +28,14 @@
 <script>
 	import Lines from "../../components/common/Line.vue"
 	export default {
-		components:{Lines}
+		components:{Lines},
+		onNavigationBarButtonTap(e){
+			if(e.float==="right"){
+				uni.navigateTo({
+					url:"../search-list/search-list"
+				})
+			}
+		}
 	}
 </script>
 

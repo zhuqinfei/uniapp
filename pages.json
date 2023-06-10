@@ -85,6 +85,37 @@
             }
             
         }
+        ,{
+            "path" : "pages/search-list/search-list",
+            "style" :                                                                                    
+            {
+              "navigationBarBackgroundColor":"#FFFFFF",
+              "scrollIndicator":"none",
+              "app-plus":{
+              	"titleNView": {
+              		"searchInput": {
+              			"placeholder": "nike",
+              			"disabled": true,
+              			"align": "left",
+              			"borderRadius": "15px",
+              			"backgroundColor": "#F7F7F7",
+              			"placeholderColor": "#B3B3B3"
+              		},
+              		"buttons": [
+              			{
+              				"float": "right",
+              				"color":"#636263",
+              				"text":"筛选",
+              			    "fontSize":"16px",
+              				"width":"50px"
+              			}
+              		]
+              	}
+              	
+              } 
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
