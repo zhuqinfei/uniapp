@@ -60,7 +60,6 @@
                 "navigationBarBackgroundColor":"#FFFFFF",
 				"scrollIndicator":"none",
 				"app-plus":{
-					"text-align":"center",
 					"titleNView": {
 						"searchInput": {
 							"placeholder": "nike",
@@ -77,7 +76,7 @@
 								"color":"#636263",
 								"text":"搜索",
 							    "fontSize":"16px",
-								"width":"60px"
+								"width":"50px"
 							}
 						]
 					}
