@@ -71,7 +71,7 @@
 					})
 				}else{
 					uni.navigateTo({
-						url:"../search-list/search-list"
+						url:"../search-list/search-list?keyword="+this.keyword+""
 					})
 				}
 				uni.hideKeyboard()
@@ -97,7 +97,7 @@
 						content: '是否要清除搜索记录',
 						cancelText:'取消',
 						confirmText:'确认',
-						success: (res)=> {
+						success: (res)=>{
 							if (res.confirm) {
 								uni.removeStorage({
 									key:"searchData"

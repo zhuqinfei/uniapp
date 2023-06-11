@@ -20,14 +20,15 @@
 		<Lines></Lines>
 		<CommodityList :dataList="dataList"></CommodityList>
 	</view>
-	
-	
 </template>
 
 <script>
 	import Lines from "./Line.vue"
 	import CommodityList from "./CommodityList.vue"
 	export default{
+		props:{
+			keyword:String
+		},
 		data(){
 			return{
 				shopList:{

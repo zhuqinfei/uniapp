@@ -3401,6 +3401,11 @@ var render = function () {
               _c("uni-view", {
                 staticClass: _vm._$g(5, "sc"),
                 attrs: { _i: 5 },
+                on: {
+                  click: function ($event) {
+                    return _vm.$handleViewEvent($event)
+                  },
+                },
               }),
             ],
             1
@@ -3973,6 +3978,7 @@ var render = function () {
     "uni-view",
     { staticClass: _vm._$g(0, "sc"), attrs: { _i: 0 } },
     [
+      _vm._v(_vm._$g(0, "t0-0")),
       _c(
         "uni-view",
         { staticClass: _vm._$g(1, "sc"), attrs: { _i: 1 } },
@@ -4067,6 +4073,7 @@ exports.default = void 0;
 var _Line = _interopRequireDefault(__webpack_require__(/*! ./Line.vue */ 101));
 var _CommodityList = _interopRequireDefault(__webpack_require__(/*! ./CommodityList.vue */ 36));
 var _default = {
+  props: ["keyword"],
   data: function data() {
     return {
       wxsProps: {}

@@ -94,7 +94,7 @@
               "app-plus":{
               	"titleNView": {
               		"searchInput": {
-              			"placeholder": "nike",
+              			"placeholder": "",
               			"disabled": true,
               			"align": "left",
               			"borderRadius": "15px",
