@@ -25,6 +25,7 @@
 <script>
 	import Lines from "./Line.vue"
 	import CommodityList from "./CommodityList.vue"
+	import $http from "../../common/api/request.js"
 	export default{
 		props:{
 			keyword:String
@@ -39,47 +40,33 @@
 						{name:"品牌",status:0}
 					]
 				},
-				dataList:[
-					{
-						id:1,
-						imgUrl:'../../static/img/commodity1.jpg',
-						name:'最新的绒毛上衣，今天的爆款，买到就是值了，不要错过最后一波了,快点来看看今年最新爆款',
-					    pprice:"299",
-						oprice:"659",
-						discount:"5.2"
-					},
-					{
-						id:2,
-						imgUrl:'../../static/img/commodity2.jpg',
-						name:'最新的绒毛上衣，今天的爆款，买到就是值了，不要错过了,快点来看看今年最新爆款',
-					    pprice:"188",
-						oprice:"388",
-						discount:"5.2"
-					},
-					{
-						id:3,
-						imgUrl:'../../static/img/commodity3.jpg',
-						name:'最新的绒毛上衣，今天的爆款，买到就是值了，不要错过了,快点来看看今年最新爆款',
-					    pprice:"188",
-						oprice:"388",
-						discount:"5.2"
-					},
-					{
-						id:4,
-						imgUrl:'../../static/img/commodity4.jpg',
-						name:'最新的绒毛上衣，今天的爆款，买到就是值了，不要错过了,快点来看看今年最新爆款',
-					    pprice:"188",
-						oprice:"388",
-						discount:"5.2"
-					}
-				]
+				dataList:[]
 			}
 		},
 		components:{
 			Lines,
 			CommodityList
 		},
+		mounted() {
+			this.getData()
+		},
 		methods:{
+			getData(){
+				$http.request({
+					url:"/goods/search",
+					data:{
+						name:this.keyword,
+						pprice:'desc'
+					}
+				}).then((res)=>{
+					this.dataList=res	  
+				}).catch(()=>{
+					uni.showToast({
+					    title:'请求失败',
+					    icon:'none'
+					})
+				})	
+			},
 			changeTab(index){
 				//索引值
 				let idx=this.shopList.currentIndex

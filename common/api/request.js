@@ -27,7 +27,7 @@ export default{
 					}				
 					setTimeout(function () {
 						uni.hideLoading();
-					}, 1000);					
+					}, 500);					
 					let data=res.data.data
 					resolve(data)
 				}
