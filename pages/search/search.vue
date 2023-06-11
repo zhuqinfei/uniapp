@@ -5,7 +5,7 @@
 		<view class="searce-item">
 			<view class="search-title">
 				<view class="f-color">最近搜索</view>
-				<view class="iconfont icon-lajitong"></view>
+				<view class="iconfont icon-lajitong" @tap="clearHistory"></view>
 			</view>
 			<view v-if="searchData.length>0">
 				<view class="search-name f-color"
@@ -89,6 +89,23 @@
 					key: 'searchData',
 					data: JSON.stringify(this.searchData),
 				});
+			},
+			//清除搜索记录
+			clearHistory(){
+				uni.showModal({
+					title: '重要提示',
+						content: '是否要清除搜索记录',
+						cancelText:'取消',
+						confirmText:'确认',
+						success: (res)=> {
+							if (res.confirm) {
+								uni.removeStorage({
+									key:"searchData"
+								})
+							   this.searchData=[]
+							}
+						}
+				})
 			}
 		}
 	}
