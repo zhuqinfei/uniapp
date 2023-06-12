@@ -3421,6 +3421,11 @@ var render = function () {
                       key: item,
                       staticClass: _vm._$g("7-" + $30, "sc"),
                       attrs: { _i: "7-" + $30 },
+                      on: {
+                        click: function ($event) {
+                          return _vm.$handleViewEvent($event)
+                        },
+                      },
                     },
                     [_vm._v(_vm._$g("7-" + $30, "t0-0"))]
                   )
@@ -3978,7 +3983,6 @@ var render = function () {
     "uni-view",
     { staticClass: _vm._$g(0, "sc"), attrs: { _i: 0 } },
     [
-      _vm._v(_vm._$g(0, "t0-0")),
       _c(
         "uni-view",
         { staticClass: _vm._$g(1, "sc"), attrs: { _i: 1 } },

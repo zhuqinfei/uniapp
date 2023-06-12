@@ -35,12 +35,23 @@
 				shopList:{
 					currentIndex:0,
 					data:[
-						{name:"价格",status:1},
-						{name:"折扣",status:0},
+						{name:"价格",status:1,key:"pprice"},
+						{name:"折扣",status:0,key:"discount"},
 						{name:"品牌",status:0}
 					]
 				},
 				dataList:[]
+			}
+		},
+		computed:{
+			orderBy(){
+				let obj=this.shopList.data[this.shopList.currentIndex]
+				let val= obj.status == "1" ? "asc" : "desc"
+				let aa={[obj.key]:val}
+				console.log(aa)
+				return {
+					[obj.key]:val,
+				}
 			}
 		},
 		components:{
@@ -56,7 +67,7 @@
 					url:"/goods/search",
 					data:{
 						name:this.keyword,
-						pprice:'desc'
+						...this.orderBy
 					}
 				}).then((res)=>{
 					this.dataList=res	  
@@ -68,6 +79,9 @@
 				})	
 			},
 			changeTab(index){
+				//点击排序==》重新请求了数据
+				this.getData()
+				
 				//索引值
 				let idx=this.shopList.currentIndex
 				//具体哪一个对象

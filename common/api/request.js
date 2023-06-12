@@ -10,9 +10,9 @@ export default{
 		dataType:"json"
 	},
 	request(options={}){		
-		uni.showLoading({
-			title: '加载中'
-		});
+		// uni.showLoading({
+		// 	title: '加载中'
+		// });
 		options.url=this.common.baseUrl+options.url
 		options.data=options.data || this.common.data
 		options.header=options.header || this.common.header
@@ -25,9 +25,9 @@ export default{
 					if(res.statusCode != 200){
 						return reject()
 					}				
-					setTimeout(function () {
-						uni.hideLoading();
-					}, 500);					
+					// setTimeout(function () {
+					// 	uni.hideLoading();
+					// }, 500);					
 					let data=res.data.data
 					resolve(data)
 				}
