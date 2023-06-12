@@ -4,14 +4,17 @@
 		
 		<view class="list">
 			<!-- 左侧滑动 -->
-			<scroll-view scroll-y="true" class="list-left">
-				<view v-for="i in 50" class="left-item">
-					<view class="left-name">{{i}}</view>
+			<scroll-view scroll-y="true" class="list-left" :style="'height:'+clentHeight+'px;'">
+				<view v-for="i in 50" class="left-item" @tap="changeLeftTab(i)">
+					<view class="left-name" 
+					:class="activeIndex===i ? 'left-name-active' : ''"
+					>
+					{{i}}</view>
 				</view>
 			</scroll-view>
 			<!-- 右侧滑动 -->
-			<scroll-view scroll-y="true" class="list-right">
-				<view v-for="i in 50" class="right-item">
+			<scroll-view scroll-y="true" class="list-right" :style="'height:'+clentHeight+'px;'">
+				<view  class="right-item">
 					<view class="right-list">
 						<view class="list-title">家纺</view>
 						<view class="right-content">
@@ -71,14 +74,26 @@
 	export default {
 		data() {
 			return {
-				
+				clentHeight:0,
+				activeIndex:1,
 			}
 		},
 		components:{
 			Lines
 		},
+		//获取可视高度
+		onReady() {
+			uni.getSystemInfo({
+				success:(res)=>{
+					this.clentHeight=res.windowHeight
+				}
+			})
+		},
 		methods: {
-			
+			//左侧点击事件
+			changeLeftTab(idnex){
+				this.activeIndex=idnex
+			}
 		},
 		//input输入框点击事件
 		onNavigationBarSearchInputClicked(){
