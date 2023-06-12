@@ -28,12 +28,24 @@
 		}
 	    ,{
             "path" : "pages/list/list",
-            "style" :                                                                                    
+            "style" :
             {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "navigationBarBackgroundColor":"#FFFFFF",
+            	"scrollIndicator":"none",
+            	"app-plus":{
+            		"titleNView": {
+            			"searchInput": {
+            				"placeholder": "请输入关键字",
+            				"disabled": true,
+            				"align": "left",
+            				"borderRadius": "15px",
+            				"backgroundColor": "#F7F7F7",
+            				"placeholderColor": "#B3B3B3"
+            			}
+            		}
+            		
+            	}
             }
-            
         }
         ,{
             "path" : "pages/shopcart/shopcart",

@@ -1,7 +1,7 @@
 <template>
 	<view class="search">
 		<Lines></Lines>
-		
+
 		<view class="searce-item">
 			<view class="search-title">
 				<view class="f-color">最近搜索</view>

@@ -48,7 +48,6 @@
 				let obj=this.shopList.data[this.shopList.currentIndex]
 				let val= obj.status == "1" ? "asc" : "desc"
 				let aa={[obj.key]:val}
-				console.log(aa)
 				return {
 					[obj.key]:val,
 				}
