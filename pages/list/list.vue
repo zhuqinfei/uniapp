@@ -1,6 +1,7 @@
 <template>
 	<view class="list">
 		<Lines></Lines>
+		
 	</view>
 </template>
 
