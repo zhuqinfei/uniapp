@@ -5,63 +5,30 @@
 		<view class="list">
 			<!-- 左侧滑动 -->
 			<scroll-view scroll-y="true" class="list-left" :style="'height:'+clentHeight+'px;'">
-				<view v-for="i in 50" class="left-item" @tap="changeLeftTab(i)">
+				<view 
+				v-for="(item,index) in leftData" 
+				:key="index"
+				class="left-item" 
+				@tap="changeLeftTab(index,item.id)"
+				>
 					<view class="left-name" 
-					:class="activeIndex===i ? 'left-name-active' : ''"
+					:class="activeIndex===index ? 'left-name-active' : 'left-item'"
 					>
-					{{i}}</view>
+					{{item.name}}</view>
 				</view>
 			</scroll-view>
 			<!-- 右侧滑动 -->
 			<scroll-view scroll-y="true" class="list-right" :style="'height:'+clentHeight+'px;'">
-				<view  class="right-item">
-					<view class="right-list">
-						<view class="list-title">家纺</view>
+				<view class="right-list" v-for="(item,index) in rightData" :key="index">
+					<block v-for="(k ,i) in item" :key="i">
+						<view class="list-title">{{k.name}}</view>
 						<view class="right-content">
-							<view class="right-item">
-								<image class="right-img" src="../../static/img/list1.jpg" mode=""></image>
-								<view class="right-name">毛巾</view>
-							</view>
-							<view class="right-item">
-								<image class="right-img" src="../../static/img/list1.jpg" mode=""></image>
-								<view class="right-name">毛巾</view>
-							</view>
-							<view class="right-item">
-								<image class="right-img" src="../../static/img/list1.jpg" mode=""></image>
-								<view class="right-name">毛巾</view>
-							</view>
-							<view class="right-item">
-								<image class="right-img" src="../../static/img/list1.jpg" mode=""></image>
-								<view class="right-name">毛巾</view>
+							<view class="right-item" v-for="(j,idx) in k.list" :key="idx">
+								<image class="right-img" :src="j.imgUrl" mode=""></image>
+								<view class="right-name">{{j.name}}</view>
 							</view>
 						</view>
-					</view>
-					<view class="right-list">
-						<view class="list-title">家纺</view>
-						<view class="right-content">
-							<view class="right-item">
-								<image class="right-img" src="../../static/img/list1.jpg" mode=""></image>
-								<view class="right-name">毛巾</view>
-							</view>
-							<view class="right-item">
-								<image class="right-img" src="../../static/img/list1.jpg" mode=""></image>
-								<view class="right-name">毛巾</view>
-							</view>
-							<view class="right-item">
-								<image class="right-img" src="../../static/img/list1.jpg" mode=""></image>
-								<view class="right-name">毛巾</view>
-							</view>
-						</view>
-					</view>
-					<view class="right-list">
-						<view class="list-title">家纺</view>
-						<view class="right-content">
-							<view class="right-item">
-								<image class="right-img" src="../../static/img/list1.jpg" mode=""></image>
-								<view class="right-name">毛巾</view>
-							</view>
-						</view>
-					</view>
+					</block>
 				</view>
 			</scroll-view>
 		</view>
@@ -71,15 +38,23 @@
 
 <script>
 	import Lines from "../../components/common/Line.vue"
+	import $http from "../../common/api/request.js"
 	export default {
 		data() {
 			return {
 				clentHeight:0,
-				activeIndex:1,
+				activeIndex:0,
+				//左侧数据
+			    leftData:[],
+				//右侧数据
+				rightData:[],
 			}
 		},
 		components:{
 			Lines
+		},
+		onLoad() {
+			this.getData()
 		},
 		//获取可视高度
 		onReady() {
@@ -90,9 +65,44 @@
 			})
 		},
 		methods: {
+		    //请求数据方法
+			getData(id){
+				if(id === (this.activeIndex+1)){
+					return
+				}
+				
+				$http.request({
+					url:"/goods/list"
+				}).then((res)=>{
+			        let leftData=[]
+					let rightData=[]
+					res.forEach((v)=>{
+						leftData.push({
+							id:v.id,
+							name:v.name
+						})
+						//如果点击的id值相同
+						if(v.id ===(this.activeIndex+1)){
+							rightData.push(v.data)
+						}
+						
+					})
+					
+					this.leftData=leftData
+					this.rightData=rightData
+							   
+				}).catch(()=>{
+					uni.showToast({
+					  title:'请求失败',
+					  icon:'none'
+					})
+				})	
+			},
 			//左侧点击事件
-			changeLeftTab(idnex){
+			changeLeftTab(idnex,id){
+				this.getData(id)
 				this.activeIndex=idnex
+				
 			}
 		},
 		//input输入框点击事件
