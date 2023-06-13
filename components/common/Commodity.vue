@@ -4,7 +4,9 @@
 	   <view class="commodity-item" 
 	   :style="'width:'+itemW+';'"
 	   v-for="(item,index) in dataList" 
-	   :key="index">
+	   :key="index"
+	   @tap="goDetails"
+	   >
 		   <image class="commodity-img" 
 		   :src="item.imgUrl" 
 		   :style="'height:'+bigH+';'"
@@ -47,8 +49,15 @@
 			nameSize:{
 				type:String,
 				default:"26rpx"
+			},
+		},
+		methods:{
+			goDetails(){
+				uni.navigateTo({
+					url:"../../pages/details/details"
+				})
 			}
-		}
+		},
 	}
 </script>
 

@@ -84,13 +84,10 @@
 						//如果点击的id值相同
 						if(v.id ===(this.activeIndex+1)){
 							rightData.push(v.data)
-						}
-						
-					})
-					
+						}						
+					})			
 					this.leftData=leftData
 					this.rightData=rightData
-							   
 				}).catch(()=>{
 					uni.showToast({
 					  title:'请求失败',
@@ -101,8 +98,7 @@
 			//左侧点击事件
 			changeLeftTab(idnex,id){
 				this.getData(id)
-				this.activeIndex=idnex
-				
+				this.activeIndex=idnex	
 			}
 		},
 		//input输入框点击事件
