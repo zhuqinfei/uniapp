@@ -27,10 +27,16 @@
 		<view class="details-foot">
 			<view class="iconfont icon-xiaoxi"></view>
 			<view class="iconfont icon-gouwuche"></view>
-			<view class="add-shopcart">加入购物车</view>
-			<view class="purchase">立即购买</view>
+			<view class="add-shopcart" @tap="showPop">加入购物车</view>
+			<view class="purchase" @tap="showPop">立即购买</view>
 		</view>
-		
+		<!-- 底部弹出层 -->
+		<view class="pop" v-show="isShow" @touchmove.stop.prevent="">
+			<!-- 蒙层 -->
+			<view class="pop-mask" @tap="hidePop"></view>
+			<!-- 内容块 -->
+			<view class="pop-box" :animation="animationData"></view>
+		</view>
 	</view>
 </template>
 
@@ -40,6 +46,8 @@
 	export default {
 		data() {
 			return {
+				isShow:false,
+				animationData:{},
 				swiperList:[
 					{imgUrl:"../../static/img/details1.jpeg"},
 					{imgUrl:"../../static/img/details2.jpeg"},
@@ -86,7 +94,31 @@
 			CommodityList
 		},
 		methods: {
-			
+			showPop(){
+				var animation = uni.createAnimation({
+				   duration: 200
+				})
+				animation.translateY(600).step();
+				this.animationData = animation.export();
+			  
+				setTimeout(()=>{
+					this.isShow = true;
+					animation.translateY(0).step();
+					this.animationData = animation.export();
+				},200)
+			},
+			hidePop(){
+				var animation = uni.createAnimation({
+				   duration: 200
+				})
+				animation.translateY(600).step();
+				this.animationData = animation.export();
+				this.isShow = true;
+				setTimeout(()=>{
+					animation.translateY(0).step();
+					this.isShow = false;
+				},200)
+			}
 		}
 	}
 </script>
@@ -148,5 +180,29 @@ swiper{
 	background-color: #49BDFB;
 	color:#FFFFFF;
 	border-radius: 40rpx;
+}
+.pop{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width:100%;
+	height: 100%;
+	z-index: 9999;
+}
+.pop-mask{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.3);
+}
+.pop-box{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 350px;
+	background-color: #E80080;
 }
 </style>
