@@ -35,7 +35,20 @@
 			<!-- 蒙层 -->
 			<view class="pop-mask" @tap="hidePop"></view>
 			<!-- 内容块 -->
-			<view class="pop-box" :animation="animationData"></view>
+			<view class="pop-box" :animation="animationData">
+				<view>
+					<image class="pop-img" src="../../static/img/hot1.jpg" mode=""></image>
+				</view>
+				<view class="pop-num">
+					<view>购买数量</view>
+					<UniNumberBox>
+						min='1'
+					</UniNumberBox>
+				</view>
+				<view>
+					<view class="pop-sub">确定</view>
+				</view>
+			</view>
 		</view>
 	</view>
 </template>
@@ -43,6 +56,7 @@
 <script>
 	import Card from "../../components/common/Card.vue"
 	import CommodityList from "../../components/common/CommodityList.vue"
+	import UniNumberBox from "../../components/uni/uni-number-box/uni-number-box.vue"
 	export default {
 		data() {
 			return {
@@ -91,7 +105,8 @@
 		},
 		components:{
 			Card,
-			CommodityList
+			CommodityList,
+			UniNumberBox,
 		},
 		methods: {
 			showPop(){
@@ -202,7 +217,21 @@ swiper{
 	left: 0;
 	bottom: 0;
 	width: 100%;
-	height: 350px;
-	background-color: #E80080;
+	background-color: #FFFFFF;
+}
+.pop-img{
+	width:260rpx;
+	height: 260rpx;
+}
+.pop-sub{
+	line-height: 80rpx;
+	background-color: #49BDFB;
+	color: #FFFFFF;
+	text-align:center;
+}
+.pop-num{
+	padding: 20rpx;
+	display: flex;
+	justify-content: space-between;
 }
 </style>
