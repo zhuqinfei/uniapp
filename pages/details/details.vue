@@ -20,9 +20,17 @@
 			<view><image class="details-img" src="../../static/img/detail4.jpg" mode=""></image></view>
 			<view><image class="details-img" src="../../static/img/detail5.jpg" mode=""></image></view>
 		</view>
-		
+		<!-- 商品列表 -->
 		<Card cardTitle="看了又看"></Card>
 		<CommodityList :dataList="dataList"></CommodityList>
+		<!-- 底部 -->
+		<view class="details-foot">
+			<view class="iconfont icon-xiaoxi"></view>
+			<view class="iconfont icon-gouwuche"></view>
+			<view class="add-shopcart">加入购物车</view>
+			<view class="purchase">立即购买</view>
+		</view>
+		
 	</view>
 </template>
 
@@ -84,6 +92,9 @@
 </script>
 
 <style scoped>
+.details{
+	padding-bottom: 90rpx;
+}
 swiper{
 	width:100%;
 	height: 700rpx;
@@ -100,5 +111,42 @@ swiper{
 }
 .details-img{
 	width:100%
+}
+.details-foot{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 90rpx;
+	background-color: #FFFFFF;
+}
+.details-foot .iconfont{
+	width: 60rpx;
+	height: 60rpx;
+	border-radius: 100%;
+	background-color: #000000;
+	color:#FFFFFF;
+	text-align: center;
+	margin: 0 20rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.add-shopcart{
+	margin: 0 30rpx;
+	padding: 6rpx 30rpx;
+	background-color: #000000;
+	color:#FFFFFF;
+	border-radius: 40rpx;
+}
+.purchase{
+	margin: 0 30rpx;
+	padding: 6rpx 30rpx;
+	background-color: #49BDFB;
+	color:#FFFFFF;
+	border-radius: 40rpx;
 }
 </style>

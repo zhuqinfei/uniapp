@@ -133,6 +133,7 @@
             "style" :                                                                        {
                 "navigationBarTitleText": "商品详情",
                 "app-plus": {
+					"scrollIndicator":"none",
 					"titleNView": {
 						"type":"transparent",
 						"buttons":[
