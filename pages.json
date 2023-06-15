@@ -49,12 +49,13 @@
         }
         ,{
             "path" : "pages/shopcart/shopcart",
-            "style" :                                                                                    
+            "style" :                                                                                 
             {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
+				"app-plus": {
+					"titleNView": false,
+					"scrollIndicator": "none"
+				}
+            }     
         }
         ,{
             "path" : "pages/my/my",
