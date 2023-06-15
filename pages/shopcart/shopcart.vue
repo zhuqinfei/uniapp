@@ -8,7 +8,7 @@
 		statusBar="true"
 		@clickRight="isNavBar=! isNavBar"
 		></uniNavBar>
-		
+
 		<!-- 商品内容 -->
 		<view class="shop-list">
 			<view class="shop-item" v-for="(item,index) in list" :key="index">
@@ -42,76 +42,18 @@
 
 <script>
 	import uniNavBar from "../../components/uni/uni-nav-bar/uni-nav-bar.vue"
+	import {mapState} from "vuex"
+	
 	export default {
 		data() {
 			return {
 				isNavBar:false,
-				list:[
-					{
-						checked:false,
-						id:1,
-						name:"打客服的和非恶搞认为微软业务打客服的和非恶搞认为微软业务",
-						color:"颜色：返回对方的过分的",
-						imgUrl:"../../static/img/Children2.jpg",
-						pprice:"27",
-						num:1
-					},
-					{
-						checked:false,
-						id:2,
-						name:"打客服的和非恶搞认为微软业务打客服的和非恶搞认为微软业务",
-						color:"颜色：返回对方的过分的",
-						imgUrl:"../../static/img/Children2.jpg",
-						pprice:"27",
-						num:1
-					},
-					{
-						checked:false,
-						id:2,
-						name:"打客服的和非恶搞认为微软业务打客服的和非恶搞认为微软业务",
-						color:"颜色：返回对方的过分的",
-						imgUrl:"../../static/img/Children2.jpg",
-						pprice:"27",
-						num:1
-					},
-					{
-						checked:false,
-						id:2,
-						name:"打客服的和非恶搞认为微软业务打客服的和非恶搞认为微软业务",
-						color:"颜色：返回对方的过分的",
-						imgUrl:"../../static/img/Children2.jpg",
-						pprice:"27",
-						num:1
-					},
-					{
-						checked:false,
-						id:2,
-						name:"打客服的和非恶搞认为微软业务打客服的和非恶搞认为微软业务",
-						color:"颜色：返回对方的过分的",
-						imgUrl:"../../static/img/Children2.jpg",
-						pprice:"27",
-						num:1
-					},
-					{
-						checked:false,
-						id:2,
-						name:"打客服的和非恶搞认为微软业务打客服的和非恶搞认为微软业务",
-						color:"颜色：返回对方的过分的",
-						imgUrl:"../../static/img/Children2.jpg",
-						pprice:"27",
-						num:1
-					},
-					{
-						checked:false,
-						id:2,
-						name:"打客服的和非恶搞认为微软业务打客服的和非恶搞认为微软业务",
-						color:"颜色：返回对方的过分的",
-						imgUrl:"../../static/img/Children2.jpg",
-						pprice:"27",
-						num:1
-					}
-				]
 			}
+		},
+		computed:{
+			...mapState({
+				list:state=>state.cart.list
+			})
 		},
 		components:{
 			uniNavBar
