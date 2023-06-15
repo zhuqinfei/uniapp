@@ -3532,141 +3532,161 @@ var render = function () {
     "uni-view",
     { staticClass: _vm._$g(0, "sc"), attrs: { _i: 0 } },
     [
-      _c("uniNavBar", {
-        attrs: { _i: 1 },
-        on: {
-          clickRight: function ($event) {
-            return _vm.$handleViewEvent($event)
-          },
-        },
-      }),
-      _c(
-        "uni-view",
-        { staticClass: _vm._$g(2, "sc"), attrs: { _i: 2 } },
-        _vm._l(_vm._$g(3, "f"), function (item, index, $20, $30) {
-          return _c(
-            "uni-view",
-            {
-              key: item,
-              staticClass: _vm._$g("3-" + $30, "sc"),
-              attrs: { _i: "3-" + $30 },
-            },
-            [
-              _c(
-                "v-uni-label",
-                {
-                  staticClass: _vm._$g("4-" + $30, "sc"),
-                  attrs: { _i: "4-" + $30 },
+      _vm._$g(1, "i")
+        ? [
+            _c("uniNavBar", {
+              attrs: { _i: 2 },
+              on: {
+                clickRight: function ($event) {
+                  return _vm.$handleViewEvent($event)
                 },
-                [
-                  _c("v-uni-radio", {
-                    attrs: { value: "", color: "#FF3333", _i: "5-" + $30 },
-                  }),
-                  _c("v-uni-text", { attrs: { _i: "6-" + $30 } }),
-                ],
-                1
-              ),
-              _c("v-uni-image", {
-                staticClass: _vm._$g("7-" + $30, "sc"),
-                attrs: {
-                  src: _vm._$g("7-" + $30, "a-src"),
-                  mode: "",
-                  _i: "7-" + $30,
-                },
+              },
+            }),
+            _c(
+              "uni-view",
+              { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } },
+              _vm._l(_vm._$g(4, "f"), function (item, index, $20, $30) {
+                return _c(
+                  "uni-view",
+                  {
+                    key: item,
+                    staticClass: _vm._$g("4-" + $30, "sc"),
+                    attrs: { _i: "4-" + $30 },
+                  },
+                  [
+                    _c(
+                      "v-uni-label",
+                      {
+                        staticClass: _vm._$g("5-" + $30, "sc"),
+                        attrs: { _i: "5-" + $30 },
+                      },
+                      [
+                        _c("v-uni-radio", {
+                          attrs: {
+                            value: "",
+                            color: "#FF3333",
+                            _i: "6-" + $30,
+                          },
+                        }),
+                        _c("v-uni-text", { attrs: { _i: "7-" + $30 } }),
+                      ],
+                      1
+                    ),
+                    _c("v-uni-image", {
+                      staticClass: _vm._$g("8-" + $30, "sc"),
+                      attrs: {
+                        src: _vm._$g("8-" + $30, "a-src"),
+                        mode: "",
+                        _i: "8-" + $30,
+                      },
+                    }),
+                    _c(
+                      "uni-view",
+                      {
+                        staticClass: _vm._$g("9-" + $30, "sc"),
+                        attrs: { _i: "9-" + $30 },
+                      },
+                      [
+                        _c(
+                          "uni-view",
+                          {
+                            staticClass: _vm._$g("10-" + $30, "sc"),
+                            attrs: { _i: "10-" + $30 },
+                          },
+                          [_vm._v(_vm._$g("10-" + $30, "t0-0"))]
+                        ),
+                        _c(
+                          "uni-view",
+                          {
+                            staticClass: _vm._$g("11-" + $30, "sc"),
+                            attrs: { _i: "11-" + $30 },
+                          },
+                          [_vm._v(_vm._$g("11-" + $30, "t0-0"))]
+                        ),
+                        _c(
+                          "uni-view",
+                          {
+                            staticClass: _vm._$g("12-" + $30, "sc"),
+                            attrs: { _i: "12-" + $30 },
+                          },
+                          [
+                            _c("uni-view", { attrs: { _i: "13-" + $30 } }, [
+                              _vm._v("￥" + _vm._$g("13-" + $30, "t0-0")),
+                            ]),
+                            _c("uni-view", { attrs: { _i: "14-" + $30 } }, [
+                              _vm._v("*" + _vm._$g("14-" + $30, "t0-0")),
+                            ]),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                )
               }),
-              _c(
-                "uni-view",
-                {
-                  staticClass: _vm._$g("8-" + $30, "sc"),
-                  attrs: { _i: "8-" + $30 },
-                },
-                [
-                  _c(
-                    "uni-view",
-                    {
-                      staticClass: _vm._$g("9-" + $30, "sc"),
-                      attrs: { _i: "9-" + $30 },
-                    },
-                    [_vm._v(_vm._$g("9-" + $30, "t0-0"))]
-                  ),
-                  _c(
-                    "uni-view",
-                    {
-                      staticClass: _vm._$g("10-" + $30, "sc"),
-                      attrs: { _i: "10-" + $30 },
-                    },
-                    [_vm._v(_vm._$g("10-" + $30, "t0-0"))]
-                  ),
-                  _c(
-                    "uni-view",
-                    {
-                      staticClass: _vm._$g("11-" + $30, "sc"),
-                      attrs: { _i: "11-" + $30 },
-                    },
-                    [
-                      _c("uni-view", { attrs: { _i: "12-" + $30 } }, [
-                        _vm._v("￥" + _vm._$g("12-" + $30, "t0-0")),
-                      ]),
-                      _c("uni-view", { attrs: { _i: "13-" + $30 } }, [
-                        _vm._v("*" + _vm._$g("13-" + $30, "t0-0")),
-                      ]),
-                    ],
-                    1
-                  ),
-                ],
-                1
-              ),
-            ],
-            1
-          )
-        }),
-        1
-      ),
-      _c(
-        "uni-view",
-        { staticClass: _vm._$g(14, "sc"), attrs: { _i: 14 } },
-        [
-          _c(
-            "v-uni-label",
-            { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
-            [
-              _c("v-uni-radio", {
-                attrs: { value: "", color: "#FF3333", _i: 16 },
-              }),
-              _c("v-uni-text", { attrs: { _i: 17 } }, [_vm._v("全选")]),
-            ],
-            1
-          ),
-          _c(
-            "uni-view",
-            { staticClass: _vm._$g(18, "sc"), attrs: { _i: 18 } },
-            [
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
-                [
-                  _vm._v("合计："),
-                  _c(
-                    "v-uni-text",
-                    { staticClass: _vm._$g(20, "sc"), attrs: { _i: 20 } },
-                    [_vm._v("¥0")]
-                  ),
-                ],
-                1
-              ),
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
-                [_vm._v("结算(0)")]
-              ),
-            ],
-            1
-          ),
-        ],
-        1
-      ),
+              1
+            ),
+            _c(
+              "uni-view",
+              { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
+              [
+                _c(
+                  "v-uni-label",
+                  { staticClass: _vm._$g(16, "sc"), attrs: { _i: 16 } },
+                  [
+                    _c("v-uni-radio", {
+                      attrs: { value: "", color: "#FF3333", _i: 17 },
+                    }),
+                    _c("v-uni-text", { attrs: { _i: 18 } }, [_vm._v("全选")]),
+                  ],
+                  1
+                ),
+                _c(
+                  "uni-view",
+                  { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
+                  [
+                    _c(
+                      "uni-view",
+                      { staticClass: _vm._$g(20, "sc"), attrs: { _i: 20 } },
+                      [
+                        _vm._v("合计："),
+                        _c(
+                          "v-uni-text",
+                          { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
+                          [_vm._v("¥0")]
+                        ),
+                      ],
+                      1
+                    ),
+                    _c(
+                      "uni-view",
+                      { staticClass: _vm._$g(22, "sc"), attrs: { _i: 22 } },
+                      [_vm._v("结算(0)")]
+                    ),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+          ]
+        : [
+            _c("uniNavBar", { attrs: { _i: 24 } }),
+            _c(
+              "uni-view",
+              { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
+              [
+                _c("v-uni-text", { attrs: { _i: 26 } }, [
+                  _vm._v("囧~购物车还是空的"),
+                ]),
+              ],
+              1
+            ),
+          ],
     ],
-    1
+    2
   )
 }
 var recyclableRender = false
@@ -4497,7 +4517,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 16);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.shop-list{\r\n\tpadding-bottom:100rpx;\n}\n.shop-item{\r\n\tdisplay: flex;\r\n\tpadding:20rpx;\r\n\talign-items: center;\r\n\tbackground-color: #F7F7F7;\r\n\tmargin-bottom: 10rpx;\n}\n.shop-img{\r\n\twidth:200rpx;\r\n\theight: 200rpx;\n}\n.shop-text{\r\n\tflex:1;\r\n\tpadding-left:20rpx;\n}\n.shop-color{\r\n\tfont-size: 20rpx;\n}\n.shop-price{\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\n}\n.shop-foot{\r\n    position: fixed;\r\n\tbottom: var(--window-bottom);\r\n\tleft:0;\r\n\twidth: 100%;\r\n\theight: 100rpx;\r\n\tbackground-color: #FFFFFF;\r\n\tborder-top: 2rpx solid #F7F7F7;\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\talign-items: center;\n}\n.foot-radio{\r\n\tpadding-left:20rpx;\n}\n.foot-total{\r\n\tdisplay: flex;\n}\n.foot-count{\r\n\tline-height: 100rpx;\r\n\tpadding:0 20rpx;\r\n\tfont-size:32rpx;\n}\n.foot-num{\r\n\tbackground-color: #49BDFB;\r\n\tcolor:#FFFFFF;\r\n\tpadding:0 60rpx;\r\n\tline-height: 100rpx;\n}\r\n", ""]);
+exports.push([module.i, "\n.shop-list{\r\n\tpadding-bottom:100rpx;\n}\n.shop-item{\r\n\tdisplay: flex;\r\n\tpadding:20rpx;\r\n\talign-items: center;\r\n\tbackground-color: #F7F7F7;\r\n\tmargin-bottom: 10rpx;\n}\n.shop-img{\r\n\twidth:200rpx;\r\n\theight: 200rpx;\n}\n.shop-text{\r\n\tflex:1;\r\n\tpadding-left:20rpx;\n}\n.shop-color{\r\n\tfont-size: 20rpx;\n}\n.shop-price{\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\n}\n.shop-foot{\r\n    position: fixed;\r\n\tbottom: var(--window-bottom);\r\n\tleft:0;\r\n\twidth: 100%;\r\n\theight: 100rpx;\r\n\tbackground-color: #FFFFFF;\r\n\tborder-top: 2rpx solid #F7F7F7;\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\talign-items: center;\n}\n.foot-radio{\r\n\tpadding-left:20rpx;\n}\n.foot-total{\r\n\tdisplay: flex;\n}\n.foot-count{\r\n\tline-height: 100rpx;\r\n\tpadding:0 20rpx;\r\n\tfont-size:32rpx;\n}\n.foot-num{\r\n\tbackground-color: #49BDFB;\r\n\tcolor:#FFFFFF;\r\n\tpadding:0 60rpx;\r\n\tline-height: 100rpx;\n}\n.shop-else-list{\r\n\tbackground-color: #F7F7F7;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\tdisplay: flex;\r\n\tjustify-content: center;\r\n\talign-items: center;\r\n\tposition: absolute;\r\n\tleft: 0;\r\n\ttop: 0;\r\n\tright: 0;\r\n\tbottom: 0;\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
