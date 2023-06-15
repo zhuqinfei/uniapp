@@ -2,15 +2,15 @@
 	<view class="details">
 		<!-- 商品图 -->
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
-			<swiper-item v-for="(item,index) in swiperList" :key="index">
-				<image class="swiper-img" :src="item.imgUrl" mode=""></image>
+			<swiper-item>
+				<image class="swiper-img" :src="goodsContent.imgUrl" mode=""></image>
 			</swiper-item>
 		</swiper>
 		<!-- 价格和名称 -->
 		<view class="details-goods">
-			<view class="goods-pprice">￥399.00</view>
-			<view class="goods-oprice">￥599.00</view>
-			<view class="goods-name">2023年最新款的绒毛大衣，数量有限，需要就感觉购买吧，已经成为爆款了</view>
+			<view class="goods-pprice">￥{{goodsContent.pprice}}</view>
+			<view class="goods-oprice">￥{{goodsContent.oprice}}</view>
+			<view class="goods-name">{{goodsContent.name}}</view>
 		</view>
 		<!-- 商品详情 -->
 		<view >
@@ -57,10 +57,12 @@
 	import Card from "../../components/common/Card.vue"
 	import CommodityList from "../../components/common/CommodityList.vue"
 	import UniNumberBox from "../../components/uni/uni-number-box/uni-number-box.vue"
+	import $http from "../../common/api/request.js"
 	export default {
 		data() {
 			return {
 				isShow:false,
+				goodsContent:{},
 				animationData:{},
 				swiperList:[
 					{imgUrl:"../../static/img/details1.jpeg"},
@@ -108,6 +110,9 @@
 			CommodityList,
 			UniNumberBox,
 		},
+	    onLoad(e){
+			this.getData(e.id)
+		},
 		//修改返回默认行为
 		onBackPress(){
 			if(this.isShow){
@@ -116,6 +121,20 @@
 			}
 		},
 		methods: {
+			//请求商品
+			getData(id){
+				$http.request({
+					url:"/goods/id",
+					data:{id:id}
+				}).then((res)=>{
+					 this.goodsContent=res[0]
+				}).catch(()=>{
+					   uni.showToast({
+					   title:'请求失败',
+					   icon:'none'
+					})
+				})
+			},
 			showPop(){
 				var animation = uni.createAnimation({
 				   duration: 200
