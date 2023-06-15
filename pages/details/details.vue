@@ -113,6 +113,27 @@
 	    onLoad(e){
 			this.getData(e.id)
 		},
+		onNavigationBarButtonTap(e){
+			if(e.type="share"){
+				uni.share({
+					provider: "weixin",
+					scene: "WXSceneSession",
+					type: 0,
+					href: `http://192.168.1.6:8080/#/pages/details/details?id=${this.goodsContent.id}`,
+					title: this.goodsContent.name,
+					imageUrl:this.goodsContent.imgUrl,
+					success: function (res) {
+						uni.showTabBar({
+							title:"分享成功"
+						})
+					},
+					fail: function (err) {
+						console.log("fail:" + JSON.stringify(err));
+					}
+				});
+
+			}
+		},
 		//修改返回默认行为
 		onBackPress(){
 			if(this.isShow){
