@@ -19,6 +19,35 @@ export default{
 				pprice:"27",
 				num:1
 			},
-		]
+		],
+	    selectedList:[],
+	},
+	getters:{
+		//判断是否  全选
+		checkedAll(state){
+			return state.list.length === state.selectedList.length
+		}
+	},
+	mutations:{
+		//全选
+		checkAll(state){
+			state.selectedList=state.list.map(v=>{
+				v.checked=true
+				return v.id
+			})
+		},
+		//全不选
+		unCheckAll(state){
+			state.list.forEach(v=>{
+				v.checked=false
+			})
+			state.selectedList=[]
+		},
+		
+	},
+	actions:{
+		checkedAllFn({commit,getters}){
+			return getters.checkedAll ? commit("unCheckAll") : commit("checkAll")
+		}
 	}
 }
