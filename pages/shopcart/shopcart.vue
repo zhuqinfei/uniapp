@@ -9,10 +9,11 @@
 			statusBar="true"
 			@clickRight="isNavBar=! isNavBar"
 			></uniNavBar>
+
 			<!-- 商品内容 -->
 			<view class="shop-list">
 				<view class="shop-item" v-for="(item,index) in list" :key="index">
-					<label class="radio">
+					<label class="radio" @tap='selectedItem(index)'>
 						<radio value="" 
 						color="#FF3333" 
 						:checked="item.checked"/><text></text>
@@ -58,7 +59,7 @@
 
 <script>
 	import uniNavBar from "../../components/uni/uni-nav-bar/uni-nav-bar.vue"
-	import {mapState,mapActions,mapGetters} from "vuex"
+	import {mapState,mapActions,mapGetters,mapMutations} from "vuex"
 	
 	export default {
 		data() {
@@ -77,6 +78,7 @@
 		},
 		methods: {
 			...mapActions(['checkedAllFn']),
+			...mapMutations(['selectedItem'])
 		}
 	}
 </script>

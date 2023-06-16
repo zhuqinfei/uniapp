@@ -43,7 +43,20 @@ export default{
 			})
 			state.selectedList=[]
 		},
-		
+		//单选
+		selectedItem(state,index){
+			
+			let id=state.list[index].id
+			let i=state.selectedList.indexOf(id)
+			//如果selectedList已经存在就代表他之前是选中状态，checked=false，并且在selectedList中删除
+			if(i>-1){
+				state.list[index].checked=false
+				return state.selectedList.splice(i,1)
+			}
+			//如果之前没有选中，checked=true ,把当前的id添加到selectedlist
+			state.list[index].checked=true
+			state.selectedList.push(id)
+		}
 	},
 	actions:{
 		checkedAllFn({commit,getters}){
