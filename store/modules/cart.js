@@ -26,6 +26,23 @@ export default{
 		//判断是否  全选
 		checkedAll(state){
 			return state.list.length === state.selectedList.length
+		},
+		//合计+结算数量
+		totalCount(state){
+			let total={
+				pprice:0,
+				num:0
+			}	
+			state.list.forEach(v=>{
+				//是否选中
+				if(state.selectedList.indexOf(v.id)>-1){
+					//合计
+					total.pprice+=v.pprice*v.num
+					//结算数量
+					total.num=state.selectedList.length
+				}
+			})
+			return total
 		}
 	},
 	mutations:{

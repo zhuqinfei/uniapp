@@ -9,7 +9,7 @@
 			statusBar="true"
 			@clickRight="isNavBar=! isNavBar"
 			></uniNavBar>
-
+			
 			<!-- 商品内容 -->
 			<view class="shop-list">
 				<view class="shop-item" v-for="(item,index) in list" :key="index">
@@ -24,7 +24,19 @@
 						<view class="shop-color f-color">{{item.color}}</view>
 						<view class="shop-price">
 							<view>￥{{item.pprice}}</view>
-							<view>*{{item.num}}</view>
+							
+							<template v-if='!isNavBar'>
+								<view>*{{item.num}}</view>
+							</template>
+							<template v-else>
+								<uniNumberBox
+									:value='item.num'
+									min='1'
+									@change='changeNumber($event,index)'
+								>
+								</uniNumberBox>
+							</template>
+							
 						</view>
 					</view>
 				</view>
@@ -37,10 +49,20 @@
 					color='#FF3333'
 					:checked="checkedAll"/><text>全选</text>
 				</label>
-				<view class='foot-total'>
-					<view class='foot-count'>合计：<text class='f-active-color'>¥0</text></view>
-					<view class='foot-num'>结算(0)</view>
-				</view>
+				
+				<template v-if=" !isNavBar">
+					<view class='foot-total'>
+						<view class='foot-count'>合计：<text class='f-active-color'>¥{{totalCount.pprice}}</text></view>
+						<view class='foot-num'>结算{{totalCount.num}}</view>
+					</view>
+				</template>
+				<template v-else>
+					<view class='foot-total'>
+						<view class='foot-num' style="background-color: #000000;">移入收藏夹</text></view>
+						<view class='foot-num'>删除</view>
+					</view>
+				</template>
+				
 			</view>
 		</template>
 		<template v-else>
@@ -59,6 +81,7 @@
 
 <script>
 	import uniNavBar from "../../components/uni/uni-nav-bar/uni-nav-bar.vue"
+	import uniNumberBox from "../../components/uni/uni-number-box/uni-number-box.vue"
 	import {mapState,mapActions,mapGetters,mapMutations} from "vuex"
 	
 	export default {
@@ -71,14 +94,18 @@
 			...mapState({
 				list:state=>state.cart.list
 			}),	
-			...mapGetters(['checkedAll']),
+			...mapGetters(['checkedAll','totalCount']),
 		},
 		components:{
-			uniNavBar
+			uniNavBar,
+			uniNumberBox
 		},
 		methods: {
 			...mapActions(['checkedAllFn']),
-			...mapMutations(['selectedItem'])
+			...mapMutations(['selectedItem']),
+			changeNumber(value,index){
+				this.list[index].num = value;
+			}
 		}
 	}
 </script>
