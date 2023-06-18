@@ -31,7 +31,7 @@
 							<template v-else>
 								<uniNumberBox
 									:value='item.num'
-									min='1'
+									:min='1'
 									@change='changeNumber($event,index)'
 								>
 								</uniNumberBox>
@@ -59,7 +59,7 @@
 				<template v-else>
 					<view class='foot-total'>
 						<view class='foot-num' style="background-color: #000000;">移入收藏夹</text></view>
-						<view class='foot-num'>删除</view>
+						<view class='foot-num' @tap="deGoodsFn">删除</view>
 					</view>
 				</template>
 				
@@ -101,11 +101,11 @@
 			uniNumberBox
 		},
 		methods: {
-			...mapActions(['checkedAllFn']),
+			...mapActions(['checkedAllFn','deGoodsFn']),
 			...mapMutations(['selectedItem']),
 			changeNumber(value,index){
 				this.list[index].num = value;
-			}
+			},
 		}
 	}
 </script>

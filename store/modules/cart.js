@@ -73,11 +73,24 @@ export default{
 			//如果之前没有选中，checked=true ,把当前的id添加到selectedlist
 			state.list[index].checked=true
 			state.selectedList.push(id)
+		},
+		delGoods(state){
+			state.list=state.list.filter(v=>{
+				return state.selectedList.indexOf(v.id) === -1
+			})
 		}
 	},
 	actions:{
 		checkedAllFn({commit,getters}){
 			return getters.checkedAll ? commit("unCheckAll") : commit("checkAll")
+		},
+		deGoodsFn({commit}){
+			commit('delGoods')
+			commit("unCheckAll")
+			uni.showToast({
+				title:"删除成功",
+				icon:"none"
+			})
 		}
 	}
 }
