@@ -1,25 +1,6 @@
 export default{
 	state:{
-		list:[
-			{
-				checked:false,
-				id:1,
-				name:"11打客服的和非恶搞认为微软业务打客服的和非恶搞认为微软业务",
-				color:"颜色：返回对方的过分的",
-				imgUrl:"../../static/img/Children2.jpg",
-				pprice:"27",
-				num:1
-			},
-			{
-				checked:false,
-				id:2,
-				name:"22的和非恶搞认为微软业务打客服的和非恶搞认为微软业务",
-				color:"颜色：返回对方的过分的",
-				imgUrl:"../../static/img/Children2.jpg",
-				pprice:"27",
-				num:1
-			},
-		],
+		list:[],
 	    selectedList:[],
 	},
 	getters:{
@@ -78,7 +59,12 @@ export default{
 			state.list=state.list.filter(v=>{
 				return state.selectedList.indexOf(v.id) === -1
 			})
+		},
+		//加入购物车
+		addShopCart(state,goods){
+			state.list.push(goods)
 		}
+		
 	},
 	actions:{
 		checkedAllFn({commit,getters}){

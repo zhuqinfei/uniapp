@@ -1,5 +1,6 @@
 <template>
 	<view class="details">
+		{{num}}
 		<!-- 商品图 -->
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
 			<swiper-item>
@@ -26,7 +27,7 @@
 		<!-- 底部 -->
 		<view class="details-foot">
 			<view class="iconfont icon-xiaoxi"></view>
-			<view class="iconfont icon-gouwuche"></view>
+			<view class="iconfont icon-gouwuche" @tap="goShopCart"></view>
 			<view class="add-shopcart" @tap="showPop">加入购物车</view>
 			<view class="purchase" @tap="showPop">立即购买</view>
 		</view>
@@ -37,16 +38,19 @@
 			<!-- 内容块 -->
 			<view class="pop-box" :animation="animationData">
 				<view>
-					<image class="pop-img" src="../../static/img/hot1.jpg" mode=""></image>
+					<image class="pop-img" :src="goodsContent.imgUrl" mode=""></image>
 				</view>
 				<view class="pop-num">
 					<view>购买数量</view>
-					<UniNumberBox>
-						min='1'
+					<UniNumberBox
+					  :min='1'
+					  :value='num'
+					  @change="changeNumber"
+					>		
 					</UniNumberBox>
 				</view>
 				<view>
-					<view class="pop-sub">确定</view>
+					<view class="pop-sub" @tap="addCart">确定</view>
 				</view>
 			</view>
 		</view>
@@ -58,12 +62,14 @@
 	import CommodityList from "../../components/common/CommodityList.vue"
 	import UniNumberBox from "../../components/uni/uni-number-box/uni-number-box.vue"
 	import $http from "../../common/api/request.js"
+	import {mapMutations} from "vuex"
 	export default {
 		data() {
 			return {
 				isShow:false,
 				goodsContent:{},
 				animationData:{},
+				num:1,
 				swiperList:[
 					{imgUrl:"../../static/img/details1.jpeg"},
 					{imgUrl:"../../static/img/details2.jpeg"},
@@ -142,6 +148,11 @@
 			}
 		},
 		methods: {
+			...mapMutations(['addShopCart']),
+			//改变商品数量
+			changeNumber(value){
+				this.num=value
+			},
 			//请求商品
 			getData(id){
 				$http.request({
@@ -180,6 +191,26 @@
 					animation.translateY(0).step();
 					this.isShow = false;
 				},200)
+			},
+			//跳转到购物车页面
+			goShopCart(){
+				uni.switchTab({
+					url:'../shopcart/shopcart'
+				})
+			},
+			addCart(){
+				let goods=this.goodsContent
+				this.goodsContent['checked']=false
+				this.goodsContent['num']=this.num
+				//加入购物车
+			    this.addShopCart(goods)
+				//隐藏弹出框
+				this.hidePop()
+				//提示信息
+				uni.showToast({
+					title:"成功加入购物车",
+					icon:"none"
+				})
 			}
 		}
 	}
