@@ -3,7 +3,7 @@
 		<!--头部-->
 		<view class='my-header'>
 			<view class='header-main'>
-				<view class='header-config'>
+				<view class='header-config' @tap="goConfig">
 					<image class='config-img' src="../../static/img/config.png" mode=""></image>
 				</view>
 				<view class='header-logo'>
@@ -85,7 +85,11 @@
 			}
 		},
 		methods: {
-			
+			goConfig(){
+				uni.navigateTo({
+					url:"../my-config/my-config"
+				})
+			}
 		}
 	}
 </script>

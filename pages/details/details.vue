@@ -1,6 +1,5 @@
 <template>
 	<view class="details">
-		{{num}}
 		<!-- 商品图 -->
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
 			<swiper-item>

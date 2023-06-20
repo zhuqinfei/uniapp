@@ -152,6 +152,49 @@
             }
             
         }
+        ,{
+            "path" : "pages/my-config/my-config",
+            "style" :                                                                                    
+            {
+				"navigationBarBackgroundColor":"#FFFFFF",
+                "navigationBarTitleText": "设置"
+            }
+            
+        }
+        ,{
+            "path" : "pages/my-path-list/my-path-list",
+            "style" :                                                                                    
+            {
+				"navigationBarBackgroundColor":"#FFFFFF",
+                "navigationBarTitleText": "地址管理"
+               
+            }
+            
+        }
+        ,{
+            "path" : "pages/my-add-path/my-add-path",
+            "style" :                                                                                    
+            {
+				"navigationBarBackgroundColor":"#FFFFFF",
+                "navigationBarTitleText": "新增地址",
+				"app-plus":{
+					"scrollIndicator": "none",
+					"titleNView": {
+						"buttons": [
+							{
+								"float": "right",
+								"color":"#636263",
+								"text":"保存",
+							    "fontSize":"16px",
+								"width":"50px"
+							}
+						]
+					}
+					
+				}
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
