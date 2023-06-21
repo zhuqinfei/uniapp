@@ -1,5 +1,5 @@
 <template>
-	<view class='my-order bg-active-color' :style="'height:'+clentHeight+'px;'">
+	<view class='my-order bg-active-color'>
 		<Lines></Lines>
 		<view class='order-header'>
 			<view 
@@ -11,7 +11,7 @@
 			>{{item.name}}</view>
 		</view>
 		
-		<view class='order-main'>
+		<view class='order-main' :style="'height:'+clentHeight+'px;'" v-show="false">
 			<!--商品-->
 			<view class='order-goods'>
 				<view class='goods-status f-active-color'>待买家支付</view>
@@ -40,6 +40,11 @@
 			<view class='payment'>
 				<view class='payment-text f-active-color'>支付</view>
 			</view>
+		</view>
+		
+		<view class="no-order" :style="'height:'+clentHeight+'px;'">
+			<view>你还没有相关订单</view>
+			<view class="no-order-home">去首页逛逛</view>
 		</view>
 		
 	</view>
@@ -86,6 +91,19 @@
 </script>
 
 <style scoped>
+.no-order{
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+    align-items: center;
+}
+.no-order-home{
+	padding:6rpx 60rpx;
+	margin:20rpx 0;
+	border:2rpx solid #49BDFB;
+	color:#49BDFB;
+	border-radius: 40rpx;
+}
 .order-header{
 	background-color: #FFFFFF;
 	display: flex;
