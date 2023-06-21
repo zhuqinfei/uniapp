@@ -11,47 +11,46 @@
 			>{{item.name}}</view>
 		</view>
 		
-		<view class='order-main' :style="'height:'+clentHeight+'px;'" v-show="false">
-			<!--商品-->
-			<view class='order-goods'>
-				<view class='goods-status f-active-color'>待买家支付</view>
-				<view class='goods-item'>
-					<view class='goods-content bg-active-color'>
-						<image class='goods-img' src="../../static/img/Children3.jpg" mode=""></image>
-						<view class='goods-text'>
-							<view class='goods-name'>大姨绒毛大款2020年必须买,不买你就不行了必须买</view>
-							<view class='goods-size f-color'>颜色分类：黑色</view>
-							<view class='f-active-color' style='font-size:24rpx'>7天无理由</view>
-						</view>
-						<view>
-							<view>¥299.00</view>
-							<view class='f-color'>*1</view>
-						</view>
+		<block v-for="(tabItem,tabI) in tabList" :key="tabI">
+			<view v-show="tabI===tabIndex">
+				<view v-if="tabItem.list.length>0" class='order-main' :style="'height:'+clentHeight+'px;'">
+					<view  v-for="(k,i) in tabItem.list" :key="i">
+					   <!--商品-->
+					   <view class='order-goods'>
+					   	<view class='goods-status f-active-color'>{{k.status}}</view>
+					   	<view class='goods-item'
+						    v-for="(item,index) in k.goods_item"
+							:key="index">
+					   		<orderList :item='item' :index='index'></orderList>
+					   	</view>
+					   </view>
+					   <Lines></Lines>
+					   <!--总价-->
+					   <view class='total-price'>
+					   	订单金额: <text class='f-active-color'>¥{{k.totalPrice}}</text> (包含运费¥0.00)
+					   </view>
+					   <Lines></Lines>
+					   <!--支付-->
+					   <view class='payment'>
+					   	<view class='payment-text f-active-color'>支付</view>
+					   </view>	
 					</view>
 				</view>
-			</view>
-			<Lines></Lines>
-			<!--总价-->
-			<view class='total-price'>
-				订单金额: <text class='f-active-color'>¥39.00</text> (包含运费¥0.00)
-			</view>
-			<Lines></Lines>
-			<!--支付-->
-			<view class='payment'>
-				<view class='payment-text f-active-color'>支付</view>
-			</view>
-		</view>
+				
+				<view v-else class="no-order" :style="'height:'+clentHeight+'px;'">
+					<view>你还没有相关订单</view>
+					<view class="no-order-home">去首页逛逛</view>
+				</view>
+			</view>	
+		</block>
 		
-		<view class="no-order" :style="'height:'+clentHeight+'px;'">
-			<view>你还没有相关订单</view>
-			<view class="no-order-home">去首页逛逛</view>
-		</view>
 		
 	</view>
 </template>
 
 <script>
 	import Lines from '../../components/common/Line.vue'
+	import orderList from '../../components/order/order-list.vue'
 	export default {
 		data() {
 			return {
@@ -61,12 +60,48 @@
 				tabIndex:0,
 				//顶部选项卡的数据
 				tabList:[
-					{name:"全部"},
-					{name:"待付款"},
-					{name:"待发货"},
-					{name:"待收货"},
-					{name:"待评价"},
-				]
+					{
+						name:"全部",
+						list:[
+							{
+								status:"待付款",
+								totalPrice:'3999.00',
+								goods_item:[
+									{
+										imgUrl:"../../static/img/Children3.jpg",
+										name:"大姨绒毛大款2020年必须买,不买你就不行了必须买",
+										attrs:"黑色",
+										pprice:"299.00",
+										num:"1"
+									},
+									{
+										imgUrl:"../../static/img/Children3.jpg",
+										name:"大姨绒毛大款2020年必须买,不买你就不行了必须买",
+										attrs:"黑色",
+										pprice:"299.00",
+										num:"5"
+									}
+								]
+							}
+						]
+					},
+					{
+						name:"待付款",
+						list:[]
+					},
+					{
+						name:"待发货",
+						list:[]
+					},
+					{
+						name:"待收货",
+						list:[]
+					},
+					{
+						name:"待评价",
+						list:[]
+					},
+				],
 			}
 		},
 		onReady() {
@@ -79,7 +114,8 @@
 			
 		},
 		components:{
-			Lines
+			Lines,
+			orderList
 		},
 		methods: {
 			//顶部切换
@@ -96,6 +132,7 @@
 	flex-direction: column;
 	justify-content: center;
     align-items: center;
+	background-color: #FFFFFF;
 }
 .no-order-home{
 	padding:6rpx 60rpx;
