@@ -25,9 +25,11 @@
 		
 		<view class='path-item'>
 			<view>设为默认地址</view>
-			<label class="radio">
-				<radio value="" color="#FF3333" :checked="pathObj.isDefault"/><text></text>
-			</label>
+			<radio-group name="" @tap="radioChange">
+			   <label class="radio">
+			   	<radio value="" color="#FF3333" :checked="pathObj.isDefault"/><text></text>
+			   </label>
+			</radio-group>		
 		</view>
 		
 	</view>
@@ -45,7 +47,7 @@
 					tle:'',
 					city:"请选择",
 					details:'',
-					isDefault:true
+					isDefault:false
 				},
 				i:-1,
 				//是否修改状态
@@ -93,6 +95,9 @@
 			onConfirm(e) {
 			  this.pathObj.city = e.label;
 			},
+			radioChange(){
+				this.pathObj.isDefault=!this.pathObj.isDefault
+			}
 		}
 	}
 </script>
