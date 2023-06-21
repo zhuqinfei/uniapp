@@ -2,7 +2,12 @@
 	<view class='my-path-list'>
 		
 		<view class='path-list'>
-			<view class='path-item' v-for="(item,index) in list" :key="index">
+			<view 
+			class='path-item' 
+			v-for="(item,index) in list" 
+			:key="index"
+			@tap="toAddPath(index)"
+			>
 				<view class='item-main'>
 					<view class='item-name'>{{item.name}}</view>
 					<view>{{item.tel}}</view>
@@ -35,6 +40,19 @@
 			})	
 		},
 		methods: {
+			//修改
+			toAddPath(index){
+				let pathObj=JSON.stringify({
+					index:index,
+					item:this.list[index]
+				})
+				
+				uni.navigateTo({
+					url:`../my-add-path/my-add-path?data=${pathObj}`
+				})
+			},
+			
+			//新增
 			goAddPath(){
 				uni.navigateTo({
 					url:"../my-add-path/my-add-path"

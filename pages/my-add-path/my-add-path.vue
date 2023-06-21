@@ -46,7 +46,21 @@
 					city:"请选择",
 					details:'',
 					isDefault:true
-				}
+				},
+				i:-1,
+				//是否修改状态
+				isStatus:false,
+			}
+		},
+		onLoad(e) {
+			if(e.data){
+				uni.setNavigationBarTitle({
+					title:'修改地址'
+				})
+				let result=JSON.parse(e.data)
+				this.pathObj=result.item
+				this.i=result.index
+				this.isStatus=true
 			}
 		},
 		components:{
@@ -54,13 +68,25 @@
 		},
 		//页面生命周期
 		onNavigationBarButtonTap(){
-			this.createPathFn(this.pathObj)
-			uni.navigateBack({
-				delta:1
-			})
+			if(this.isStatus){
+				//修改
+				this.undatePathFn({
+					index:this.i,
+					item:this.pathObj
+				})
+				uni.navigateBack({
+					delta:1
+				})	
+			}else{
+				//新增
+				this.createPathFn(this.pathObj)
+				uni.navigateBack({
+					delta:1
+				})
+			}
 		},
 		methods: {
-			...mapActions(['createPathFn']),
+			...mapActions(['createPathFn','undatePathFn']),
 			showCityPicker() {
 			  this.$refs.mpvueCityPicker.show();
 			},

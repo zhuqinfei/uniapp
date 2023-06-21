@@ -24,10 +24,18 @@ export default {
 		createPath( state, obj ){
 			state.list.unshift( obj );
 		},
+		undatePath(state,{index,item}){
+			for(let key in item){
+				state.list[index][key]=item[key]
+			}
+		}
 	},
 	actions:{
 		createPathFn({commit},obj){
 			commit('createPath',obj)
 		},
+		undatePathFn({commit},obj){
+			commit('undatePath',obj)
+		}
 	}
 }
