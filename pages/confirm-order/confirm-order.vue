@@ -3,12 +3,20 @@
 		<Lines></Lines>
 		
 		<!--地址-->
-		<view class='order-map'>
-			<view class='map-title'>
-				<view class='map-name'>收件人：张三</view>
-				<view>18511773322</view>
-			</view>
-			<view class='map-city'>收货地址：北京市朝阳区xxxxxxx</view>
+		<view class='order-map' @tap="goPathList">
+			<template v-if="path">
+				<view class='map-title'>
+					<view class='map-name'>收件人：{{path.name}}</view>
+					<view>{{path.tel}}</view>
+				</view>
+				<view class='map-city'>收货地址：{{path.city}}{{path.details}}</view>
+			</template>
+			<template v-else>
+				<view class='map-title'>
+					<view class='map-name'>请选择地址</view>
+				</view>
+			</template>
+			
 		</view>
 		<!--商品-->
 		<view class='goods-list'>
@@ -48,17 +56,30 @@
 
 <script>
 	import Lines from '../../components/common/Line.vue'
+	import {mapGetters} from 'vuex'
 	export default {
 		data() {
 			return {
-				
+				path:false
+			}
+		},
+		computed:{
+			...mapGetters(['defaultPath'])
+		},
+		onLoad(){
+			if(this.defaultPath.length){
+				this.path=this.defaultPath[0]
 			}
 		},
 		components:{
 			Lines
 		},
 		methods: {
-			
+			goPathList(){
+				uni.navigateTo({
+					url:'../my-path-list/my-path-list'
+				})
+			}
 		}
 	}
 </script>
