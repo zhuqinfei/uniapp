@@ -204,6 +204,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/confirm-order/confirm-order",
+            "style" :                                                                                    
+            {
+               "navigationBarBackgroundColor":"#FFFFFF",
+               "navigationBarTitleText": "确认订单"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
