@@ -2,19 +2,20 @@
 	<view class='my-path-list'>
 		
 		<view class='path-list'>
-			<view 
-			class='path-item' 
-			v-for="(item,index) in list" 
-			:key="index"
-			@tap="toAddPath(index)"
+			<view
+		     v-for="(item,index) in list"
+		     :key="index"
+		     @tap="toAddPath(index)"
 			>
-				<view class='item-main'>
-					<view class='item-name'>{{item.name}}</view>
-					<view>{{item.tel}}</view>
-				</view>
-				<view class='item-main'>
-					<view class='active' v-if='item.isDefault'>默认</view>
-					<view>{{item.city}}{{item.details}}</view>
+				<view class='path-item' @tap="goConfirmOrder(item)">
+					<view class='item-main'>
+						<view class='item-name'>{{item.name}}</view>
+						<view>{{item.tel}}</view>
+					</view>
+					<view class='item-main'>
+						<view class='active' v-if='item.isDefault'>默认</view>
+						<view>{{item.city}}{{item.details}}</view>
+					</view>
 				</view>
 			</view>
 		</view>
@@ -31,13 +32,18 @@
 	export default {
 		data() {
 			return {
-				
+				isSelectedPath:false
 			}
 		},
 		computed:{
 		    ...mapState({
 				list:state=>state.path.list
 			})	
+		},
+		onLoad(e) {
+			if(e.type==='selectedPath'){
+				this.isSelectedPath=true
+			}
 		},
 		methods: {
 			//修改
@@ -51,12 +57,23 @@
 					url:`../my-add-path/my-add-path?data=${pathObj}`
 				})
 			},
-			
 			//新增
 			goAddPath(){
 				uni.navigateTo({
 					url:"../my-add-path/my-add-path"
 				})
+			},
+			//返回确认订单页面
+			goConfirmOrder(item){
+				//如果是从确认订单过来的执行以下代码：
+				if(this.isSelectedPath){
+					//自定义事件：页面通讯
+					uni.$emit('selectedPathItem',item)
+					//返回上一页
+					uni.navigateBack({
+						delta:1
+					})
+				}
 			}
 		}
 	}

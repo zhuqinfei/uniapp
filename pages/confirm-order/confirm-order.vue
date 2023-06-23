@@ -67,9 +67,19 @@
 			...mapGetters(['defaultPath'])
 		},
 		onLoad(){
+		    //如果有默认地址的一个赋值
 			if(this.defaultPath.length){
 				this.path=this.defaultPath[0]
 			}
+			//如果触发自定义事件，on去接受值
+			uni.$on('selectedPathItem',(res)=>{
+				this.path=res
+			})
+		},
+		onUnload() {
+			uni.$off('selectedPathItem',(res)=>{
+				console.log('移除了selectedPathItem')
+			})
 		},
 		components:{
 			Lines
@@ -77,7 +87,7 @@
 		methods: {
 			goPathList(){
 				uni.navigateTo({
-					url:'../my-path-list/my-path-list'
+					url:'../my-path-list/my-path-list?type=selectedPath'
 				})
 			}
 		}
