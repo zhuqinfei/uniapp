@@ -213,6 +213,17 @@
             }
             
         }
+        ,{
+            "path" : "pages/payment/payment",
+            "style" :                                                                                    
+            {
+               "app-plus": {
+               	"titleNView": false,
+               	"scrollIndicator": "none"
+               }
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
