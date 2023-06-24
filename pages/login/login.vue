@@ -1,23 +1,62 @@
 <template>
 	<view class='login'>
-		
-		<view class='login-tel'>
-			<view class='tel-main'>
-				<view class='close'>
-					<image class='close-img' src="../../static/img/close.png" mode=""></image>
-				</view>
-				<view class='logo'>
-					<image class='logo-img' src="../../static/img/logo.jpg" mode=""></image>
-				</view>
-				<view class='tel'>手机号注册</view>
-				<LoginOther></LoginOther>
-				<view class='login-go'>
-					<view>已有账号，去登录</view>
-					<image src="../../static/img/down.png" mode=""></image>
-				</view>
-			</view>
-		</view>
-		
+		<swiper vertical='true' style="height: 100vh;">
+			<swiper-item>
+				<scroll-view>
+					<view class='login-tel'>
+						<view class='tel-main'>
+							<view class='close'>
+								<image class='close-img' src="../../static/img/close.png" mode=""></image>
+							</view>
+							<view class='logo'>
+								<image class='logo-img' src="../../static/img/logo.jpg" mode=""></image>
+							</view>
+							<view class='tel'>手机号注册</view>
+							<LoginOther></LoginOther>
+							<view class='login-go'>
+								<view>已有账号，去登录</view>
+								<image src="../../static/img/down.png" mode=""></image>
+							</view>
+						</view>
+					</view>
+				</scroll-view>
+			</swiper-item>
+			<swiper-item>
+				<scroll-view scroll-y="true" >
+					<view class='login-tel'>
+						<view class='tel-main'>
+							<view class='close close-center'>
+								<view>
+								   <image class='close-img' src="../../static/img/close.png" mode=""></image>
+								</view>	
+								<view class="login-go">
+								   <image class='close-img' src="../../static/img/up.png" mode=""></image>
+								   <view>没有账号，去注册</view>
+								</view>
+								<view></view>
+							</view>
+							<view class="login-from">
+								<view class="login-user">
+									<text class="user-text">账号</text>
+									<input type="text" value="" placeholder="请输入手机号/昵称"/>
+								</view>
+								<view class="login-user">
+									<text class="user-text">密码</text>
+									<input type="text" value="" placeholder="6-16位字符"/>
+								</view>
+							</view>
+							<view class="login-quick">
+								<view>忘记密码？</view>
+								<view>免密登录</view>
+							</view>
+							<view class='tel'>登录</view>
+							<view class="reminder">温馨提示：你可以选择免密登录，更加方便</view>
+							<LoginOther></LoginOther>
+						</view>
+					</view>
+				</scroll-view>
+			</swiper-item>
+		</swiper>
 	</view>
 </template>
 
@@ -83,5 +122,37 @@
 .login-go image{
 	width:60rpx;
 	height: 60rpx;
+}
+
+/* 第二屏 */
+.close-center{
+	display: flex;
+}
+.close-center>view{
+	flex:1;
+	white-space:nowrap;
+}
+.login-from{
+	padding-top:100rpx;
+}
+.login-user{
+	font-size:32rpx;
+	padding:10rpx 0;
+	display: flex;
+	align-items: center;
+	border-bottom: 2rpx solid #F7F7F7;
+}
+.user-text{
+	padding-right:10rpx;
+}
+.login-quick{
+	display:flex;
+	justify-content: space-between;
+	padding:20rpx 0;
+}
+.reminder{
+	color:#CCCCCC;
+	padding:20rpx 0;
+	text-align: center;
 }
 </style>

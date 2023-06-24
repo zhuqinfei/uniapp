@@ -9,11 +9,11 @@
 				<view>微信登录</view>
 			</view>
 			<view class='other-item'>
-				<image src="../../static/img/wx.png" mode=""></image>
+				<image src="../../static/img/wb.png" mode=""></image>
 				<view>微博登录</view>
 			</view>
 			<view class='other-item'>
-				<image src="../../static/img/wx.png" mode=""></image>
+				<image src="../../static/img/qq.png" mode=""></image>
 				<view>QQ登录</view>
 			</view>
 		</view>

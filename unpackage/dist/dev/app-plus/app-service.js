@@ -7646,75 +7646,214 @@ var render = function () {
     "view",
     { staticClass: _vm._$s(0, "sc", "login"), attrs: { _i: 0 } },
     [
-      _c(
-        "view",
-        { staticClass: _vm._$s(1, "sc", "login-tel"), attrs: { _i: 1 } },
-        [
-          _c(
-            "view",
-            { staticClass: _vm._$s(2, "sc", "tel-main"), attrs: { _i: 2 } },
-            [
-              _c(
-                "view",
-                { staticClass: _vm._$s(3, "sc", "close"), attrs: { _i: 3 } },
-                [
-                  _c("image", {
-                    staticClass: _vm._$s(4, "sc", "close-img"),
-                    attrs: {
-                      src: _vm._$s(
-                        4,
-                        "a-src",
-                        __webpack_require__(/*! ../../static/img/close.png */ 195)
-                      ),
-                      _i: 4,
-                    },
-                  }),
-                ]
-              ),
-              _c(
-                "view",
-                { staticClass: _vm._$s(5, "sc", "logo"), attrs: { _i: 5 } },
-                [
-                  _c("image", {
-                    staticClass: _vm._$s(6, "sc", "logo-img"),
-                    attrs: {
-                      src: _vm._$s(
-                        6,
-                        "a-src",
-                        __webpack_require__(/*! ../../static/img/logo.jpg */ 196)
-                      ),
-                      _i: 6,
-                    },
-                  }),
-                ]
-              ),
-              _c("view", {
-                staticClass: _vm._$s(7, "sc", "tel"),
-                attrs: { _i: 7 },
-              }),
-              _c("LoginOther", { attrs: { _i: 8 } }),
-              _c(
-                "view",
-                { staticClass: _vm._$s(9, "sc", "login-go"), attrs: { _i: 9 } },
-                [
-                  _c("view"),
-                  _c("image", {
-                    attrs: {
-                      src: _vm._$s(
-                        11,
-                        "a-src",
-                        __webpack_require__(/*! ../../static/img/down.png */ 197)
-                      ),
-                      _i: 11,
-                    },
-                  }),
-                ]
-              ),
-            ],
-            1
-          ),
-        ]
-      ),
+      _c("swiper", {}, [
+        _c("swiper-item", [
+          _c("scroll-view", [
+            _c(
+              "view",
+              { staticClass: _vm._$s(4, "sc", "login-tel"), attrs: { _i: 4 } },
+              [
+                _c(
+                  "view",
+                  {
+                    staticClass: _vm._$s(5, "sc", "tel-main"),
+                    attrs: { _i: 5 },
+                  },
+                  [
+                    _c(
+                      "view",
+                      {
+                        staticClass: _vm._$s(6, "sc", "close"),
+                        attrs: { _i: 6 },
+                      },
+                      [
+                        _c("image", {
+                          staticClass: _vm._$s(7, "sc", "close-img"),
+                          attrs: {
+                            src: _vm._$s(
+                              7,
+                              "a-src",
+                              __webpack_require__(/*! ../../static/img/close.png */ 195)
+                            ),
+                            _i: 7,
+                          },
+                        }),
+                      ]
+                    ),
+                    _c(
+                      "view",
+                      {
+                        staticClass: _vm._$s(8, "sc", "logo"),
+                        attrs: { _i: 8 },
+                      },
+                      [
+                        _c("image", {
+                          staticClass: _vm._$s(9, "sc", "logo-img"),
+                          attrs: {
+                            src: _vm._$s(
+                              9,
+                              "a-src",
+                              __webpack_require__(/*! ../../static/img/logo.jpg */ 196)
+                            ),
+                            _i: 9,
+                          },
+                        }),
+                      ]
+                    ),
+                    _c("view", {
+                      staticClass: _vm._$s(10, "sc", "tel"),
+                      attrs: { _i: 10 },
+                    }),
+                    _c("LoginOther", { attrs: { _i: 11 } }),
+                    _c(
+                      "view",
+                      {
+                        staticClass: _vm._$s(12, "sc", "login-go"),
+                        attrs: { _i: 12 },
+                      },
+                      [
+                        _c("view"),
+                        _c("image", {
+                          attrs: {
+                            src: _vm._$s(
+                              14,
+                              "a-src",
+                              __webpack_require__(/*! ../../static/img/down.png */ 197)
+                            ),
+                            _i: 14,
+                          },
+                        }),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
+              ]
+            ),
+          ]),
+        ]),
+        _c("swiper-item", [
+          _c("scroll-view", {}, [
+            _c(
+              "view",
+              {
+                staticClass: _vm._$s(17, "sc", "login-tel"),
+                attrs: { _i: 17 },
+              },
+              [
+                _c(
+                  "view",
+                  {
+                    staticClass: _vm._$s(18, "sc", "tel-main"),
+                    attrs: { _i: 18 },
+                  },
+                  [
+                    _c(
+                      "view",
+                      {
+                        staticClass: _vm._$s(19, "sc", "close close-center"),
+                        attrs: { _i: 19 },
+                      },
+                      [
+                        _c("view", [
+                          _c("image", {
+                            staticClass: _vm._$s(21, "sc", "close-img"),
+                            attrs: {
+                              src: _vm._$s(
+                                21,
+                                "a-src",
+                                __webpack_require__(/*! ../../static/img/close.png */ 195)
+                              ),
+                              _i: 21,
+                            },
+                          }),
+                        ]),
+                        _c(
+                          "view",
+                          {
+                            staticClass: _vm._$s(22, "sc", "login-go"),
+                            attrs: { _i: 22 },
+                          },
+                          [
+                            _c("image", {
+                              staticClass: _vm._$s(23, "sc", "close-img"),
+                              attrs: {
+                                src: _vm._$s(
+                                  23,
+                                  "a-src",
+                                  __webpack_require__(/*! ../../static/img/up.png */ 216)
+                                ),
+                                _i: 23,
+                              },
+                            }),
+                            _c("view"),
+                          ]
+                        ),
+                        _c("view"),
+                      ]
+                    ),
+                    _c(
+                      "view",
+                      {
+                        staticClass: _vm._$s(26, "sc", "login-from"),
+                        attrs: { _i: 26 },
+                      },
+                      [
+                        _c(
+                          "view",
+                          {
+                            staticClass: _vm._$s(27, "sc", "login-user"),
+                            attrs: { _i: 27 },
+                          },
+                          [
+                            _c("text", {
+                              staticClass: _vm._$s(28, "sc", "user-text"),
+                              attrs: { _i: 28 },
+                            }),
+                            _c("input", {}),
+                          ]
+                        ),
+                        _c(
+                          "view",
+                          {
+                            staticClass: _vm._$s(30, "sc", "login-user"),
+                            attrs: { _i: 30 },
+                          },
+                          [
+                            _c("text", {
+                              staticClass: _vm._$s(31, "sc", "user-text"),
+                              attrs: { _i: 31 },
+                            }),
+                            _c("input", {}),
+                          ]
+                        ),
+                      ]
+                    ),
+                    _c(
+                      "view",
+                      {
+                        staticClass: _vm._$s(33, "sc", "login-quick"),
+                        attrs: { _i: 33 },
+                      },
+                      [_c("view"), _c("view")]
+                    ),
+                    _c("view", {
+                      staticClass: _vm._$s(36, "sc", "tel"),
+                      attrs: { _i: 36 },
+                    }),
+                    _c("view", {
+                      staticClass: _vm._$s(37, "sc", "reminder"),
+                      attrs: { _i: 37 },
+                    }),
+                    _c("LoginOther", { attrs: { _i: 38 } }),
+                  ],
+                  1
+                ),
+              ]
+            ),
+          ]),
+        ]),
+      ]),
     ]
   )
 }
@@ -7774,7 +7913,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _E_q
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 1);\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = void 0;\nvar _loginOther = _interopRequireDefault(__webpack_require__(/*! ../../components/login/login-other.vue */ 200));\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\nvar _default = {\n  data: function data() {\n    return {};\n  },\n  components: {\n    LoginOther: _loginOther.default\n  },\n  methods: {}\n};\nexports.default = _default;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vcGFnZXMvbG9naW4vbG9naW4udnVlIl0sIm5hbWVzIjpbImRhdGEiLCJjb21wb25lbnRzIiwiTG9naW5PdGhlciIsIm1ldGhvZHMiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUF3QkE7QUF4QkE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUFBLGVBR2U7RUFDZEEsSUFBSSxrQkFBRztJQUNOLE9BQU8sQ0FFUCxDQUFDO0VBQ0YsQ0FBQztFQUNEQyxVQUFVLEVBQUM7SUFDVkMsVUFBVSxFQUFWQTtFQUNELENBQUM7RUFDREMsT0FBTyxFQUFFLENBRVQ7QUFDRCxDQUFDO0FBQUEiLCJmaWxlIjoiMTk5LmpzIiwic291cmNlc0NvbnRlbnQiOlsiLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG5cbmltcG9ydCBMb2dpbk90aGVyIGZyb20gJy4uLy4uL2NvbXBvbmVudHMvbG9naW4vbG9naW4tb3RoZXIudnVlJ1xuZXhwb3J0IGRlZmF1bHQge1xuXHRkYXRhKCkge1xuXHRcdHJldHVybiB7XG5cdFx0XHRcblx0XHR9XG5cdH0sXG5cdGNvbXBvbmVudHM6e1xuXHRcdExvZ2luT3RoZXJcblx0fSxcblx0bWV0aG9kczoge1xuXHRcdFxuXHR9XG59XG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///199\n");
+eval("\n\nvar _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 1);\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = void 0;\nvar _loginOther = _interopRequireDefault(__webpack_require__(/*! ../../components/login/login-other.vue */ 200));\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\nvar _default = {\n  data: function data() {\n    return {};\n  },\n  components: {\n    LoginOther: _loginOther.default\n  },\n  methods: {}\n};\nexports.default = _default;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vcGFnZXMvbG9naW4vbG9naW4udnVlIl0sIm5hbWVzIjpbImRhdGEiLCJjb21wb25lbnRzIiwiTG9naW5PdGhlciIsIm1ldGhvZHMiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUErREE7QUEvREE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUFBLGVBR2U7RUFDZEEsSUFBSSxrQkFBRztJQUNOLE9BQU8sQ0FFUCxDQUFDO0VBQ0YsQ0FBQztFQUNEQyxVQUFVLEVBQUM7SUFDVkMsVUFBVSxFQUFWQTtFQUNELENBQUM7RUFDREMsT0FBTyxFQUFFLENBRVQ7QUFDRCxDQUFDO0FBQUEiLCJmaWxlIjoiMTk5LmpzIiwic291cmNlc0NvbnRlbnQiOlsiLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG5cbmltcG9ydCBMb2dpbk90aGVyIGZyb20gJy4uLy4uL2NvbXBvbmVudHMvbG9naW4vbG9naW4tb3RoZXIudnVlJ1xuZXhwb3J0IGRlZmF1bHQge1xuXHRkYXRhKCkge1xuXHRcdHJldHVybiB7XG5cdFx0XHRcblx0XHR9XG5cdH0sXG5cdGNvbXBvbmVudHM6e1xuXHRcdExvZ2luT3RoZXJcblx0fSxcblx0bWV0aG9kczoge1xuXHRcdFxuXHR9XG59XG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///199\n");
 
 /***/ }),
 /* 200 */
@@ -7856,7 +7995,7 @@ var render = function () {
           [
             _c("image", {
               attrs: {
-                src: _vm._$s(8, "a-src", __webpack_require__(/*! ../../static/img/wx.png */ 203)),
+                src: _vm._$s(8, "a-src", __webpack_require__(/*! ../../static/img/wb.png */ 215)),
                 _i: 8,
               },
             }),
@@ -7869,7 +8008,7 @@ var render = function () {
           [
             _c("image", {
               attrs: {
-                src: _vm._$s(11, "a-src", __webpack_require__(/*! ../../static/img/wx.png */ 203)),
+                src: _vm._$s(11, "a-src", __webpack_require__(/*! ../../static/img/qq.png */ 214)),
                 _i: 11,
               },
             }),
@@ -8002,6 +8141,36 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 
 "use strict";
 eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = void 0;\nvar _default = {\n  state: {\n    list: [{\n      name: \"张三\",\n      tel: \"18511773322\",\n      city: \"北京市海淀区\",\n      details: '2号楼',\n      isDefault: false\n    }, {\n      name: \"李四\",\n      tel: \"18511773322\",\n      city: \"北京市海淀区\",\n      details: '2号楼',\n      isDefault: true\n    }]\n  },\n  getters: {\n    defaultPath: function defaultPath(state) {\n      return state.list.filter(function (v) {\n        return v.isDefault;\n      });\n    }\n  },\n  mutations: {\n    //新增\n    createPath: function createPath(state, obj) {\n      state.list.unshift(obj);\n    },\n    //修改\n    undatePath: function undatePath(state, _ref) {\n      var index = _ref.index,\n        item = _ref.item;\n      for (var key in item) {\n        state.list[index][key] = item[key];\n      }\n    },\n    //把之前选中的变成未选中，再选一个作为默认\n    removePath: function removePath(state) {\n      state.list.forEach(function (v) {\n        if (v.isDefault) {\n          v.isDefault = false;\n        }\n      });\n    }\n  },\n  actions: {\n    createPathFn: function createPathFn(_ref2, obj) {\n      var commit = _ref2.commit;\n      if (obj.isDefault) {\n        commit('removePath');\n      }\n      commit('createPath', obj);\n    },\n    undatePathFn: function undatePathFn(_ref3, obj) {\n      var commit = _ref3.commit;\n      if (obj.item.isDefault) {\n        commit('removePath');\n      }\n      commit('undatePath', obj);\n    }\n  }\n};\nexports.default = _default;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vc3RvcmUvbW9kdWxlcy9wYXRoLmpzIl0sIm5hbWVzIjpbInN0YXRlIiwibGlzdCIsIm5hbWUiLCJ0ZWwiLCJjaXR5IiwiZGV0YWlscyIsImlzRGVmYXVsdCIsImdldHRlcnMiLCJkZWZhdWx0UGF0aCIsImZpbHRlciIsInYiLCJtdXRhdGlvbnMiLCJjcmVhdGVQYXRoIiwib2JqIiwidW5zaGlmdCIsInVuZGF0ZVBhdGgiLCJpbmRleCIsIml0ZW0iLCJrZXkiLCJyZW1vdmVQYXRoIiwiZm9yRWFjaCIsImFjdGlvbnMiLCJjcmVhdGVQYXRoRm4iLCJjb21taXQiLCJ1bmRhdGVQYXRoRm4iXSwibWFwcGluZ3MiOiI7Ozs7OztlQUFlO0VBQ2RBLEtBQUssRUFBQztJQUNMQyxJQUFJLEVBQUMsQ0FDSjtNQUNDQyxJQUFJLEVBQUMsSUFBSTtNQUNUQyxHQUFHLEVBQUMsYUFBYTtNQUNqQkMsSUFBSSxFQUFDLFFBQVE7TUFDYkMsT0FBTyxFQUFDLEtBQUs7TUFDYkMsU0FBUyxFQUFDO0lBQ1gsQ0FBQyxFQUNEO01BQ0NKLElBQUksRUFBQyxJQUFJO01BQ1RDLEdBQUcsRUFBQyxhQUFhO01BQ2pCQyxJQUFJLEVBQUMsUUFBUTtNQUNiQyxPQUFPLEVBQUMsS0FBSztNQUNiQyxTQUFTLEVBQUM7SUFDWCxDQUFDO0VBRUgsQ0FBQztFQUNEQyxPQUFPLEVBQUM7SUFDUEMsV0FBVyx1QkFBQ1IsS0FBSyxFQUFDO01BQ2pCLE9BQU9BLEtBQUssQ0FBQ0MsSUFBSSxDQUFDUSxNQUFNLENBQUMsVUFBQUMsQ0FBQztRQUFBLE9BQUVBLENBQUMsQ0FBQ0osU0FBUztNQUFBLEVBQUM7SUFDekM7RUFDRCxDQUFDO0VBQ0RLLFNBQVMsRUFBQztJQUNUO0lBQ0FDLFVBQVUsc0JBQUVaLEtBQUssRUFBRWEsR0FBRyxFQUFFO01BQ3ZCYixLQUFLLENBQUNDLElBQUksQ0FBQ2EsT0FBTyxDQUFFRCxHQUFHLENBQUU7SUFDMUIsQ0FBQztJQUNEO0lBQ0FFLFVBQVUsc0JBQUNmLEtBQUssUUFBYztNQUFBLElBQVpnQixLQUFLLFFBQUxBLEtBQUs7UUFBQ0MsSUFBSSxRQUFKQSxJQUFJO01BQzNCLEtBQUksSUFBSUMsR0FBRyxJQUFJRCxJQUFJLEVBQUM7UUFDbkJqQixLQUFLLENBQUNDLElBQUksQ0FBQ2UsS0FBSyxDQUFDLENBQUNFLEdBQUcsQ0FBQyxHQUFDRCxJQUFJLENBQUNDLEdBQUcsQ0FBQztNQUNqQztJQUNELENBQUM7SUFDRDtJQUNBQyxVQUFVLHNCQUFDbkIsS0FBSyxFQUFDO01BQ2hCQSxLQUFLLENBQUNDLElBQUksQ0FBQ21CLE9BQU8sQ0FBQyxVQUFBVixDQUFDLEVBQUU7UUFDckIsSUFBR0EsQ0FBQyxDQUFDSixTQUFTLEVBQUM7VUFDZEksQ0FBQyxDQUFDSixTQUFTLEdBQUMsS0FBSztRQUNsQjtNQUNELENBQUMsQ0FBQztJQUNIO0VBRUQsQ0FBQztFQUNEZSxPQUFPLEVBQUM7SUFDUEMsWUFBWSwrQkFBVVQsR0FBRyxFQUFDO01BQUEsSUFBWlUsTUFBTSxTQUFOQSxNQUFNO01BQ25CLElBQUdWLEdBQUcsQ0FBQ1AsU0FBUyxFQUFDO1FBQ2hCaUIsTUFBTSxDQUFDLFlBQVksQ0FBQztNQUNyQjtNQUNBQSxNQUFNLENBQUMsWUFBWSxFQUFDVixHQUFHLENBQUM7SUFDekIsQ0FBQztJQUNEVyxZQUFZLCtCQUFVWCxHQUFHLEVBQUM7TUFBQSxJQUFaVSxNQUFNLFNBQU5BLE1BQU07TUFDbkIsSUFBR1YsR0FBRyxDQUFDSSxJQUFJLENBQUNYLFNBQVMsRUFBQztRQUNyQmlCLE1BQU0sQ0FBQyxZQUFZLENBQUM7TUFDckI7TUFDQUEsTUFBTSxDQUFDLFlBQVksRUFBQ1YsR0FBRyxDQUFDO0lBQ3pCO0VBQ0Q7QUFDRCxDQUFDO0FBQUEiLCJmaWxlIjoiMjEzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGRlZmF1bHQge1xyXG5cdHN0YXRlOntcclxuXHRcdGxpc3Q6W1xyXG5cdFx0XHR7XHJcblx0XHRcdFx0bmFtZTpcIuW8oOS4iVwiLFxyXG5cdFx0XHRcdHRlbDpcIjE4NTExNzczMzIyXCIsXHJcblx0XHRcdFx0Y2l0eTpcIuWMl+S6rOW4gua1t+a3gOWMulwiLFxyXG5cdFx0XHRcdGRldGFpbHM6JzLlj7fmpbwnLFxyXG5cdFx0XHRcdGlzRGVmYXVsdDpmYWxzZVxyXG5cdFx0XHR9LFxyXG5cdFx0XHR7XHJcblx0XHRcdFx0bmFtZTpcIuadjuWbm1wiLFxyXG5cdFx0XHRcdHRlbDpcIjE4NTExNzczMzIyXCIsXHJcblx0XHRcdFx0Y2l0eTpcIuWMl+S6rOW4gua1t+a3gOWMulwiLFxyXG5cdFx0XHRcdGRldGFpbHM6JzLlj7fmpbwnLFxyXG5cdFx0XHRcdGlzRGVmYXVsdDp0cnVlXHJcblx0XHRcdH1cclxuXHRcdF1cclxuXHR9LFxyXG5cdGdldHRlcnM6e1xyXG5cdFx0ZGVmYXVsdFBhdGgoc3RhdGUpe1xyXG5cdFx0XHRyZXR1cm4gc3RhdGUubGlzdC5maWx0ZXIodj0+di5pc0RlZmF1bHQpXHJcblx0XHR9XHJcblx0fSxcclxuXHRtdXRhdGlvbnM6e1xyXG5cdFx0Ly/mlrDlop5cclxuXHRcdGNyZWF0ZVBhdGgoIHN0YXRlLCBvYmogKXtcclxuXHRcdFx0c3RhdGUubGlzdC51bnNoaWZ0KCBvYmogKTtcclxuXHRcdH0sXHJcblx0XHQvL+S/ruaUuVxyXG5cdFx0dW5kYXRlUGF0aChzdGF0ZSx7aW5kZXgsaXRlbX0pe1xyXG5cdFx0XHRmb3IobGV0IGtleSBpbiBpdGVtKXtcclxuXHRcdFx0XHRzdGF0ZS5saXN0W2luZGV4XVtrZXldPWl0ZW1ba2V5XVxyXG5cdFx0XHR9XHJcblx0XHR9LFxyXG5cdFx0Ly/miorkuYvliY3pgInkuK3nmoTlj5jmiJDmnKrpgInkuK3vvIzlho3pgInkuIDkuKrkvZzkuLrpu5jorqRcclxuXHRcdHJlbW92ZVBhdGgoc3RhdGUpe1xyXG5cdFx0XHRzdGF0ZS5saXN0LmZvckVhY2godj0+e1xyXG5cdFx0XHRcdGlmKHYuaXNEZWZhdWx0KXtcclxuXHRcdFx0XHRcdHYuaXNEZWZhdWx0PWZhbHNlXHJcblx0XHRcdFx0fVxyXG5cdFx0XHR9KVxyXG5cdFx0fVxyXG5cdFx0XHJcblx0fSxcclxuXHRhY3Rpb25zOntcclxuXHRcdGNyZWF0ZVBhdGhGbih7Y29tbWl0fSxvYmope1xyXG5cdFx0XHRpZihvYmouaXNEZWZhdWx0KXtcclxuXHRcdFx0XHRjb21taXQoJ3JlbW92ZVBhdGgnKVxyXG5cdFx0XHR9XHJcblx0XHRcdGNvbW1pdCgnY3JlYXRlUGF0aCcsb2JqKVxyXG5cdFx0fSxcclxuXHRcdHVuZGF0ZVBhdGhGbih7Y29tbWl0fSxvYmope1xyXG5cdFx0XHRpZihvYmouaXRlbS5pc0RlZmF1bHQpe1xyXG5cdFx0XHRcdGNvbW1pdCgncmVtb3ZlUGF0aCcpXHJcblx0XHRcdH1cclxuXHRcdFx0Y29tbWl0KCd1bmRhdGVQYXRoJyxvYmopXHJcblx0XHR9XHJcblx0fVxyXG59Il0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///213\n");
+
+/***/ }),
+/* 214 */
+/*!**********************************************************************!*\
+  !*** C:/Users/Administrator/Desktop/uniapp/uniapp/static/img/qq.png ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"/static/img/qq.png\";//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbbnVsbF0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6IjIxNC5qcyIsInNvdXJjZXNDb250ZW50IjpbIm1vZHVsZS5leHBvcnRzID0gXCIvc3RhdGljL2ltZy9xcS5wbmdcIjsiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///214\n");
+
+/***/ }),
+/* 215 */
+/*!**********************************************************************!*\
+  !*** C:/Users/Administrator/Desktop/uniapp/uniapp/static/img/wb.png ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"/static/img/wb.png\";//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbbnVsbF0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6IjIxNS5qcyIsInNvdXJjZXNDb250ZW50IjpbIm1vZHVsZS5leHBvcnRzID0gXCIvc3RhdGljL2ltZy93Yi5wbmdcIjsiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///215\n");
+
+/***/ }),
+/* 216 */
+/*!**********************************************************************!*\
+  !*** C:/Users/Administrator/Desktop/uniapp/uniapp/static/img/up.png ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"/static/img/up.png\";//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbbnVsbF0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6IjIxNi5qcyIsInNvdXJjZXNDb250ZW50IjpbIm1vZHVsZS5leHBvcnRzID0gXCIvc3RhdGljL2ltZy91cC5wbmdcIjsiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///216\n");
 
 /***/ })
 ],[[0,"app-config"]]]);

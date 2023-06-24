@@ -9312,51 +9312,263 @@ var render = function () {
     { staticClass: _vm._$g(0, "sc"), attrs: { _i: 0 } },
     [
       _c(
-        "uni-view",
-        { staticClass: _vm._$g(1, "sc"), attrs: { _i: 1 } },
+        "v-uni-swiper",
+        {
+          staticStyle: { height: "100vh" },
+          attrs: { vertical: "true", _i: 1 },
+        },
         [
           _c(
-            "uni-view",
-            { staticClass: _vm._$g(2, "sc"), attrs: { _i: 2 } },
+            "v-uni-swiper-item",
+            { attrs: { _i: 2 } },
             [
               _c(
-                "uni-view",
-                { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } },
+                "v-uni-scroll-view",
+                { attrs: { _i: 3 } },
                 [
-                  _c("v-uni-image", {
-                    staticClass: _vm._$g(4, "sc"),
-                    attrs: { src: _vm._$g(4, "a-src"), mode: "", _i: 4 },
-                  }),
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } },
+                    [
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
+                        [
+                          _c(
+                            "uni-view",
+                            { staticClass: _vm._$g(6, "sc"), attrs: { _i: 6 } },
+                            [
+                              _c("v-uni-image", {
+                                staticClass: _vm._$g(7, "sc"),
+                                attrs: {
+                                  src: _vm._$g(7, "a-src"),
+                                  mode: "",
+                                  _i: 7,
+                                },
+                              }),
+                            ],
+                            1
+                          ),
+                          _c(
+                            "uni-view",
+                            { staticClass: _vm._$g(8, "sc"), attrs: { _i: 8 } },
+                            [
+                              _c("v-uni-image", {
+                                staticClass: _vm._$g(9, "sc"),
+                                attrs: {
+                                  src: _vm._$g(9, "a-src"),
+                                  mode: "",
+                                  _i: 9,
+                                },
+                              }),
+                            ],
+                            1
+                          ),
+                          _c(
+                            "uni-view",
+                            {
+                              staticClass: _vm._$g(10, "sc"),
+                              attrs: { _i: 10 },
+                            },
+                            [_vm._v("手机号注册")]
+                          ),
+                          _c("LoginOther", { attrs: { _i: 11 } }),
+                          _c(
+                            "uni-view",
+                            {
+                              staticClass: _vm._$g(12, "sc"),
+                              attrs: { _i: 12 },
+                            },
+                            [
+                              _c("uni-view", { attrs: { _i: 13 } }, [
+                                _vm._v("已有账号，去登录"),
+                              ]),
+                              _c("v-uni-image", {
+                                attrs: {
+                                  src: _vm._$g(14, "a-src"),
+                                  mode: "",
+                                  _i: 14,
+                                },
+                              }),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
                 ],
                 1
               ),
+            ],
+            1
+          ),
+          _c(
+            "v-uni-swiper-item",
+            { attrs: { _i: 15 } },
+            [
               _c(
-                "uni-view",
-                { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
+                "v-uni-scroll-view",
+                { attrs: { "scroll-y": "true", _i: 16 } },
                 [
-                  _c("v-uni-image", {
-                    staticClass: _vm._$g(6, "sc"),
-                    attrs: { src: _vm._$g(6, "a-src"), mode: "", _i: 6 },
-                  }),
-                ],
-                1
-              ),
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
-                [_vm._v("手机号注册")]
-              ),
-              _c("LoginOther", { attrs: { _i: 8 } }),
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(9, "sc"), attrs: { _i: 9 } },
-                [
-                  _c("uni-view", { attrs: { _i: 10 } }, [
-                    _vm._v("已有账号，去登录"),
-                  ]),
-                  _c("v-uni-image", {
-                    attrs: { src: _vm._$g(11, "a-src"), mode: "", _i: 11 },
-                  }),
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
+                    [
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(18, "sc"), attrs: { _i: 18 } },
+                        [
+                          _c(
+                            "uni-view",
+                            {
+                              staticClass: _vm._$g(19, "sc"),
+                              attrs: { _i: 19 },
+                            },
+                            [
+                              _c(
+                                "uni-view",
+                                { attrs: { _i: 20 } },
+                                [
+                                  _c("v-uni-image", {
+                                    staticClass: _vm._$g(21, "sc"),
+                                    attrs: {
+                                      src: _vm._$g(21, "a-src"),
+                                      mode: "",
+                                      _i: 21,
+                                    },
+                                  }),
+                                ],
+                                1
+                              ),
+                              _c(
+                                "uni-view",
+                                {
+                                  staticClass: _vm._$g(22, "sc"),
+                                  attrs: { _i: 22 },
+                                },
+                                [
+                                  _c("v-uni-image", {
+                                    staticClass: _vm._$g(23, "sc"),
+                                    attrs: {
+                                      src: _vm._$g(23, "a-src"),
+                                      mode: "",
+                                      _i: 23,
+                                    },
+                                  }),
+                                  _c("uni-view", { attrs: { _i: 24 } }, [
+                                    _vm._v("没有账号，去注册"),
+                                  ]),
+                                ],
+                                1
+                              ),
+                              _c("uni-view", { attrs: { _i: 25 } }),
+                            ],
+                            1
+                          ),
+                          _c(
+                            "uni-view",
+                            {
+                              staticClass: _vm._$g(26, "sc"),
+                              attrs: { _i: 26 },
+                            },
+                            [
+                              _c(
+                                "uni-view",
+                                {
+                                  staticClass: _vm._$g(27, "sc"),
+                                  attrs: { _i: 27 },
+                                },
+                                [
+                                  _c(
+                                    "v-uni-text",
+                                    {
+                                      staticClass: _vm._$g(28, "sc"),
+                                      attrs: { _i: 28 },
+                                    },
+                                    [_vm._v("账号")]
+                                  ),
+                                  _c("v-uni-input", {
+                                    attrs: {
+                                      type: "text",
+                                      value: "",
+                                      placeholder: "请输入手机号/昵称",
+                                      _i: 29,
+                                    },
+                                  }),
+                                ],
+                                1
+                              ),
+                              _c(
+                                "uni-view",
+                                {
+                                  staticClass: _vm._$g(30, "sc"),
+                                  attrs: { _i: 30 },
+                                },
+                                [
+                                  _c(
+                                    "v-uni-text",
+                                    {
+                                      staticClass: _vm._$g(31, "sc"),
+                                      attrs: { _i: 31 },
+                                    },
+                                    [_vm._v("密码")]
+                                  ),
+                                  _c("v-uni-input", {
+                                    attrs: {
+                                      type: "text",
+                                      value: "",
+                                      placeholder: "6-16位字符",
+                                      _i: 32,
+                                    },
+                                  }),
+                                ],
+                                1
+                              ),
+                            ],
+                            1
+                          ),
+                          _c(
+                            "uni-view",
+                            {
+                              staticClass: _vm._$g(33, "sc"),
+                              attrs: { _i: 33 },
+                            },
+                            [
+                              _c("uni-view", { attrs: { _i: 34 } }, [
+                                _vm._v("忘记密码？"),
+                              ]),
+                              _c("uni-view", { attrs: { _i: 35 } }, [
+                                _vm._v("免密登录"),
+                              ]),
+                            ],
+                            1
+                          ),
+                          _c(
+                            "uni-view",
+                            {
+                              staticClass: _vm._$g(36, "sc"),
+                              attrs: { _i: 36 },
+                            },
+                            [_vm._v("登录")]
+                          ),
+                          _c(
+                            "uni-view",
+                            {
+                              staticClass: _vm._$g(37, "sc"),
+                              attrs: { _i: 37 },
+                            },
+                            [_vm._v("温馨提示：你可以选择免密登录，更加方便")]
+                          ),
+                          _c("LoginOther", { attrs: { _i: 38 } }),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
                 ],
                 1
               ),
@@ -9701,7 +9913,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 16);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.login-tel[data-v-5b26a3ac]{\r\n\twidth: 100vw;\r\n\theight: 100vh;\r\n\t/* background-color: red; */\n}\n.tel-main[data-v-5b26a3ac]{\r\n\tpadding:0 20rpx;\n}\n.close[data-v-5b26a3ac]{\r\n\r\n\tpadding:120rpx 0;\n}\n.close-img[data-v-5b26a3ac]{\r\n\twidth:60rpx;\r\n\theight: 60rpx;\n}\n.logo[data-v-5b26a3ac]{\r\n\tpadding-bottom: 100rpx;\r\n\tdisplay: flex;\r\n\tjustify-content: center;\n}\n.tel[data-v-5b26a3ac]{\r\n\twidth:100%;\r\n\t/* height: 80rpx; */\r\n\tline-height: 80rpx;\r\n\ttext-align: center;\r\n\tcolor:#FFFFFF;\r\n\tbackground-color: #49BDFB;\r\n\tborder-radius: 40rpx;\n}\n.login-go[data-v-5b26a3ac]{\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\tjustify-content: center;\r\n\talign-items: center;\n}\n.login-go uni-image[data-v-5b26a3ac]{\r\n\twidth:60rpx;\r\n\theight: 60rpx;\n}\r\n", ""]);
+exports.push([module.i, "\n.login-tel[data-v-5b26a3ac]{\r\n\twidth: 100vw;\r\n\theight: 100vh;\r\n\t/* background-color: red; */\n}\n.tel-main[data-v-5b26a3ac]{\r\n\tpadding:0 20rpx;\n}\n.close[data-v-5b26a3ac]{\r\n\r\n\tpadding:120rpx 0;\n}\n.close-img[data-v-5b26a3ac]{\r\n\twidth:60rpx;\r\n\theight: 60rpx;\n}\n.logo[data-v-5b26a3ac]{\r\n\tpadding-bottom: 100rpx;\r\n\tdisplay: flex;\r\n\tjustify-content: center;\n}\n.tel[data-v-5b26a3ac]{\r\n\twidth:100%;\r\n\t/* height: 80rpx; */\r\n\tline-height: 80rpx;\r\n\ttext-align: center;\r\n\tcolor:#FFFFFF;\r\n\tbackground-color: #49BDFB;\r\n\tborder-radius: 40rpx;\n}\n.login-go[data-v-5b26a3ac]{\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\tjustify-content: center;\r\n\talign-items: center;\n}\n.login-go uni-image[data-v-5b26a3ac]{\r\n\twidth:60rpx;\r\n\theight: 60rpx;\n}\r\n/* 第二屏 */\n.close-center[data-v-5b26a3ac]{\r\n\tdisplay: flex;\n}\n.close-center>uni-view[data-v-5b26a3ac]{\r\n\tflex:1;\r\n\twhite-space:nowrap;\n}\n.login-from[data-v-5b26a3ac]{\r\n\tpadding-top:100rpx;\n}\n.login-user[data-v-5b26a3ac]{\r\n\tfont-size:32rpx;\r\n\tpadding:10rpx 0;\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tborder-bottom: 2rpx solid #F7F7F7;\n}\n.user-text[data-v-5b26a3ac]{\r\n\tpadding-right:10rpx;\n}\n.login-quick[data-v-5b26a3ac]{\r\n\tdisplay:flex;\r\n\tjustify-content: space-between;\r\n\tpadding:20rpx 0;\n}\n.reminder[data-v-5b26a3ac]{\r\n\tcolor:#CCCCCC;\r\n\tpadding:20rpx 0;\r\n\ttext-align: center;\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
