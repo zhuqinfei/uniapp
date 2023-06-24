@@ -41,7 +41,7 @@
 				<text class="f-color">合计:</text>
 				<text class='total-price'>¥259.00</text>
 			</view>
-			<view class="go-pay">去支付</view>
+			<view class="go-pay" @tap="goPayment">去支付</view>
 		</view>
 		
 	</view>
@@ -63,6 +63,11 @@
 			goBack(){
 				uni.navigateBack({
 					delta:1
+				})
+			},
+			goPayment(){
+				uni.navigateTo({
+					url:'../payment-success/payment-success'
 				})
 			}
 		}

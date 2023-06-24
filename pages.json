@@ -224,6 +224,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/payment-success/payment-success",
+            "style" :                                                                                    
+            {
+                "navigationBarBackgroundColor":"#FFFFFF",
+                "navigationBarTitleText": "支付成功"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
