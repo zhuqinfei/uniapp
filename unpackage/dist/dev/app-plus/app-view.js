@@ -9336,7 +9336,15 @@ var render = function () {
                         [
                           _c(
                             "uni-view",
-                            { staticClass: _vm._$g(6, "sc"), attrs: { _i: 6 } },
+                            {
+                              staticClass: _vm._$g(6, "sc"),
+                              attrs: { _i: 6 },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.$handleViewEvent($event)
+                                },
+                              },
+                            },
                             [
                               _c("v-uni-image", {
                                 staticClass: _vm._$g(7, "sc"),
@@ -9430,7 +9438,14 @@ var render = function () {
                             [
                               _c(
                                 "uni-view",
-                                { attrs: { _i: 20 } },
+                                {
+                                  attrs: { _i: 20 },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.$handleViewEvent($event)
+                                    },
+                                  },
+                                },
                                 [
                                   _c("v-uni-image", {
                                     staticClass: _vm._$g(21, "sc"),
@@ -9497,6 +9512,13 @@ var render = function () {
                                       placeholder: "请输入手机号/昵称",
                                       _i: 29,
                                     },
+                                    model: {
+                                      value: _vm._$g(29, "v-model"),
+                                      callback: function ($$v) {
+                                        _vm.$handleVModelEvent(29, $$v)
+                                      },
+                                      expression: "userName",
+                                    },
                                   }),
                                 ],
                                 1
@@ -9522,6 +9544,13 @@ var render = function () {
                                       value: "",
                                       placeholder: "6-16位字符",
                                       _i: 32,
+                                    },
+                                    model: {
+                                      value: _vm._$g(32, "v-model"),
+                                      callback: function ($$v) {
+                                        _vm.$handleVModelEvent(32, $$v)
+                                      },
+                                      expression: "userPwd",
                                     },
                                   }),
                                 ],
@@ -9551,6 +9580,11 @@ var render = function () {
                             {
                               staticClass: _vm._$g(36, "sc"),
                               attrs: { _i: 36 },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.$handleViewEvent($event)
+                                },
+                              },
                             },
                             [_vm._v("登录")]
                           ),
