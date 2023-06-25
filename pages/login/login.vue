@@ -11,7 +11,7 @@
 							<view class='logo'>
 								<image class='logo-img' src="../../static/img/logo.jpg" mode=""></image>
 							</view>
-							<view class='tel'>手机号注册</view>
+							<view class='tel' @tap="goLoginTel">手机号注册</view>
 							<LoginOther></LoginOther>
 							<view class='login-go'>
 								<view>已有账号，去登录</view>
@@ -108,7 +108,6 @@
 			//判断验证是否符合要求
 			validate(key){
 				let bool=true
-				console.log(this.rules[key])
 				if( !this.rules[key].rule.test(this[key])){
 					uni.showToast({
 						title:this.rules[key].msg,
@@ -118,6 +117,12 @@
 					return false
 				}
 			    return bool
+			},
+			//进入手机号注册页面
+			goLoginTel(){
+				uni.navigateTo({
+					url:'../login-tel/login-tel'
+				})
 			},
 		}
 	}

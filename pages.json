@@ -244,6 +244,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/login-tel/login-tel",
+            "style" :                                                                                    
+            {
+               "navigationBarBackgroundColor":"#FFFFFF",
+               "navigationBarTitleText": "手机注册"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
