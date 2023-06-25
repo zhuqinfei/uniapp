@@ -253,6 +253,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/login-code/login-code",
+            "style" :                                                                                    
+            {
+                "navigationBarBackgroundColor":"#FFFFFF",
+                "navigationBarTitleText": "输入验证码"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

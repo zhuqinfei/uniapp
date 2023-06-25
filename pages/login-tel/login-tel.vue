@@ -54,6 +54,9 @@
 			},
 			goNextCode(){
 				if(  !this.validate('userTel')  ) return;
+				uni.navigateTo({
+					url:'../login-code/login-code'
+				})
 			}
 		}
 	}
