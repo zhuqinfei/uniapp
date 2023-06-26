@@ -62,6 +62,7 @@
 
 <script>
 	import LoginOther from '../../components/login/login-other.vue'
+	import $http from "../../common/api/request.js"
 	export default {
 		data() {
 			return {
@@ -98,12 +99,29 @@
 				uni.showLoading({
 					title:"登录中..."
 				})
-				setTimeout(()=>{
+				
+				$http.request({
+					url:"/login",
+					method:'POST',
+					data:{
+						userName:this.userName,
+						userPwd:this.userPwd
+					}
+				}).then((res)=>{
+					uni.showToast({
+						title:res.msg,
+						icon:'none'
+					})
 					uni.hideLoading()
 					uni.navigateBack({
 						delta:1
 					})
-				},2000)
+				}).catch(()=>{
+					uni.showToast({
+						title:'请求失败',
+						icon:'none'
+					})
+				})
 			},
 			//判断验证是否符合要求
 			validate(key){
