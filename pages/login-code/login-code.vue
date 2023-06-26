@@ -56,7 +56,7 @@
 			//点击下一步
 			goNextIndex(){
 				uni.switchTab({
-					// url:"../index/index"
+					url:"../index/index"
 				})
 			}
 		}
