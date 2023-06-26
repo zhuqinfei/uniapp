@@ -1,0 +1,20 @@
+export default{
+	state:{
+		//登录状态
+		loginStatus:false,
+		//token
+		token:null,
+		//用户信息（昵称和头像）
+		userInfo:{}
+	},
+	getters:{},
+	mutations:{
+		//登录后保存用户信息
+		login(state,userInfo){
+			state.userInfo=userInfo
+			state.loginStatus=true
+			state.token=userInfo.token
+		}
+	},
+	actions:{}
+}

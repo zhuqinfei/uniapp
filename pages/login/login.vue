@@ -63,6 +63,7 @@
 <script>
 	import LoginOther from '../../components/login/login-other.vue'
 	import $http from "../../common/api/request.js"
+	import {mapMutations} from 'vuex'
 	export default {
 		data() {
 			return {
@@ -86,6 +87,7 @@
 			LoginOther
 		},
 		methods: {
+			...mapMutations(['login']),
 			//关闭当前页面，返回上一页
 			goBack(){
 			   uni.navigateBack({
@@ -108,6 +110,8 @@
 						userPwd:this.userPwd
 					}
 				}).then((res)=>{
+					//保存用户信息
+					this.login(res.data)
 					uni.showToast({
 						title:res.msg,
 						icon:'none'

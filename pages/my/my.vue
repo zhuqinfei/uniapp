@@ -7,8 +7,14 @@
 					<image class='config-img' src="../../static/img/config.png" mode=""></image>
 				</view>
 				<view class='header-logo' @tap="goLogin">
-					<image class='logo-img' src="../../static/img/Children.jpg" mode=""></image>
-					<view class='logo-name'>用户昵称</view>
+					<image 
+					class='logo-img' 
+					:src="loginStatus ? userInfo.imgUrl : '../../static/img/Children.jpg'" 
+					mode=""
+					></image>
+					<view class='logo-name'>
+						{{loginStatus ? userInfo.nikeName : "用户昵称"}}
+					</view>
 				</view>
 			</view>
 		</view>
@@ -78,11 +84,18 @@
 </template>
 
 <script>
+	import {mapState} from 'vuex'
 	export default {
 		data() {
 			return {
 				
 			}
+		},
+		computed:{
+			...mapState({
+				loginStatus:state=>state.user.loginStatus,
+				userInfo:state=>state.user.userInfo,
+			})
 		},
 		methods: {
 			goConfig(){
@@ -121,7 +134,7 @@
 .header-logo{
 	position: absolute;
 	left:50%;
-	margin-left:-60rpx;
+	margin-left:-70rpx;
 	width:140rpx;
 	text-align: center;
 }
