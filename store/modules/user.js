@@ -9,11 +9,23 @@ export default{
 	},
 	getters:{},
 	mutations:{
+	    //一旦进入了app,就需要执行这个方法，把用户信息读出来
+		initUser(state){
+			let userInfo=uni.getStorageSync('userInfo')
+            if(userInfo){
+				userInfo=JSON.parse(userInfo)
+				state.userInfo=userInfo
+				state.loginStatus=true
+				state.token=userInfo.token
+			}
+		},
 		//登录后保存用户信息
 		login(state,userInfo){
 			state.userInfo=userInfo
 			state.loginStatus=true
 			state.token=userInfo.token
+		//持久化存储信息,还要把对象转换成字符串
+		uni.setStorageSync('userInfo',JSON.stringify(userInfo))
 		}
 	},
 	actions:{}
