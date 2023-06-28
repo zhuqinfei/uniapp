@@ -58,6 +58,7 @@
 		</scroll-view>
 	   	</swiper-item>
 	   </swiper>
+	   <Tabbar currentPage='index'></Tabbar>
 	</view>
 </template>
 
@@ -71,6 +72,7 @@
 	import Hot from "../../components/index/Hot.vue"
 	import Shop from "../../components/index/Shop.vue"
 	import $http from "../../common/api/request.js"
+	import Tabbar from "../../components/common/Tabbar.vue"
 	export default {
 		data() {
 			return {
@@ -94,7 +96,8 @@
 			Banner,
 			Icons,
 			Hot,
-			Shop
+			Shop,
+			Tabbar
 		},
 		
 		onLoad() {
@@ -103,7 +106,7 @@
 		onReady() {
 			uni.getSystemInfo({
 				success:(res)=>{
-					this.clentHeight=res.windowHeight-uni.upx2px(80)
+					this.clentHeight=res.windowHeight
 				}
 			})
 		},

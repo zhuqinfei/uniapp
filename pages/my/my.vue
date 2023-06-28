@@ -80,16 +80,21 @@
 			</view>
 			
 		</view>
+		<Tabbar currentPage='my'></Tabbar>
 	</view>
 </template>
 
 <script>
 	import {mapState} from 'vuex'
+	import Tabbar from "../../components/common/Tabbar.vue"
 	export default {
 		data() {
 			return {
 				
 			}
+		},
+		components:{
+			Tabbar
 		},
 		computed:{
 			...mapState({
