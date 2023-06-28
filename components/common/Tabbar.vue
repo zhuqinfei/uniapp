@@ -56,7 +56,7 @@ export default{
 			if(  e==='shopcart'  ||  e==='my' ){
 				console.log('验证一下');
 			}else{
-				uni.redirectTo({
+				uni.switchTab({
 					url:`../../pages/${e}/${e}`
 				})
 			}

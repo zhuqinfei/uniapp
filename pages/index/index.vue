@@ -102,11 +102,12 @@
 		
 		onLoad() {
             this.__init()
+			uni.hideTabBar()
 		},
 		onReady() {
 			uni.getSystemInfo({
 				success:(res)=>{
-					this.clentHeight=res.windowHeight
+					this.clentHeight=res.windowHeight-uni.upx2px(80)
 				}
 			})
 		},
