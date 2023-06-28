@@ -54,7 +54,11 @@ export default{
 	methods:{
 		navigatorTo(e){
 			if(  e==='shopcart'  ||  e==='my' ){
-				console.log('验证一下');
+				this.navigataTo({
+					url:`../../pages/${e}/${e}`,
+					animationType:'fade-in',
+					animationDuration:0
+				})
 			}else{
 				uni.switchTab({
 					url:`../../pages/${e}/${e}`

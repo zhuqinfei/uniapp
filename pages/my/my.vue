@@ -6,7 +6,7 @@
 				<view class='header-config' @tap="goConfig">
 					<image class='config-img' src="../../static/img/config.png" mode=""></image>
 				</view>
-				<view class='header-logo' @tap="goLogin">
+				<view class='header-logo'>
 					<image 
 					class='logo-img' 
 					:src="loginStatus ? userInfo.imgUrl : '../../static/img/Children.jpg'" 
@@ -113,11 +113,6 @@
 					url:"../my-order/my-order"
 				})
 			},
-			goLogin(){
-				uni.navigateTo({
-					url:'../login/login'
-				})
-			}
 		}
 	}
 </script>

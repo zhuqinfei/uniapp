@@ -13,12 +13,14 @@
 							{
 								"float": "left",
 								"fontSrc":"./static/iconfont.ttf",
-								"text":"\ue65f"
+								"text":"\ue65f",
+								"width": "auto" 
 							},
 							{
 								"float": "right",
 								"fontSrc":"./static/iconfont.ttf",
-								"text":"\ue61b"
+								"text":"\ue61b",
+								"width": "auto" 
 							}
 						]
 					}

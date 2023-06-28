@@ -5238,15 +5238,7 @@ var render = function () {
               ),
               _c(
                 "uni-view",
-                {
-                  staticClass: _vm._$g(5, "sc"),
-                  attrs: { _i: 5 },
-                  on: {
-                    click: function ($event) {
-                      return _vm.$handleViewEvent($event)
-                    },
-                  },
-                },
+                { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
                 [
                   _c("v-uni-image", {
                     staticClass: _vm._$g(6, "sc"),

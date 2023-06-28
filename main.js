@@ -10,6 +10,20 @@ Vue.prototype.$store=store
 Vue.config.productionTip = false
 App.mpType = 'app'
 
+//权限跳转
+Vue.prototype.navigataTo=(options)=>{
+	if( !store.state.user.loginStatus){
+		uni.showToast({
+			title:"请先登录",
+			icon:"none"
+		})
+		return uni.navigateTo({
+			url:"/pages/login/login"
+		})
+	}
+	uni.switchTab(options)
+}
+
 const app = new Vue({
   ...App,
   store
