@@ -26,7 +26,16 @@ export default{
 			state.token=userInfo.token
 		//持久化存储信息,还要把对象转换成字符串
 		uni.setStorageSync('userInfo',JSON.stringify(userInfo))
-		}
+		},
+		//退出登录
+		loginOut(state){
+			state.loginStatus=false
+			state.userInfo={}
+			state.token=null
+			//删除本地存储的信息
+			uni.removeStorageSync('userInfo')
+			
+		},
 	},
 	actions:{}
 }
