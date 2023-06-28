@@ -22,6 +22,7 @@
 
 <script>
 	import Lines from '../../components/common/Line.vue'
+	import $http from "../../common/api/request.js"
 	export default {
 		data() {
 			return {
@@ -54,9 +55,38 @@
 			},
 			goNextCode(){
 				if(  !this.validate('userTel')  ) return;
-				uni.navigateTo({
-					url:'../login-code/login-code'
+				
+				
+				$http.request({
+					url:"/registered",
+					method:'POST',
+					data:{
+						phone:this.userTel,
+					}
+				}).then((res)=>{
+					console.log(res.msg)
+					if(!res.success){
+						uni.showToast({
+							title:res.msg,
+							icon:'none'
+						})
+						return
+					}else{
+						uni.navigateTo({
+							url:'../login-code/login-code'
+						})
+					}
+				}).catch(()=>{
+					uni.showToast({
+						title:'请求失败',
+						icon:'none'
+					})
 				})
+				
+				// if(  !this.validate('userTel')  ) return;
+				// uni.navigateTo({
+				// 	url:'../login-code/login-code'
+				// })
 			}
 		}
 	}

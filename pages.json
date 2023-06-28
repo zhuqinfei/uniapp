@@ -20,7 +20,7 @@
 								"float": "right",
 								"fontSrc":"./static/iconfont.ttf",
 								"text":"\ue61b",
-								"width": "auto" 
+								"width": "auto" //加上宽度解决显示不全问题
 							}
 						]
 					}
