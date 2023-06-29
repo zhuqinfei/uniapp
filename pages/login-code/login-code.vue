@@ -18,17 +18,19 @@
 
 <script>
 	import Lines from '../../components/common/Line.vue'
+	import $http from "../../common/api/request.js"
 	export default {
 		data() {
 			return {
 				//倒计时到时间
-				codeNum:10,
+				codeNum:60,
 				//显示到文本
 				codeMsg:"",
 				//按钮是否禁用
 				disabled:false,
 				//用户输入的内容
-				userCode:''
+				userCode:'',
+				phone:''
 			}
 		},
 		components:{
@@ -38,9 +40,28 @@
 			this.codeMsg = '重新发送('+this.codeNum+')';
 			this.sendCode();
 		},
+		onLoad(e) {
+			this.phone=e.phone
+		},
 		methods: {
 			//点击验证码发送
 			sendCode(){
+				//请求接口返回验证码
+				$http.request({
+					url:"/code",
+					method:'POST',
+					data:{
+						userName:this.phone,
+					}
+				}).then((res)=>{
+					console.log(res.code)
+				}).catch(()=>{
+					uni.showToast({
+						title:'请求失败',
+						icon:'none'
+					})
+				})
+				
 				this.disabled = true;
 				let timer = setInterval(()=>{
 					--this.codeNum;
@@ -51,7 +72,7 @@
 					this.codeNum=10;
 					this.disabled = false;
 					this.codeMsg = '重新发送';
-				},10000)
+				},60000)
 			},
 			//点击下一步
 			goNextIndex(){
@@ -64,6 +85,9 @@
 </script>
 
 <style scoped>
+button{
+	width:280rpx
+}
 .login-tel{
 	width: 100vw;
 	height: 100vh;
@@ -83,6 +107,7 @@
 }
 .user-text{
 	padding-right:10rpx;
+	white-space:nowrap
 }
 .tel{
 	width:100%;

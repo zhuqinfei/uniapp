@@ -3,6 +3,11 @@ var router = express.Router();
 var connection=require("../db/sql.js")
 var user=require('../db/userSql.js')
 
+//验证码
+let code = '';
+//接入短信的sdk
+const tencentcloud = require("tencentcloud-sdk-nodejs");
+
 /* GET home page. */
 // router.get('/', function(req, res, next) {
 //   // res.render('index', { title: 'Express' });
@@ -887,11 +892,71 @@ router.post('/api/registered',function(req, res, next) {
 				}
 			})
 		}
-	})
-	
-	   
+	})	   
 });
 
+//发送验证码
+router.post('/api/code', function(req, res, next) {
+	//前端给后端的数据
+	let params = {
+		userName : req.body.userName
+	};
+	
+	//导入对应产品模块的client models
+	const SmsClient = tencentcloud.sms.v20190711.Client;
+	
+	const clientConfig = {
+	  //腾讯云认证信息
+	  credential: {
+	    secretId: "AKIDDLH4hFi0CNRUchaE7rRp01vfFUgpnnp5",
+	    secretKey: "DHF6qQsCJOUegVAnPtDPRL7ubL2jHm5G",
+	  },
+	  //产品地域
+	  region: "",
+	  //可选配置实例
+	  profile: {
+	    httpProfile: {
+	      endpoint: "sms.tencentcloudapi.com",
+	    },
+	  },
+	};
+	//实例化要请求产品的client对象
+	//实例化 SMS 的 client 对象
+	const client = new SmsClient(clientConfig);
+	
+	//生成n位验证码
+	function RndNum(n) {
+	  var rnd = "";
+	  for (var i = 0; i < n; i++) rnd += Math.floor(Math.random() * 10);
+	  return rnd;
+	}
+	
+	//五位验证码
+	var VerificationCode = RndNum(6);
+	const paramss = {
+	  PhoneNumberSet: [`+86${params.userName}`],
+	  TemplateParamSet: [VerificationCode, "5"],
+	  TemplateID: "1848842",
+	  SmsSdkAppid: "1400834832",
+	  Sign: "蓝色的精灵小程序",
+	};
+	// 通过 client 对象调用想要访问的接口，需要传入请求对象以及响应回调函数
+	client.SendSms(paramss).then(
+	  (data) => {
+	    if(data.SendStatusSet[0].Code=="Ok"){
+			code=VerificationCode
+			res.send({
+				data:{
+					code:code
+				}
+			})
+		}
+	  },
+	  (err) => {
+	    console.error("error", err);
+	  }
+	);	
+})
 
 
 module.exports = router;

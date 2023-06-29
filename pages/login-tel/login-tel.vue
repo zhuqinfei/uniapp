@@ -56,7 +56,6 @@
 			goNextCode(){
 				if(  !this.validate('userTel')  ) return;
 				
-				
 				$http.request({
 					url:"/registered",
 					method:'POST',
@@ -64,7 +63,6 @@
 						phone:this.userTel,
 					}
 				}).then((res)=>{
-					console.log(res.msg)
 					if(!res.success){
 						uni.showToast({
 							title:res.msg,
@@ -73,7 +71,7 @@
 						return
 					}else{
 						uni.navigateTo({
-							url:'../login-code/login-code'
+							url:`../login-code/login-code?phone=${this.userTel}`
 						})
 					}
 				}).catch(()=>{
@@ -82,11 +80,6 @@
 						icon:'none'
 					})
 				})
-				
-				// if(  !this.validate('userTel')  ) return;
-				// uni.navigateTo({
-				// 	url:'../login-code/login-code'
-				// })
 			}
 		}
 	}
