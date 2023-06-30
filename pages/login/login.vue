@@ -42,7 +42,7 @@
 								</view>
 								<view class="login-user">
 									<text class="user-text">密码</text>
-									<input type="text" v-model="userPwd" value="" placeholder="6-16位字符"/>
+									<input type="password" v-model="userPwd" value="" placeholder="6-16位字符"/>
 								</view>
 							</view>
 							<view class="login-quick">
@@ -110,16 +110,25 @@
 						userPwd:this.userPwd
 					}
 				}).then((res)=>{
-					//保存用户信息
-					this.login(res.data)
-					uni.showToast({
-						title:res.msg,
-						icon:'none'
-					})
-					uni.hideLoading()
-					uni.navigateBack({
-						delta:1
-					})
+					
+					if(res.success){
+						//保存用户信息
+						this.login(res.data)
+						uni.showToast({
+							title:res.msg,
+							icon:'none'
+						})
+						uni.hideLoading()
+						uni.navigateBack({
+							delta:1
+						})
+					}else{
+						uni.showToast({
+							title:res.msg,
+							icon:'none'
+						})
+					}
+					
 				}).catch(()=>{
 					uni.showToast({
 						title:'请求失败',

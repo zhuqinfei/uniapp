@@ -146,7 +146,7 @@
 }
 .shop-foot{
     position: fixed;
-	bottom: var(--window-bottom);
+	bottom: 120rpx;
 	left:0;
 	width: 100%;
 	height: 100rpx;
