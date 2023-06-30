@@ -895,7 +895,7 @@ router.post('/api/registered',function(req, res, next) {
 	})	   
 });
 
-//发送验证码
+//这里发的验证码是假的，测试用，真的在下面注释了
 router.post('/api/code', function(req, res, next) {
 	//前端给后端的数据
 	let params = {

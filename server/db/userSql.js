@@ -10,7 +10,14 @@ var User={
 	},
 	//增加一条用户数据
 	insertData(param){
-		return `insert into user (userName,userPwd,phone,imgUrl,nikeName,token) values ("","","${param.userName}","../../static/img/logo.jpg","默认昵称","")`;
+		
+		const jwt=require('jsonwebtoken')
+		//id+时间戳+随机数/口令
+		let payload={name:param.userName}//用户名
+		let secret='zhangsan' //口令
+		let token=jwt.sign(payload,secret)
+		
+		return `insert into user (userName,userPwd,phone,imgUrl,nikeName,token) values ("","123456","${param.userName}","../../static/img/logo.jpg","默认昵称","${token}")`;
 	}
 }
 

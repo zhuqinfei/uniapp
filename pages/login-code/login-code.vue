@@ -90,17 +90,14 @@
 						}).then((res)=>{
 							//注册成功
 							if( res.success ){
-								
 								uni.showToast({
 									title:res.msg,
 									icon:"none"
 								})
 								uni.switchTab({
 									url:"../index/index"
-								})
-								
-							}
-							
+								})	
+							}	
 						}).catch(()=>{
 							uni.showToast({
 								title:'请求失败',
