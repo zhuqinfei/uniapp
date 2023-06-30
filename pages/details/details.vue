@@ -197,19 +197,35 @@
 					url:'../shopcart/shopcart'
 				})
 			},
-			addCart(){
-				let goods=this.goodsContent
-				this.goodsContent['checked']=false
-				this.goodsContent['num']=this.num
-				//加入购物车
-			    this.addShopCart(goods)
-				//隐藏弹出框
-				this.hidePop()
-				//提示信息
-				uni.showToast({
-					title:"成功加入购物车",
-					icon:"none"
+			addCart(){	
+				$http.request({
+					url:"/ceshi",
+					method:"POST",
+					header:{
+						token:true
+					}
+				}).then((res)=>{
+					 console.log(res)
+				}).catch(()=>{
+					   uni.showToast({
+					   title:'请求失败',
+					   icon:'none'
+					})
 				})
+				
+				
+				// let goods=this.goodsContent
+				// this.goodsContent['checked']=false
+				// this.goodsContent['num']=this.num
+				// //加入购物车
+			 //    this.addShopCart(goods)
+				// //隐藏弹出框
+				// this.hidePop()
+				// //提示信息
+				// uni.showToast({
+				// 	title:"成功加入购物车",
+				// 	icon:"none"
+				// })
 			}
 		}
 	}
