@@ -941,14 +941,6 @@ router.post('/api/addUser', function(req, res, next) {
 	
 })
 
-//测试token
-router.post('/api/ceshi', function(req, res, next) {
-    res.send({
-		data:{
-			a:1
-		}
-	})
-});
 
 //发送验证码
 // router.post('/api/code', function(req, res, next) {
