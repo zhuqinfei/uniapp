@@ -30,7 +30,8 @@
 				disabled:false,
 				//用户输入的内容
 				userCode:'',
-				phone:''
+				phone:'',
+				getCode:''
 			}
 		},
 		components:{
@@ -54,7 +55,7 @@
 						userName:this.phone,
 					}
 				}).then((res)=>{
-					console.log(res.code)
+					this.getCode=res.code
 				}).catch(()=>{
 					uni.showToast({
 						title:'请求失败',
@@ -76,9 +77,43 @@
 			},
 			//点击下一步
 			goNextIndex(){
-				uni.switchTab({
-					url:"../index/index"
-				})
+				if(this.getCode == this.userCode){
+						//请求接口==》往数据库增加一条数据
+						$http.request({
+							url:"/addUser",
+							method:"POST",
+							data:{
+								userName:this.phone,
+								//后端拿到code也要进行对比
+								code:this.userCode
+							}
+						}).then((res)=>{
+							//注册成功
+							if( res.success ){
+								
+								uni.showToast({
+									title:res.msg,
+									icon:"none"
+								})
+								uni.switchTab({
+									url:"../index/index"
+								})
+								
+							}
+							
+						}).catch(()=>{
+							uni.showToast({
+								title:'请求失败',
+								icon:'none'
+							})
+						})
+						
+				}else{
+						uni.showToast({
+							title:"验证码错误",
+							icon:"none"
+						})
+					}
 			}
 		}
 	}
