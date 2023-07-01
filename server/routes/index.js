@@ -895,13 +895,34 @@ router.post('/api/registered',function(req, res, next) {
 	})	   
 });
 
-//这里发的验证码是假的，测试用，真的在下面注释了
+//发送验证码
 router.post('/api/code', function(req, res, next) {
 	//前端给后端的数据
 	let params = {
 		userName : req.body.userName
 	};
 	
+	//导入对应产品模块的client models
+	const SmsClient = tencentcloud.sms.v20190711.Client;
+	
+	const clientConfig = {
+	  //腾讯云认证信息
+	  credential: {
+	    secretId: "AKIDDLH4hFi0CNRUchaE7rRp01vfFUgpnnp5",
+	    secretKey: "DHF6qQsCJOUegVAnPtDPRL7ubL2jHm5G",
+	  },
+	  //产品地域
+	  region: "",
+	  //可选配置实例
+	  profile: {
+	    httpProfile: {
+	      endpoint: "sms.tencentcloudapi.com",
+	    },
+	  },
+	};
+	//实例化要请求产品的client对象
+	//实例化 SMS 的 client 对象
+	const client = new SmsClient(clientConfig);
 	
 	//生成n位验证码
 	function RndNum(n) {
@@ -912,13 +933,29 @@ router.post('/api/code', function(req, res, next) {
 	
 	//五位验证码
 	var VerificationCode = RndNum(6);
-	console.log(VerificationCode)
-	code=VerificationCode
-	res.send({
-		data:{
-			code:code
+	const paramss = {
+	  PhoneNumberSet: [`+86${params.userName}`],
+	  TemplateParamSet: [VerificationCode, "5"],
+	  TemplateID: "1848842",
+	  SmsSdkAppid: "1400834832",
+	  Sign: "蓝色的精灵小程序",
+	};
+	// 通过 client 对象调用想要访问的接口，需要传入请求对象以及响应回调函数
+	client.SendSms(paramss).then(
+	  (data) => {
+	    if(data.SendStatusSet[0].Code=="Ok"){
+			code=VerificationCode
+			res.send({
+				data:{
+					code:code
+				}
+			})
 		}
-	})
+	  },
+	  (err) => {
+	    console.error("error", err);
+	  }
+	);	
 })
 
 //注册===>增加一条数据
@@ -930,79 +967,19 @@ router.post('/api/addUser', function(req, res, next) {
 	};
 	if(params.userCode == code){
 		connection.query( user.insertData(params) , function (error, results, fields) {
-		    res.send({
-				data:{
+			connection.query(user.queryUserName(params),function(err,result) {
+			  res.send({
+				  data:{
 					success:true,
-					msg:"注册成功"
-				}
+					msg:"注册成功",
+					data:result[0]
+				  }
+			  })
 			})
 		})
 	}
 	
 })
 
-
-//发送验证码
-// router.post('/api/code', function(req, res, next) {
-// 	//前端给后端的数据
-// 	let params = {
-// 		userName : req.body.userName
-// 	};
-	
-// 	//导入对应产品模块的client models
-// 	const SmsClient = tencentcloud.sms.v20190711.Client;
-	
-// 	const clientConfig = {
-// 	  //腾讯云认证信息
-// 	  credential: {
-// 	    secretId: "AKIDDLH4hFi0CNRUchaE7rRp01vfFUgpnnp5",
-// 	    secretKey: "DHF6qQsCJOUegVAnPtDPRL7ubL2jHm5G",
-// 	  },
-// 	  //产品地域
-// 	  region: "",
-// 	  //可选配置实例
-// 	  profile: {
-// 	    httpProfile: {
-// 	      endpoint: "sms.tencentcloudapi.com",
-// 	    },
-// 	  },
-// 	};
-// 	//实例化要请求产品的client对象
-// 	//实例化 SMS 的 client 对象
-// 	const client = new SmsClient(clientConfig);
-	
-// 	//生成n位验证码
-// 	function RndNum(n) {
-// 	  var rnd = "";
-// 	  for (var i = 0; i < n; i++) rnd += Math.floor(Math.random() * 10);
-// 	  return rnd;
-// 	}
-	
-// 	//五位验证码
-// 	var VerificationCode = RndNum(6);
-// 	const paramss = {
-// 	  PhoneNumberSet: [`+86${params.userName}`],
-// 	  TemplateParamSet: [VerificationCode, "5"],
-// 	  TemplateID: "1848842",
-// 	  SmsSdkAppid: "1400834832",
-// 	  Sign: "蓝色的精灵小程序",
-// 	};
-// 	// 通过 client 对象调用想要访问的接口，需要传入请求对象以及响应回调函数
-// 	client.SendSms(paramss).then(
-// 	  (data) => {
-// 	    if(data.SendStatusSet[0].Code=="Ok"){
-// 			code=VerificationCode
-// 			res.send({
-// 				data:{
-// 					code:code
-// 				}
-// 			})
-// 		}
-// 	  },
-// 	  (err) => {
-// 	    console.error("error", err);
-// 	  }
-// 	);	
-// })
 
 module.exports = router;

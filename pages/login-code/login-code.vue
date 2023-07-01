@@ -19,6 +19,7 @@
 <script>
 	import Lines from '../../components/common/Line.vue'
 	import $http from "../../common/api/request.js"
+	import {mapMutations} from 'vuex'
 	export default {
 		data() {
 			return {
@@ -45,6 +46,7 @@
 			this.phone=e.phone
 		},
 		methods: {
+			...mapMutations(['login']),
 			//点击验证码发送
 			sendCode(){
 				//请求接口返回验证码
@@ -94,6 +96,9 @@
 									title:res.msg,
 									icon:"none"
 								})
+								
+								this.login(res.data)
+								
 								uni.switchTab({
 									url:"../index/index"
 								})	
