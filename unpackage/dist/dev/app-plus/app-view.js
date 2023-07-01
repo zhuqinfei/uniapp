@@ -5120,7 +5120,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 16);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.shop-list{\r\n\tpadding-bottom:100rpx;\n}\n.shop-item{\r\n\tdisplay: flex;\r\n\tpadding:20rpx;\r\n\talign-items: center;\r\n\tbackground-color: #F7F7F7;\r\n\tmargin-bottom: 10rpx;\n}\n.shop-img{\r\n\twidth:200rpx;\r\n\theight: 200rpx;\n}\n.shop-text{\r\n\tflex:1;\r\n\tpadding-left:20rpx;\n}\n.shop-color{\r\n\tfont-size: 20rpx;\n}\n.shop-price{\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\n}\n.shop-foot{\r\n    position: fixed;\r\n\tbottom: var(--window-bottom);\r\n\tleft:0;\r\n\twidth: 100%;\r\n\theight: 100rpx;\r\n\tbackground-color: #FFFFFF;\r\n\tborder-top: 2rpx solid #F7F7F7;\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\talign-items: center;\n}\n.foot-radio{\r\n\tpadding-left:20rpx;\n}\n.foot-total{\r\n\tdisplay: flex;\n}\n.foot-count{\r\n\tline-height: 100rpx;\r\n\tpadding:0 20rpx;\r\n\tfont-size:32rpx;\n}\n.foot-num{\r\n\tbackground-color: #49BDFB;\r\n\tcolor:#FFFFFF;\r\n\tpadding:0 60rpx;\r\n\tline-height: 100rpx;\n}\n.shop-else-list{\r\n\tbackground-color: #F7F7F7;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\tdisplay: flex;\r\n\tjustify-content: center;\r\n\talign-items: center;\r\n\tposition: absolute;\r\n\tleft: 0;\r\n\ttop: 0;\r\n\tright: 0;\r\n\tbottom: 0;\n}\r\n", ""]);
+exports.push([module.i, "\n.shop-list{\r\n\tpadding-bottom:100rpx;\n}\n.shop-item{\r\n\tdisplay: flex;\r\n\tpadding:20rpx;\r\n\talign-items: center;\r\n\tbackground-color: #F7F7F7;\r\n\tmargin-bottom: 10rpx;\n}\n.shop-img{\r\n\twidth:200rpx;\r\n\theight: 200rpx;\n}\n.shop-text{\r\n\tflex:1;\r\n\tpadding-left:20rpx;\n}\n.shop-color{\r\n\tfont-size: 20rpx;\n}\n.shop-price{\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\n}\n.shop-foot{\r\n    position: fixed;\r\n\tbottom: 120rpx;\r\n\tleft:0;\r\n\twidth: 100%;\r\n\theight: 100rpx;\r\n\tbackground-color: #FFFFFF;\r\n\tborder-top: 2rpx solid #F7F7F7;\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\talign-items: center;\n}\n.foot-radio{\r\n\tpadding-left:20rpx;\n}\n.foot-total{\r\n\tdisplay: flex;\n}\n.foot-count{\r\n\tline-height: 100rpx;\r\n\tpadding:0 20rpx;\r\n\tfont-size:32rpx;\n}\n.foot-num{\r\n\tbackground-color: #49BDFB;\r\n\tcolor:#FFFFFF;\r\n\tpadding:0 60rpx;\r\n\tline-height: 100rpx;\n}\n.shop-else-list{\r\n\tbackground-color: #F7F7F7;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\tdisplay: flex;\r\n\tjustify-content: center;\r\n\talign-items: center;\r\n\tposition: absolute;\r\n\tleft: 0;\r\n\ttop: 0;\r\n\tright: 0;\r\n\tbottom: 0;\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -9794,7 +9794,7 @@ var render = function () {
                                   ),
                                   _c("v-uni-input", {
                                     attrs: {
-                                      type: "text",
+                                      type: "password",
                                       value: "",
                                       placeholder: "6-16位字符",
                                       _i: 32,
@@ -10016,7 +10016,15 @@ var render = function () {
         [
           _c(
             "uni-view",
-            { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } },
+            {
+              staticClass: _vm._$g(4, "sc"),
+              attrs: { _i: 4 },
+              on: {
+                click: function ($event) {
+                  return _vm.$handleViewEvent($event)
+                },
+              },
+            },
             [
               _c("v-uni-image", {
                 attrs: { src: _vm._$g(5, "a-src"), mode: "", _i: 5 },
@@ -10027,7 +10035,15 @@ var render = function () {
           ),
           _c(
             "uni-view",
-            { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
+            {
+              staticClass: _vm._$g(7, "sc"),
+              attrs: { _i: 7 },
+              on: {
+                click: function ($event) {
+                  return _vm.$handleViewEvent($event)
+                },
+              },
+            },
             [
               _c("v-uni-image", {
                 attrs: { src: _vm._$g(8, "a-src"), mode: "", _i: 8 },
@@ -10038,7 +10054,15 @@ var render = function () {
           ),
           _c(
             "uni-view",
-            { staticClass: _vm._$g(10, "sc"), attrs: { _i: 10 } },
+            {
+              staticClass: _vm._$g(10, "sc"),
+              attrs: { _i: 10 },
+              on: {
+                click: function ($event) {
+                  return _vm.$handleViewEvent($event)
+                },
+              },
+            },
             [
               _c("v-uni-image", {
                 attrs: { src: _vm._$g(11, "a-src"), mode: "", _i: 11 },
@@ -10148,7 +10172,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 16);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*  其他登录方式  */\n.login-other[data-v-35e62b5b]{\n\tpadding: 100rpx 0;\n}\n.other-text[data-v-35e62b5b]{\n\tdisplay: flex;\n\tpadding:50rpx 0;\n}\n.other-text uni-view[data-v-35e62b5b]{\n\tline-height: 0rpx;\n\tpadding:0 10rpx;\n}\n.other-text[data-v-35e62b5b]:after{\n\tflex:1;\n\tcontent: '';\n\theight: 2rpx;\n\tbackground-color: #CCCCCC;\n}\n.other-text[data-v-35e62b5b]::before{\n\tflex:1;\n\tcontent: '';\n\theight: 2rpx;\n\tbackground-color: #CCCCCC;\n}\n.other[data-v-35e62b5b]{\n\tdisplay: flex;\n\tjustify-content: space-around;\n}\n.other-item[data-v-35e62b5b]{\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content:center;\n\talign-items: center;\n}\n.other-item uni-image[data-v-35e62b5b]{\n\twidth:80rpx;\n\theight: 80rpx;\n}\n/*  其他登录方式  end  */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*  其他登录方式  */\n.login-other[data-v-35e62b5b]{\n\tpadding: 100rpx 0;\n}\n.other-text[data-v-35e62b5b]{\n\tdisplay: flex;\n\tpadding:50rpx 0;\n}\n.other-text uni-view[data-v-35e62b5b]{\n\tline-height: 0rpx;\n\tpadding:0 10rpx;\n}\n.other-text[data-v-35e62b5b]:after{\n\tflex:1;\n\tcontent: '';\n\theight: 2rpx;\n\tbackground-color: #CCCCCC;\n}\n.other-text[data-v-35e62b5b]::before{\n\tflex:1;\n\tcontent: '';\n\theight: 2rpx;\n\tbackground-color: #CCCCCC;\n}\n.other[data-v-35e62b5b]{\n\tdisplay: flex;\n\tjustify-content: space-around;\n}\n.other-item[data-v-35e62b5b]{\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content:center;\n\talign-items: center;\n}\n.other-item uni-image[data-v-35e62b5b]{\n\twidth:80rpx;\n\theight: 80rpx;\n}\n/*  其他登录方式  end  */\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -10724,7 +10748,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 16);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.login-tel[data-v-237726f6]{\r\n\twidth: 100vw;\r\n\theight: 100vh;\n}\n.tel-main[data-v-237726f6]{\r\n\tpadding:0 20rpx;\n}\n.login-from[data-v-237726f6]{\r\n\tpadding:30rpx 0;\n}\n.login-user[data-v-237726f6]{\r\n\tfont-size:32rpx;\r\n\tpadding:10rpx 0;\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tborder-bottom:2rpx solid #f7f7f7;\n}\n.user-text[data-v-237726f6]{\r\n\tpadding-right:10rpx;\n}\n.tel[data-v-237726f6]{\r\n\twidth:100%;\r\n\theight: 80rpx;\r\n\tline-height: 80rpx;\r\n\ttext-align: center;\r\n\tcolor:#FFFFFF;\r\n\tbackground-color: #49BDFB;\r\n\tborder-radius: 40rpx;\n}\r\n", ""]);
+exports.push([module.i, "\nuni-button[data-v-237726f6]{\r\n\twidth:280rpx\n}\n.login-tel[data-v-237726f6]{\r\n\twidth: 100vw;\r\n\theight: 100vh;\n}\n.tel-main[data-v-237726f6]{\r\n\tpadding:0 20rpx;\n}\n.login-from[data-v-237726f6]{\r\n\tpadding:30rpx 0;\n}\n.login-user[data-v-237726f6]{\r\n\tfont-size:32rpx;\r\n\tpadding:10rpx 0;\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tborder-bottom:2rpx solid #f7f7f7;\n}\n.user-text[data-v-237726f6]{\r\n\tpadding-right:10rpx;\r\n\twhite-space:nowrap\n}\n.tel[data-v-237726f6]{\r\n\twidth:100%;\r\n\theight: 80rpx;\r\n\tline-height: 80rpx;\r\n\ttext-align: center;\r\n\tcolor:#FFFFFF;\r\n\tbackground-color: #49BDFB;\r\n\tborder-radius: 40rpx;\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 

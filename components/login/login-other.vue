@@ -4,15 +4,15 @@
 			<view>或者用以下方式登录</view>
 		</view>
 		<view class='other'>
-			<view class='other-item'>
+			<view class='other-item' @tap="loginOther(weixin)">
 				<image src="../../static/img/wx.png" mode=""></image>
 				<view>微信登录</view>
 			</view>
-			<view class='other-item'>
+			<view class='other-item' @tap="loginOther(sinaweibo)">
 				<image src="../../static/img/wb.png" mode=""></image>
 				<view>微博登录</view>
 			</view>
-			<view class='other-item'>
+			<view class='other-item' @tap="loginOther(qq)">
 				<image src="../../static/img/qq.png" mode=""></image>
 				<view>QQ登录</view>
 			</view>
@@ -21,6 +21,24 @@
 </template>
 
 <script>
+	export default{
+		methods:{
+			loginOther(mode){
+				uni.login({
+					provider:mode,
+					//最主要的就是openid
+					success:(res)=>{
+						uni.getUserInfo({
+							provider:mode,
+							success:()=>{
+								console.log(res)
+							}
+						})
+					}
+				})
+			}
+		}
+	}
 </script>
 
 <style scoped>
