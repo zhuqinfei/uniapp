@@ -16,7 +16,7 @@ var User={
 	},
 	//增加一条用户数据
 	insertData(param){
-		let userName=param.userName || param.openid
+		let userName=param.userName || param.openid.slice(0,2)
 		
 		const jwt=require('jsonwebtoken')
 		//id+时间戳+随机数/口令
@@ -26,7 +26,7 @@ var User={
 		let nikeName=param.nikeName || "默认昵称"
 		let avatarUrl=param.avatarUrl || "../../static/img/logo.jpg"
 		
-		return `insert into user (userName,userPwd,phone,imgUrl,nikeName,token,provider,openid) values ("","123456","${param.userName}","${avatarUrl}","${nikeName}","${token}","${param.provider}","${param.openid}")`;
+		return `insert into user (userName,userPwd,phone,imgUrl,nikeName,token,provider,openid) values ("","123456","${userName}","${avatarUrl}","${nikeName}","${token}","${param.provider}","${param.openid}")`;
 	}
 }
 

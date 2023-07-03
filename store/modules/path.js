@@ -1,21 +1,6 @@
 export default {
 	state:{
-		list:[
-			{
-				name:"张三",
-				tel:"18511773322",
-				city:"北京市海淀区",
-				details:'2号楼',
-				isDefault:false
-			},
-			{
-				name:"李四",
-				tel:"18511773322",
-				city:"北京市海淀区",
-				details:'2号楼',
-				isDefault:true
-			}
-		]
+		list:[]
 	},
 	getters:{
 		defaultPath(state){
@@ -23,6 +8,10 @@ export default {
 		}
 	},
 	mutations:{
+		//初始化请求当前用户收货地址数据
+		_initAddressList(state,list){
+			state.list=list
+		},
 		//新增
 		createPath( state, obj ){
 			state.list.unshift( obj );

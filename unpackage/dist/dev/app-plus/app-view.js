@@ -7138,7 +7138,9 @@ var render = function () {
                       _c("uni-view", { attrs: { _i: "9-" + $30 } }, [
                         _vm._v(
                           _vm._$g("9-" + $30, "t0-0") +
-                            _vm._$g("9-" + $30, "t0-1")
+                            _vm._$g("9-" + $30, "t0-1") +
+                            _vm._$g("9-" + $30, "t0-2") +
+                            _vm._$g("9-" + $30, "t0-3")
                         ),
                       ]),
                     ],
@@ -10172,7 +10174,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ./node_modules/css-loader/dist/runtime/api.js */ 16);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*  其他登录方式  */\n.login-other[data-v-35e62b5b]{\n\tpadding: 100rpx 0;\n}\n.other-text[data-v-35e62b5b]{\n\tdisplay: flex;\n\tpadding:50rpx 0;\n}\n.other-text uni-view[data-v-35e62b5b]{\n\tline-height: 0rpx;\n\tpadding:0 10rpx;\n}\n.other-text[data-v-35e62b5b]:after{\n\tflex:1;\n\tcontent: '';\n\theight: 2rpx;\n\tbackground-color: #CCCCCC;\n}\n.other-text[data-v-35e62b5b]::before{\n\tflex:1;\n\tcontent: '';\n\theight: 2rpx;\n\tbackground-color: #CCCCCC;\n}\n.other[data-v-35e62b5b]{\n\tdisplay: flex;\n\tjustify-content: space-around;\n}\n.other-item[data-v-35e62b5b]{\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content:center;\n\talign-items: center;\n}\n.other-item uni-image[data-v-35e62b5b]{\n\twidth:80rpx;\n\theight: 80rpx;\n}\n/*  其他登录方式  end  */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*  其他登录方式  */\n.login-other[data-v-35e62b5b]{\n\tpadding: 100rpx 0;\n}\n.other-text[data-v-35e62b5b]{\n\tdisplay: flex;\n\tpadding:50rpx 0;\n}\n.other-text uni-view[data-v-35e62b5b]{\n\tline-height: 0rpx;\n\tpadding:0 10rpx;\n}\n.other-text[data-v-35e62b5b]:after{\n\tflex:1;\n\tcontent: '';\n\theight: 2rpx;\n\tbackground-color: #CCCCCC;\n}\n.other-text[data-v-35e62b5b]::before{\n\tflex:1;\n\tcontent: '';\n\theight: 2rpx;\n\tbackground-color: #CCCCCC;\n}\n.other[data-v-35e62b5b]{\n\tdisplay: flex;\n\tjustify-content: space-around;\n}\n.other-item[data-v-35e62b5b]{\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content:center;\n\talign-items: center;\n}\n.other-item uni-image[data-v-35e62b5b]{\n\twidth:80rpx;\n\theight: 80rpx;\n}\n/*  其他登录方式  end  */\n", ""]);
 // Exports
 module.exports = exports;
 

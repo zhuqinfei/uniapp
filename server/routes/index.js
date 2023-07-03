@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var connection=require("../db/sql.js")
 var user=require('../db/userSql.js')
+var jwt_decode = require('jwt-decode');
 
 //验证码
 let code = '';
@@ -990,8 +991,6 @@ router.post('/api/loginother', function(req, res, next) {
 		nikeName:req.body.nikeName, //用户昵称
 		avatarUrl:req.body.avatarUrl //用户头像
 	}
-	
-	console.log(params)
 	//查询数据库中有没有此用户
 	connection.query(user.queryUserName(params),function(err,results) {
 	  if(results.length>0){
@@ -1009,11 +1008,26 @@ router.post('/api/loginother', function(req, res, next) {
 					  data:r[0]
 				  })
 			  })
-		  })
-		 
+		  }) 
 	  }
 	})
 });
+
+//当前用户查询收货地址
+router.post('/api/selectAddress', function(req, res, next){
+	
+	let token = req.headers.token;
+	let phone = jwt_decode(token);
+	
+	connection.query(`select * from user where phone = ${phone.name}`, function(error, results, fields){
+		let id = results[0].id;
+		connection.query(`select * from address where userId = ${id}`, function(err, result, field){
+			res.send({
+				data:result
+			})
+		})
+	})
+})
 
 
 module.exports = router;

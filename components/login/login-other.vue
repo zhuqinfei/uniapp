@@ -34,7 +34,6 @@
 							provider:mode,
 							success:(res)=>{
 								let provider=mode
-								console.log(provider)
 							    //openid==>用户身份
 								let openid=res.userInfo.openId || res.userInfo.openid
 								let nikeName=res.userInfo.nickName
