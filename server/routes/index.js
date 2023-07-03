@@ -981,5 +981,39 @@ router.post('/api/addUser', function(req, res, next) {
 	
 })
 
+//第三方登录
+router.post('/api/loginother', function(req, res, next) {
+	//前端给的后端的数据
+    let params={
+		provider:req.body.provider,//登录方式
+		openid:req.body.openid,  //用户身份ID
+		nikeName:req.body.nikeName, //用户昵称
+		avatarUrl:req.body.avatarUrl //用户头像
+	}
+	
+	console.log(params)
+	//查询数据库中有没有此用户
+	connection.query(user.queryUserName(params),function(err,results) {
+	  if(results.length>0){
+		//数据库存在==》读取
+		connection.query(user.queryUserName(params),function(e,r){
+			res.send({
+			   data:r[0]
+			})
+		})
+	  }else{
+		   //数据库不存在==》存储==》读取
+		  connection.query( user.insertData(params) , function (err, result){
+			  connection.query(user.queryUserName(params),function(e,r){
+				  res.send({
+					  data:r[0]
+				  })
+			  })
+		  })
+		 
+	  }
+	})
+});
+
 
 module.exports = router;

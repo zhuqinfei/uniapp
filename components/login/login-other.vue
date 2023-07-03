@@ -4,15 +4,15 @@
 			<view>或者用以下方式登录</view>
 		</view>
 		<view class='other'>
-			<view class='other-item' @tap="loginOther(weixin)">
+			<view class='other-item' @tap="loginOther('weixin')">
 				<image src="../../static/img/wx.png" mode=""></image>
 				<view>微信登录</view>
 			</view>
-			<view class='other-item' @tap="loginOther(sinaweibo)">
+			<view class='other-item' @tap="loginOther('sinaweibo')">
 				<image src="../../static/img/wb.png" mode=""></image>
 				<view>微博登录</view>
 			</view>
-			<view class='other-item' @tap="loginOther(qq)">
+			<view class='other-item' @tap="loginOther('qq')">
 				<image src="../../static/img/qq.png" mode=""></image>
 				<view>QQ登录</view>
 			</view>
@@ -21,17 +21,44 @@
 </template>
 
 <script>
+	import $http from "../../common/api/request.js"
+	import {mapMutations} from "vuex"
 	export default{
 		methods:{
+			...mapMutations(['login']),
 			loginOther(mode){
 				uni.login({
 					provider:mode,
-					//最主要的就是openid
 					success:(res)=>{
 						uni.getUserInfo({
 							provider:mode,
-							success:()=>{
-								console.log(res)
+							success:(res)=>{
+								let provider=mode
+								console.log(provider)
+							    //openid==>用户身份
+								let openid=res.userInfo.openId || res.userInfo.openid
+								let nikeName=res.userInfo.nickName
+								let avatarUrl=res.userInfo.avatarUrl
+								$http.request({
+									url:"/loginother",
+									method:'POST',
+									data:{
+										provider,
+										openid,
+										nikeName,
+										avatarUrl
+									}
+								}).then((res)=>{
+									this.login(res)
+									uni.navigateBack({
+										delta:1
+									})
+								}).catch(()=>{
+									uni.showToast({
+										title:'请求失败',
+										icon:'none'
+									})
+								})
 							}
 						})
 					}
