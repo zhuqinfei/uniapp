@@ -13,14 +13,14 @@
 		
 		<view class='path-item'>
 			<view>所在地址</view>
-			<view @tap='showCityPicker'>{{pathObj.city}} > </view>
+			<view @tap='showCityPicker'>{{pathCity}} > </view>
 			<mpvue-city-picker ref="mpvueCityPicker" :pickerValueDefault="pickerValueDefault" @onConfirm="onConfirm">
 			</mpvue-city-picker>
 		</view>
 		
 		<view class='path-item'>
 			<view>详细地址</view>
-			<input type="text" value="" placeholder="5到60个字符" v-model="pathObj.details"/>
+			<input type="text" value="" placeholder="5到60个字符" v-model="pathObj.address"/>
 		</view>
 		
 		<view class='path-item'>
@@ -38,20 +38,32 @@
 <script>
 	import mpvueCityPicker from '../../components/uni/mpvue-citypicker/mpvueCityPicker.vue'
 	import {mapActions} from 'vuex'
+	import $http from '@/common/api/request.js'
 	export default {
 		data() {
 			return {
 				pickerValueDefault: [0, 0, 1],
 			    pathObj:{
-					name:'',
-					tle:'',
-					city:"请选择",
-					details:'',
-					isDefault:false
+					name:"",//收货人
+					tel:"",//收货人电话
+					province:"",//省
+					city:"",//市
+					district:"",//区
+					address:"",//收货人详细地址
+					isDefault:false//默认地址
 				},
 				i:-1,
 				//是否修改状态
 				isStatus:false,
+			}
+		},
+		computed:{
+			pathCity(){
+				if( this.pathObj.province ){
+					return `${this.pathObj.province}-${this.pathObj.city}-${this.pathObj.district}`
+				}else{
+					return '请选择';
+				}
 			}
 		},
 		onLoad(e) {
@@ -81,9 +93,27 @@
 				})	
 			}else{
 				//新增
-				this.createPathFn(this.pathObj)
-				uni.navigateBack({
-					delta:1
+				$http.request({
+					url:"/addAddress",
+					method:"POST",
+					header:{
+						token:true
+					},
+					data:{
+						...this.pathObj
+					}
+				}).then((res)=>{
+					
+					this.createPathFn(this.pathObj);
+					uni.navigateBack({
+						delta:1
+					})
+					
+				}).catch(()=>{
+					uni.showToast({
+						title:'请求失败',
+						icon:'none'
+					})
 				})
 			}
 		},
@@ -93,10 +123,13 @@
 			  this.$refs.mpvueCityPicker.show();
 			},
 			onConfirm(e) {
-			  this.pathObj.city = e.label;
+			   let arr = e.label.split("-");
+			   this.pathObj.province = arr[0];
+			   this.pathObj.city = arr[1];
+			   this.pathObj.district = arr[2];
 			},
 			radioChange(){
-				this.pathObj.isDefault=!this.pathObj.isDefault
+				this.pathObj.isDefault = !this.pathObj.isDefault
 			}
 		}
 	}

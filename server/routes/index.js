@@ -909,8 +909,8 @@ router.post('/api/code', function(req, res, next) {
 	const clientConfig = {
 	  //腾讯云认证信息
 	  credential: {
-	    secretId: "AKIDDLH4hFi0CNRUchaE7rRp01vfFUgpnnp5",
-	    secretKey: "DHF6qQsCJOUegVAnPtDPRL7ubL2jHm5G",
+	    secretId: "AKIDKXBdrtiK8mEUWN1RdaLSN3VlpfIiwxnQ",
+	    secretKey: "UkoIahaEfu1yhCUYOPFrJYbR3RbXGlIb",
 	  },
 	  //产品地域
 	  region: "",
@@ -1024,6 +1024,32 @@ router.post('/api/selectAddress', function(req, res, next){
 		connection.query(`select * from address where userId = ${id}`, function(err, result, field){
 			res.send({
 				data:result
+			})
+		})
+	})
+})
+
+//当前用户新增收货地址
+router.post('/api/addAddress', function(req, res, next) {
+	
+	let token = req.headers.token;
+	let phone = jwt_decode(token);
+	let name = req.body.name;
+	let tel = req.body.tel;
+	let province = req.body.province;
+	let city = req.body.city;
+	let district = req.body.district;
+	let address = req.body.address;
+	let isDefault = req.body.isDefault;
+	
+	connection.query(`select * from user where phone = ${phone.name}`, function (error, results, fields) {
+		let id = results[0].id;
+		let sqlInert = 'insert into address (name,tel,province,city,district,address,isDefault,userId) values ("'+name+'","'+tel+'","'+province+'","'+city+'","'+district+'","'+address+'","'+isDefault+'","'+id+'")';
+		connection.query(sqlInert, function (err, result, field) {
+			res.send({
+				data:{
+					success:"成功"
+				}
 			})
 		})
 	})
