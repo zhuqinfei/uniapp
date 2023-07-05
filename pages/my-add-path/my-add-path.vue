@@ -66,13 +66,14 @@
 				}
 			}
 		},
-		onLoad(e) {
+		onLoad(e){
 			if(e.data){
 				uni.setNavigationBarTitle({
 					title:'修改地址'
 				})
 				let result=JSON.parse(e.data)
 				this.pathObj=result.item
+				this.pathObj.isDefault=this.pathObj.isDefault==1?true:false
 				this.i=result.index
 				this.isStatus=true
 			}
@@ -83,14 +84,37 @@
 		//页面生命周期
 		onNavigationBarButtonTap(){
 			if(this.isStatus){
-				//修改
-				this.undatePathFn({
-					index:this.i,
-					item:this.pathObj
-				})
-				uni.navigateBack({
-					delta:1
+				
+				$http.request({
+					url:"/updateAddress",
+					method:"POST",
+					header:{
+						token:true
+					},
+					data:{
+						...this.pathObj,
+						isDefault:this.pathObj.isDefault ==true ? 1 : 0
+					}
+				}).then((res)=>{	
+					//修改
+					this.undatePathFn({
+						index:this.i,
+						item:this.pathObj
+					})
+					uni.showToast({
+						title:"修改成功",
+						icon:"none"
+					})
+					uni.navigateBack({
+						delta:1
+					})	
+				}).catch(()=>{
+					uni.showToast({
+						title:'请求失败',
+						icon:'none'
+					})
 				})	
+				
 			}else{
 				//新增
 				$http.request({
@@ -100,7 +124,8 @@
 						token:true
 					},
 					data:{
-						...this.pathObj
+						...this.pathObj,
+						isDefault:this.pathObj.isDefault ==true ? 1 : 0
 					}
 				}).then((res)=>{
 					
