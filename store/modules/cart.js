@@ -27,6 +27,10 @@ export default{
 		}
 	},
 	mutations:{
+		//请求到数据赋值操作
+		initGetData(state,list){
+			state.list=list
+		},
 		//全选
 		checkAll(state){
 			state.selectedList=state.list.map(v=>{

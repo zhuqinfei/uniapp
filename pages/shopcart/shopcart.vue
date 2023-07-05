@@ -32,7 +32,7 @@
 								<uniNumberBox
 									:value='item.num'
 									:min='1'
-									@change='changeNumber($event,index)'
+									@change='changeNumber($event,index,item)'
 								>
 								</uniNumberBox>
 							</template>
@@ -84,7 +84,7 @@
 	import uniNumberBox from "../../components/uni/uni-number-box/uni-number-box.vue"
 	import {mapState,mapActions,mapGetters,mapMutations} from "vuex"
 	import Tabbar from "../../components/common/Tabbar.vue"
-	
+    import $http from "../../common/api/request.js"
 	export default {
 		data() {
 			return {
@@ -102,11 +102,49 @@
 			uniNumberBox,
 			Tabbar
 		},
+		onShow(){
+			this.getData()
+		},
 		methods: {
 			...mapActions(['checkedAllFn','deGoodsFn']),
-			...mapMutations(['selectedItem']),
-			changeNumber(value,index){
-				this.list[index].num = value;
+			...mapMutations(['selectedItem','initGetData']),
+			getData(){
+				$http.request({
+					url:"/selectCart",
+					method:'POST',
+					header:{
+						token:true
+					}
+				}).then((res)=>{
+				   this.initGetData(res)
+				}).catch(()=>{
+					uni.showToast({
+						title:'请求失败',
+						icon:'none'
+					})
+				})
+			},
+			changeNumber(value,index,item){
+			    if( item.num == value ) return;
+				$http.request({
+					url:"/updateNumCart",
+					method:'POST',
+					header:{
+						token:true
+					},
+					data:{
+						goodsId:item.goods_id,
+						num:value
+					}
+				}).then((res)=>{
+				   this.list[index].num = value;
+				}).catch(()=>{
+					uni.showToast({
+						title:'请求失败',
+						icon:'none'
+					})
+				})
+				
 			},
 			//进入确认订单
 			goConfirmOrder(){

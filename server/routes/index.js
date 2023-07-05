@@ -1087,6 +1087,53 @@ router.post('/api/updateAddress', function(req, res, next) {
 	})
 })
 
+//获取当前用户购物车列表
+router.post('/api/selectCart', function(req, res, next) {
+	let token = req.headers.token;
+	let phone = jwt_decode(token);
+	connection.query(`select * from user where phone = ${phone.name}`, function (error, results, fields) {
+		//当前用户id
+		let userId = results[0].id;
+		connection.query(`select * from goods_cart where uId = ${userId}`, function (err, result) {
+			res.json({
+				data:result
+			})
+		})
+	})
+})
+
+//1. 当前用户
+//2. 当前用户--->哪一个商品的数量发展变化  [查询]   原来的数量
+//3. 替换 ===> 把前端给的值拿过来, 把原来数量替换掉
+
+//修改当前用户购物车商品数量
+router.post('/api/updateNumCart', function(req, res, next) {
+	let token = req.headers.token;
+	let phone = jwt_decode(token);
+	//商品id
+	let goodsId = req.body.goodsId;
+	//用户输入的商品数量
+	let num = req.body.num;
+	connection.query(`select * from user where phone = ${phone.name}`, function (error, results, fields) {
+		//当前用户id
+		let userId = results[0].id;
+		connection.query(`select * from goods_cart where uId = ${userId} and goods_id = ${goodsId}`, function (err, result) {
+			//数据中当前的数量
+			let goods_num = result[0].num;
+			//当前的id号
+			let id = result[0].id;
+			//修改[替换]
+			connection.query(`update goods_cart set num = replace(num,${goods_num},${num}) where id = ${id}`, function (e, r) {
+				res.json({
+					data:{
+						success:true
+					}
+				})
+			})
+		})
+		
+	})
+})
 
 
 
