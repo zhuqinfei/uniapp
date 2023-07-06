@@ -93,7 +93,8 @@
 		},
 		computed:{
 			...mapState({
-				list:state=>state.cart.list
+				list:state=>state.cart.list,
+				selectedList:state=>state.cart.selectedList
 			}),	
 			...mapGetters(['checkedAll','totalCount']),
 		},
@@ -148,8 +149,14 @@
 			},
 			//进入确认订单
 			goConfirmOrder(){
+				if( this.selectedList.length === 0 ){
+					return uni.showToast({
+						title:"请至少选择一件商品",
+						icon:"none"
+					})
+				}
 				uni.navigateTo({
-					url:"../confirm-order/confirm-order"
+					url:`../confirm-order/confirm-order?detail=${JSON.stringify(this.selectedList)}`
 				})
 			}
 		}

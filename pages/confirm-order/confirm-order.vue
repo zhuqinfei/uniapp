@@ -20,34 +20,25 @@
 		</view>
 		<!--商品-->
 		<view class='goods-list'>
-			<view class='goods-content bg-active-color'>
-				<image class='goods-img' src='../../static/img/Children3.jpg' mode=""></image>
+			<view class='goods-content bg-active-color' 
+			v-for='(item,index) in goodsList'
+			:key='index'
+			>
+				<image class='goods-img' :src='item.imgUrl' mode=""></image>
 				<view class='goods-text'>
-					<view class='goods-name'>商品名称</view>
+					<view class='goods-name'>{{item.name}}</view>
 					<view class='goods-size f-color'>颜色分类：黑色</view>
 					<view class='f-active-color' style='font-size:24rpx'>7天无理由</view>
 				</view>
 				<view>
-					<view>¥299.00</view>
-					<view class='f-color'>*1</view>
-				</view>
-			</view>
-			<view class='goods-content bg-active-color'>
-				<image class='goods-img' src='../../static/img/Children3.jpg' mode=""></image>
-				<view class='goods-text'>
-					<view class='goods-name'>商品名称</view>
-					<view class='goods-size f-color'>颜色分类：黑色</view>
-					<view class='f-active-color' style='font-size:24rpx'>7天无理由</view>
-				</view>
-				<view>
-					<view>¥299.00</view>
-					<view class='f-color'>*1</view>
+					<view>¥{{item.pprice}}</view>
+					<view class='f-color'>*{{item.num}}</view>
 				</view>
 			</view>
 		</view>
 		<!--底部 : 提交订单-->
 		<view class='order-foot'>
-			<view class='total-price'>合计：<text class='f-active-color'>¥3999.00</text></view>
+			<view class='total-price'>合计：<text class='f-active-color'>¥{{totalCount.pprice}}</text></view>
 			<view class="confirm" @tap="goPayment">提交订单</view>
 		</view>
 		
@@ -56,7 +47,7 @@
 
 <script>
 	import Lines from '../../components/common/Line.vue'
-	import {mapGetters} from 'vuex'
+	import {mapGetters,mapState} from 'vuex'
 	export default {
 		data() {
 			return {
@@ -64,9 +55,21 @@
 			}
 		},
 		computed:{
-			...mapGetters(['defaultPath'])
+			...mapState({
+				list:state=>state.cart.list
+			}),
+			...mapGetters(['defaultPath','totalCount']),
+		    //根据商品列表找到对应e.detail 数据的 id  最终返回商品数据
+			goodsList(){
+				return this.item.map(id=>{
+					return this.list.find(v=>v.id == id);
+				})
+			}
 		},
-		onLoad(){
+		onLoad(e){
+			//选中的商品id集合  [2,9]
+			this.item = JSON.parse(e.detail);
+			
 		    //如果有默认地址的一个赋值
 			if(this.defaultPath.length){
 				this.path=this.defaultPath[0]
