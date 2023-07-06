@@ -47,7 +47,8 @@
 
 <script>
 	import Lines from '../../components/common/Line.vue'
-	import {mapGetters,mapState} from 'vuex'
+	import {mapGetters,mapState,mapMutations} from 'vuex'
+	import $http from "../../common/api/request.js"
 	export default {
 		data() {
 			return {
@@ -70,10 +71,24 @@
 			//选中的商品id集合  [2,9]
 			this.item = JSON.parse(e.detail);
 			
-		    //如果有默认地址的一个赋值
-			if(this.defaultPath.length){
-				this.path=this.defaultPath[0]
-			}
+		   //如果有默认地址的一个赋值
+		   $http.request({
+		   	url:"/selectAddress",
+		   	method:"POST",
+		   	header:{
+		   		token:true
+		   	}
+		   }).then((res)=>{
+		   	this._initAddressList(res);
+		   	if(this.defaultPath.length){
+		   		this.path = this.defaultPath[0];
+		   	}
+		   }).catch(()=>{
+		   	uni.showToast({
+		   		title:'请求失败',
+		   		icon:'none'
+		   	})
+		   })
 			//如果触发自定义事件，on去接受值
 			uni.$on('selectedPathItem',(res)=>{
 				this.path=res
@@ -88,12 +103,20 @@
 			Lines
 		},
 		methods: {
+			...mapMutations(['_initAddressList']),
 			goPathList(){
 				uni.navigateTo({
 					url:'../my-path-list/my-path-list?type=selectedPath'
 				})
 			},
+			//确认支付
 			goPayment(){
+				if(!this.path){
+					return uni.showToast({
+						title:'请选择收货地址',
+						icon:'none'
+					})
+				}
 				uni.navigateTo({
 					url:'../payment/payment'
 				})
