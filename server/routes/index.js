@@ -1176,6 +1176,18 @@ router.post('/api/addCart', function(req, res, next) {
 	})
 })
 
-
+//删除购物车商品数据
+router.post('/api/deleteCart', function(req, res, next) {
+	let goodsId = req.body.goodsId;
+	for(var i=0;i<goodsId.length;i++){
+		connection.query(`delete from goods_cart where id=${goodsId[i]}`,function(e,r){
+			res.json({
+				data:{
+					success:true
+				}
+			})
+		})
+	}
+})
 
 module.exports = router;

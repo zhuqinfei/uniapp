@@ -1,3 +1,4 @@
+import $http from '@/common/api/request.js';
 export default{
 	state:{
 		list:[],
@@ -74,12 +75,36 @@ export default{
 		checkedAllFn({commit,getters}){
 			return getters.checkedAll ? commit("unCheckAll") : commit("checkAll")
 		},
-		deGoodsFn({commit}){
-			commit('delGoods')
-			commit("unCheckAll")
-			uni.showToast({
-				title:"删除成功",
-				icon:"none"
+		deGoodsFn({commit,state}){
+			uni.showModal({
+				content:'确定删除吗?',
+				success: () => {
+					$http.request({
+						url:"/deleteCart",
+						method:"POST",
+						header:{
+							token:true
+						},
+						data:{
+							goodsId:state.selectedList
+						}
+					}).then((res)=>{
+						
+						commit('delGoods');
+						commit('unCheckAll');
+						
+						uni.showToast({
+							title:'删除成功',
+							icon:"none"
+						})
+						
+					}).catch(()=>{
+						uni.showToast({
+							title:'请求失败',
+							icon:'none'
+						})
+					})
+				}
 			})
 		}
 	}
