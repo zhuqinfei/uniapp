@@ -1135,6 +1135,47 @@ router.post('/api/updateNumCart', function(req, res, next) {
 	})
 })
 
+//加入购物车
+router.post('/api/addCart', function(req, res, next) {
+	let token = req.headers.token;
+	let phone = jwt_decode(token);
+	//商品id
+	let goods_id = req.body.goods_id;
+	//用户输入的商品数量
+	let num = req.body.num;
+	connection.query(`select * from user where phone = ${phone.name}`, function (error, results, fields) {
+		//当前用户id
+		let userId = results[0].id;
+		connection.query(`select * from goods_search where id = ${goods_id}`, function (err, result) {
+			let name = result[0].name;
+			let imgUrl = result[0].imgUrl;
+			let pprice = result[0].pprice;
+			//查询当前用户之前是否添加过这个商品
+			connection.query(`select * from goods_cart where uId = ${userId} and goods_id = ${goods_id}`, function (err, data) {
+				if( data.length > 0){
+					//如果当前用户已经添加过本商品,就让数量增加
+					connection.query(`update goods_cart set num = replace(num,${data[0].num},${ parseInt(num) + parseInt(data[0].num) }) where id = ${data[0].id}`, function (e, r) {
+						res.json({
+							data:{
+								success:"加入成功"
+							}
+						})
+					})
+				}else{
+					//如果当前用户之前没有加入过本商品,需要添加进入
+					connection.query('insert into goods_cart (uId,goods_id,name,imgUrl,pprice,num) values ("'+userId+'","'+goods_id+'","'+name+'","'+imgUrl+'","'+pprice+'","'+num+'")', function (err, data) {
+						res.json({
+							data:{
+								success:"加入成功"
+							}
+						})
+					})
+				}
+			})
+		})
+	})
+})
+
 
 
 module.exports = router;

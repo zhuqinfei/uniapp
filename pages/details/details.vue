@@ -198,17 +198,29 @@
 				})
 			},
 			addCart(){	
-				let goods=this.goodsContent
-				this.goodsContent['checked']=false
-				this.goodsContent['num']=this.num
-				//加入购物车
-			    this.addShopCart(goods)
-				//隐藏弹出框
-				this.hidePop()
-				//提示信息
-				uni.showToast({
-					title:"成功加入购物车",
-					icon:"none"
+				$http.request({
+					url:"/addCart",
+					method:"POST",
+					data:{
+						goods_id:this.goodsContent.id,
+						num:this.num
+					},
+					header:{
+						token:true
+					}
+				}).then((res)=>{
+					//隐藏弹出框
+					this.hidePop();
+					//提示信息
+					uni.showToast({
+						title:"成功加入购物车",
+						icon:'none'
+					})
+				}).catch(()=>{
+					uni.showToast({
+						title:'请求失败',
+						icon:'none'
+					})
 				})
 			}
 		}
