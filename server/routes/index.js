@@ -1190,4 +1190,58 @@ router.post('/api/deleteCart', function(req, res, next) {
 	}
 })
 
+//生成订单
+router.post('/api/addOrder', function(req, res, next) {
+    let token = req.headers.token;
+    let phone = jwt_decode(token);
+    //前端给后端传递的数据
+    let goodsArr = req.body.arr;
+    //生成订单号
+    function setTimeDateFmt( s ){
+        return s < 10 ? '0' + s : s;
+    }
+    function orderNumber(){
+        const now = new Date();
+        let fullYear = now.getFullYear();
+        let month = setTimeDateFmt( now.getMonth() + 1 );
+        let day = setTimeDateFmt( now.getDate() );
+        let hour = setTimeDateFmt( now.getHours() );
+        let minutes = setTimeDateFmt( now.getMinutes() );
+        let seconds = setTimeDateFmt( now.getSeconds() );
+        let orderCode = fullYear + month + day + hour + minutes + seconds + ( Math.round( Math.random() * 1000000 ));
+        return orderCode;
+    }
+    //商品名称
+    let goodsName = [];
+    //订单总价
+    let goodsPrice = 0;
+    //订单商品总数量
+    let goodsNum = 0;
+    //订单号
+    let orderId = orderNumber();
+    
+    goodsArr.forEach(v=>{
+        goodsName.push(  v.name );
+        goodsNum += parseInt(v.num);
+        goodsPrice +=  v.num * v.pprice;
+    })
+    
+    connection.query(`select * from user where phone = ${phone.name}`, function (error, results, fields) {
+    	//当前用户id
+    	let userId = results[0].id;
+		connection.query(`insert into store_order(uId,order_id,goods_name,goods_price,goods_num,order_status) values ("${userId}","${orderId}","${goodsName}","${goodsPrice}","${goodsNum}","1")`, function (err, data) {
+			connection.query(`select * from store_order where uId = ${userId} and order_id = ${orderId}`,function(err,result){
+			    res.send({
+			        data:{
+			            code:200,
+			            success:true,
+			            data:result
+			        }
+			    })
+			})
+		})
+    })
+})
+
+
 module.exports = router;
