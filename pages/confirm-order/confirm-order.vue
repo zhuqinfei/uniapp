@@ -1,7 +1,6 @@
 <template>
 	<view class='confirm-order bg-active-color'>
 		<Lines></Lines>
-		
 		<!--地址-->
 		<view class='order-map' @tap="goPathList">
 			<template v-if="path">
@@ -57,7 +56,9 @@
 		},
 		computed:{
 			...mapState({
-				list:state=>state.cart.list
+				list:state=>state.cart.list,
+				orderNumber:state=>state.order.orderNumber,
+				selectedList:state=>state.cart.selectedList
 			}),
 			...mapGetters(['defaultPath','totalCount']),
 		    //根据商品列表找到对应e.detail 数据的 id  最终返回商品数据
@@ -117,9 +118,31 @@
 						icon:'none'
 					})
 				}
-				uni.navigateTo({
-					url:'../payment/payment?details='+JSON.stringify({
-						price:this.totalCount.pprice
+				
+				
+				$http.request({
+					url:"/submitOrder",
+					method:"POST",
+					header:{
+						token:true
+					},
+				    data:{
+				        orderId:this.orderNumber,
+				        shopArr:this.selectedList
+				    }
+				}).then((res)=>{
+					if( res.success ){
+				        //跳转到选择支付页面
+				        uni.navigateTo({
+				        	url:'../payment/payment?details='+JSON.stringify({
+				        		price:this.totalCount.pprice
+				        	})
+				        })
+				    }
+				}).catch(()=>{
+					uni.showToast({
+						title:'请求失败',
+						icon:'none'
 					})
 				})
 			}

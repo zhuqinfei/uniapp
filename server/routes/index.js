@@ -1244,4 +1244,37 @@ router.post('/api/addOrder', function(req, res, next) {
 })
 
 
+//修改订单状态
+router.post('/api/submitOrder', function(req, res, next) {
+    let token = req.headers.token;
+    let phone = jwt_decode(token);
+    //订单号
+    let orderId = req.body.orderId;
+    //购物车中选中的商品
+    let shopArr = req.body.shopArr;
+    connection.query(`select * from user where phone = ${phone.name}`, function (error, results, fields) {
+    	//当前用户id
+    	let userId = results[0].id;
+        connection.query(`select * from store_order where uId = ${userId} and order_id = ${orderId}`,function(err,result){
+            //订单的id
+            let id = result[0].id;
+                connection.query(`update store_order set order_status = replace(order_status,'1','2') where id = ${id}`,function(){
+                    shopArr.forEach(v=>{
+                        connection.query(`delete from goods_cart where id = ${v}`,function(){
+                            
+                        })
+                    })
+                    res.send({
+                        data:{
+                            code:200,
+                            success:true
+                        }
+                    })
+             })
+        })
+    })
+})
+
+
+
 module.exports = router;

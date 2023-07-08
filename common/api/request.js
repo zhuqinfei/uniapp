@@ -1,7 +1,7 @@
 import store from "../../store/index.js"
 export default{
 	common:{
-		baseUrl:"http://192.168.1.6:3000/api",
+		baseUrl:"http://192.168.1.5:3000/api",
 		header:{
 			"content-type":"application/json",
 			"content-type":"application/x-www-form-urlencoded"
