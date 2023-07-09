@@ -51,6 +51,8 @@
 
 <script>
 	import uniNavBar from '@/components/uni/uni-nav-bar/uni-nav-bar.vue'
+	import $http from "../../common/api/request.js"
+	import {mapState} from 'vuex'
 	export default {
 		data() {
 			return {
@@ -65,6 +67,11 @@
 		onLoad(e) {
 			this.details = JSON.parse( e.details );
 		},
+		computed:{
+		    ...mapState({
+		        orderNumber:state=>state.order.orderNumber,
+		    })
+		},
 		methods: {
 			//点击关闭返回上一页
 			goBack(){
@@ -73,9 +80,24 @@
 				})
 			},
 			goPayment(){
-				uni.navigateTo({
-					url:'../payment-success/payment-success'
+				
+				$http.request({
+					url:"/payment",
+					method:"POST",
+					header:{
+						token:true
+					},
+				    data : {
+				        orderId:this.orderNumber
+				    }
+				}).then((res)=>{
+                    
+					window.location.href=res.paymentUrl
+					// plus.runtime.openURL( res.paymentUrl );
 				})
+				// uni.navigateTo({
+				// 	url:'../payment-success/payment-success'
+				// })
 			}
 		}
 	}

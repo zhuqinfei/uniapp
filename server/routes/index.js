@@ -9,6 +9,10 @@ let code = '';
 //接入短信的sdk
 const tencentcloud = require("tencentcloud-sdk-nodejs");
 
+//引入支付宝沙箱配置
+const alipaySdk = require('../db/alipay.js');
+const AlipayFormData = require('alipay-sdk/lib/form').default;
+
 /* GET home page. */
 // router.get('/', function(req, res, next) {
 //   // res.render('index', { title: 'Express' });
@@ -1275,6 +1279,38 @@ router.post('/api/submitOrder', function(req, res, next) {
     })
 })
 
+//支付接口
+router.post('/api/payment', function(req, res, next) {
+    //接收前端给后端的订单号
+    let orderId = req.body.orderId;
+    
+    const formData = new AlipayFormData();
+    //调用get方法
+    formData.setMethod('get'),
+    //支付时 的信息
+    formData.addField('bizContent', {
+      outTradeNo: orderId,//订单号
+      productCode: 'FAST_INSTANT_TRADE_PAY',//写死的
+      totalAmount: '0.01',//金额
+      subject: '商品'//商品名称
+    });
+    //支付成功或者失败打开的页面
+    formData.addField('returnUrl', 'http://www.xuexiluxian.cn/');
+    const result = alipaySdk.exec(
+      'alipay.trade.page.pay',
+      {},
+      { formData: formData },
+    );
+    result.then(resp=>{
+        res.send({
+            data:{
+                code:200,
+                success:true,
+                paymentUrl:resp
+            }
+        })
+    })
+})
 
 
 module.exports = router;
