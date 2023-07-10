@@ -1283,6 +1283,11 @@ router.post('/api/submitOrder', function(req, res, next) {
 router.post('/api/payment', function(req, res, next) {
     //接收前端给后端的订单号
     let orderId = req.body.orderId;
+	//总价
+	let price=req.body.price
+	//商品名称
+	let list=req.body.list.join('')
+	
     
     const formData = new AlipayFormData();
     //调用get方法
@@ -1291,11 +1296,11 @@ router.post('/api/payment', function(req, res, next) {
     formData.addField('bizContent', {
       outTradeNo: orderId,//订单号
       productCode: 'FAST_INSTANT_TRADE_PAY',//写死的
-      totalAmount: '0.01',//金额
-      subject: '商品'//商品名称
+      totalAmount: price,//金额
+      subject: list//商品名称
     });
     //支付成功或者失败打开的页面
-    formData.addField('returnUrl', 'http://www.xuexiluxian.cn/');
+    formData.addField('returnUrl', 'http://localhost:8080/payment');
     const result = alipaySdk.exec(
       'alipay.trade.page.pay',
       {},

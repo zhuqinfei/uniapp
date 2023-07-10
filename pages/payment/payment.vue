@@ -88,12 +88,17 @@
 						token:true
 					},
 				    data : {
-				        orderId:this.orderNumber
+				        orderId:this.orderNumber,
+						price:this.details.price,
+						list:this.details.list
 				    }
 				}).then((res)=>{
-                    
+                    // #ifdef APP-PLUS
+                    plus.runtime.openURL( res.paymentUrl );
+                    // #endif
+					// #ifdef H5
 					window.location.href=res.paymentUrl
-					// plus.runtime.openURL( res.paymentUrl );
+					// #endif		
 				})
 				// uni.navigateTo({
 				// 	url:'../payment-success/payment-success'

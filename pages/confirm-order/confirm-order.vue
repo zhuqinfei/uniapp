@@ -119,7 +119,6 @@
 					})
 				}
 				
-				
 				$http.request({
 					url:"/submitOrder",
 					method:"POST",
@@ -133,9 +132,14 @@
 				}).then((res)=>{
 					if( res.success ){
 				        //跳转到选择支付页面
+						let newName=[]
+						this.goodsList.forEach(v=>{
+							newName.push(v.name)
+						})
 				        uni.navigateTo({
 				        	url:'../payment/payment?details='+JSON.stringify({
-				        		price:this.totalCount.pprice
+				        		price:this.totalCount.pprice,
+								list:newName
 				        	})
 				        })
 				    }
